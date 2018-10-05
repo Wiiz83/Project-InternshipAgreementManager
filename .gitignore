@@ -24,3 +24,8 @@ hs_err_pid*
 *.lck
 *.vpp.bak*
 Conception/~$Archi.pptx
+/shared/target/
+/serveuretudiant/serveuretudiant-web/target/
+/serveuretudiant/serveuretudiant-ejb/target/
+/serveuretudiant/serveuretudiant-ear/target/
+/serveuretudiant/target/
