@@ -5,7 +5,9 @@
 
 
 ## HowTo
-* Filtrer des messages JMS : message.setJMSType("T1"); et receiver = session.createConsumer(dest, "JMSType IN ('T1','T2')");
-
-
+* Filtrer des messages JMS : 
+  * Côté sender : message.setJMSType("T1"); 
+  * Côté receiver : receiver = session.createConsumer(dest, "JMSType IN ('T1','T2')");
+  
+  
 
