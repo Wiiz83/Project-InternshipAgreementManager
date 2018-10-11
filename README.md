@@ -11,6 +11,7 @@
 
 ## Liens utiles 
 * Cours EAI : https://moodle.univ-tlse3.fr/course/view.php?id=2063 
+* Tutoriel JSF : https://www.oracle.com/webfolder/technetwork/tutorials/obe/java/JMS2.0WebMessage/JMS2.0WebMessage.html
 
 ## HowTo
 * Filtrer des messages JMS : 
