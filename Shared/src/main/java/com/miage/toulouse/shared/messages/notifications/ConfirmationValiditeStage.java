@@ -3,12 +3,12 @@
  * To change this template file, choose Tools | Templates
  * and open the template in the editor.
  */
-package validations;
+package com.miage.toulouse.shared.messages.notifications;
 
 /**
  *
  * @author Mahdi
  */
-public class ValidationAdministrative extends Validation {
+public class ConfirmationValiditeStage extends Notification {
     
 }

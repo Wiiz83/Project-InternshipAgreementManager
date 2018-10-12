@@ -3,7 +3,7 @@
  * To change this template file, choose Tools | Templates
  * and open the template in the editor.
  */
-package validations;
+package com.miage.toulouse.shared.messages.notifications;
 
 import com.miage.toulouse.shared.messages.demandes.DemandeValidation;
 
@@ -11,8 +11,6 @@ import com.miage.toulouse.shared.messages.demandes.DemandeValidation;
  *
  * @author Mahdi
  */
-public abstract class Validation {
-    Long idDemandeValidation;
-    public boolean confirmation;
-    public String causeRefus;
+public abstract class Notification {
+    public Long idDemandeConvention;
 }

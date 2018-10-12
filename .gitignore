@@ -39,3 +39,6 @@ Conception/~$dico_messages.xlsx
 /DptEnseignement/DptEnseignement-web/target/
 /ServiceScolarite/ServiceScolarite-ejb/target/
 /DptEnseignement/DptEnseignement-ear/target/
+/ServeurEtudiant/ServeurEtudiant-ejb/target/
+/ServeurEtudiant/ServeurEtudiant-web/target/
+/ServeurEtudiant/ServeurEtudiant-ear/target/
