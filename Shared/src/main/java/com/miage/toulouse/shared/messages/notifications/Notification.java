@@ -5,7 +5,6 @@
  */
 package com.miage.toulouse.shared.messages.notifications;
 
-import com.miage.toulouse.shared.messages.demandes.DemandeValidation;
 
 /**
  *

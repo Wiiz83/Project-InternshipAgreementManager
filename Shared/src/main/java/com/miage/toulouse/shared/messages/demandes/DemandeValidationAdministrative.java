@@ -5,10 +5,16 @@
  */
 package com.miage.toulouse.shared.messages.demandes;
 
+import com.miage.toulouse.shared.messages.Diplome;
+
 /**
  *
  * @author Mahdi
  */
 public class DemandeValidationAdministrative extends DemandeValidation{
-    
+    public Diplome diplome;
+    DemandeValidationAdministrative() {
+        super();
+        this.diplome= new Diplome();
+    }
 }

@@ -5,10 +5,16 @@
  */
 package com.miage.toulouse.shared.messages.demandes;
 
+import com.miage.toulouse.shared.messages.Etudiant;
+
 /**
  *
  * @author Mahdi
  */
 public abstract class DemandeValidation {
     Long idDemandeConvention;    
+    Etudiant etudiant;
+    DemandeValidation () {
+        this.etudiant = new Etudiant();
+    } 
 }

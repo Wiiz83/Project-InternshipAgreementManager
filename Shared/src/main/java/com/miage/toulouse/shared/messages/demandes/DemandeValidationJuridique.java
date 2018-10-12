@@ -16,13 +16,12 @@ import com.miage.toulouse.shared.messages.Stage;
  */
 public class DemandeValidationJuridique extends DemandeValidation {
 
-    public Etudiant etudiant;
     public ResponsabiliteCivile responsabiliteCivile;
     public Stage stage;
     public Entreprise entreprise;
 
     public DemandeValidationJuridique() {
-        this.etudiant = new Etudiant();
+        super();
         this.responsabiliteCivile = new ResponsabiliteCivile();
         this.stage = new Stage();
         this.entreprise = new Entreprise();
