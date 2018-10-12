@@ -3,14 +3,12 @@
  * To change this template file, choose Tools | Templates
  * and open the template in the editor.
  */
-package com.miage.toulouse.shared.messages;
+package validations;
 
 /**
  *
  * @author Mahdi
  */
-public class Etudiant {
-    public Long numero;
-    public String nom;
-    public String prenom;
+public class ValidationJuridique extends Validation {
+    
 }

@@ -5,10 +5,28 @@
  */
 package com.miage.toulouse.shared.messages.demandes;
 
+import com.miage.toulouse.shared.messages.Diplome;
+import com.miage.toulouse.shared.messages.Entreprise;
+import com.miage.toulouse.shared.messages.Etudiant;
+import com.miage.toulouse.shared.messages.ResponsabiliteCivile;
+import com.miage.toulouse.shared.messages.Stage;
+
 /**
  *
  * @author Mahdi
  */
 public class DemandeValidationPedagogique extends DemandeValidation {
-    
+
+    public Etudiant etudiant;
+    public Stage stage;
+    public Entreprise entreprise;
+    public Diplome diplome;
+
+    public DemandeValidationPedagogique() {
+        this.etudiant = new Etudiant();
+        this.stage = new Stage();
+        this.entreprise = new Entreprise();
+        this.diplome = new Diplome();
+    }
+
 }

@@ -9,9 +9,6 @@ package com.miage.toulouse.shared.messages.demandes;
  *
  * @author Mahdi
  */
-public class InfosEtudiant {
-        public Long numero;
-    public String nom;
-    public String prenom;
+public class DemandeValidationAdministrative extends DemandeValidation{
     
 }

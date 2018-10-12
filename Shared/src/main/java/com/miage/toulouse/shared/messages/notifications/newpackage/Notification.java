@@ -3,14 +3,14 @@
  * To change this template file, choose Tools | Templates
  * and open the template in the editor.
  */
-package com.miage.toulouse.shared.messages;
+package com.miage.toulouse.shared.messages.notifications.newpackage;
+
+import com.miage.toulouse.shared.messages.demandes.DemandeValidation;
 
 /**
  *
  * @author Mahdi
  */
-public class Etudiant {
-    public Long numero;
-    public String nom;
-    public String prenom;
+public abstract class Notification {
+    public Long idDemandeConvention;
 }
