@@ -1,8 +1,11 @@
 # Système de gestion de convention de stages
 
 ## Architecture
-* Application web : étudiant
-* Serveur web : 
+* ServiceJuridique : Projet JEE / Application d'entreprise 
+* DptEnseignement : Projet JEE / Application d'entreprise 
+* ServiceScolarite : Projet JEE / Application d'entreprise 
+* ServiceStages : Projet JEE / Application d'entreprise 
+* ServeurEtudiant :
 
 ## Types de projet  
 * REST + JMS = Projet JEE
