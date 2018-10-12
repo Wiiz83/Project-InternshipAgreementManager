@@ -32,3 +32,10 @@ Conception/~$Archi.pptx
 *.vbak
 *.vpp-journal
 Conception/~$dico_messages.xlsx
+/ServiceJuridique/ServiceJuridique-ejb/target/
+/DptEnseignement/DptEnseignement-ejb/target/
+/ServiceScolarite/ServiceScolarite-web/target/
+/ServiceJuridique/ServiceJuridique-web/target/
+/DptEnseignement/DptEnseignement-web/target/
+/ServiceScolarite/ServiceScolarite-ejb/target/
+/DptEnseignement/DptEnseignement-ear/target/
