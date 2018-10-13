@@ -9,16 +9,11 @@
 
 ## Desription du workfkow 
 1. L'étudiant envoi le formulaire au service des stages 
-
 2. Le service des stages transmet le volet administratif au service de la scolarité :
-
      - Avec le nom, prénom et numéro étudiant : vérifie que l'étudiant est inscrit dans une formation universitaire 
-
 3. **SI VOLET ADMINISTRATIF VALIDE**, le service des stages transmet le volet au département d'enseignement :
-
-⋅⋅3. Le département d'enseignement vérifie :
-
-⋅⋅⋅⋅3. que le stage est bien inscrit dans le cursus de la formation
+     - Le département d'enseignement vérifie :
+         - que le stage est bien inscrit dans le cursus de la formation
 
 ⋅⋅⋅⋅3. que les activités décrites dans le résumé relèvent bien à la fois de la thématique de la formation et du niveau de compétence adéquate   
 
