@@ -12,7 +12,7 @@
 
 2. Le service des stages transmet le volet administratif au service de la scolarité :
 
-⋅⋅2. Avec le nom, prénom et numéro étudiant : vérifie que l'étudiant est inscrit dans une formation universitaire 
+⋅⋅⋅2. Avec le nom, prénom et numéro étudiant : vérifie que l'étudiant est inscrit dans une formation universitaire 
 
 3. **SI VOLET ADMINISTRATIF VALIDE**, le service des stages transmet le volet au département d'enseignement :
 
