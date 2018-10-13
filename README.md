@@ -12,10 +12,10 @@
 2. Le service des stages transmet le volet administratif au service de la scolarité :
      - Avec le nom, prénom et numéro étudiant : vérifie que l'étudiant est inscrit dans une formation universitaire 
 3. **SI VOLET ADMINISTRATIF VALIDE**, le service des stages transmet le volet au département d'enseignement :
-     - Le département d'enseignement vérifie :
+     - Tout d'abord, le département d'enseignement vérifie :
          - que le stage est bien inscrit dans le cursus de la formation
-
-⋅⋅⋅⋅3. que les activités décrites dans le résumé relèvent bien à la fois de la thématique de la formation et du niveau de compétence adéquate   
+         - que les activités décrites dans le résumé relèvent bien à la fois de la thématique de la formation et du niveau de compétence adéquate   
+         - 
 
 ## Types de projet  
 * REST + JMS = Projet JEE
