@@ -7,6 +7,11 @@
 * ServiceStages : Projet JEE / Application d'entreprise 
 * ServeurEtudiant :
 
+## Desription du workfkow 
+1. L'étudiant envoi le formulaire au service des stages 
+2. Le service des stages transmet le volet administratif au service de la scolarité 
+ 2.1. 
+
 ## Types de projet  
 * REST + JMS = Projet JEE
 * REST = Projet Web
