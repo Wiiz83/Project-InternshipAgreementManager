@@ -14,8 +14,9 @@ import javax.jms.MessageListener;
  *
  * @author Mahdi
  */
-@MessageDriven(mappedName = "jms/Notification_Annulation_Demande_Validation", activationConfig = {
-    @ActivationConfigProperty(propertyName = "clientId", propertyValue = "jms/scolarite"),
+@MessageDriven(activationConfig = {
+    @ActivationConfigProperty(propertyName = "clientId", propertyValue = "jms/DptEnseignement"),
+    @ActivationConfigProperty(propertyName = "destinationLookup", propertyValue = "jms/Notification_Annulation_Demande_Validation"),
     @ActivationConfigProperty(propertyName = "subscriptionDurability", propertyValue = "Durable"),
     @ActivationConfigProperty(propertyName = "subscriptionName", propertyValue = "jms/Notification_Annulation_Demande_Validation"),
     @ActivationConfigProperty(propertyName = "destinationType", propertyValue = "javax.jms.Topic")
