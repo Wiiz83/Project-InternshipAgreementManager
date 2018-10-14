@@ -3,12 +3,12 @@
  * To change this template file, choose Tools | Templates
  * and open the template in the editor.
  */
-package com.miage.toulouse.shared.messages.validations;
+package miage.iae.projet.shared.messages.notifications;
 
 /**
  *
  * @author Mahdi
  */
-public class ValidationAdministrative extends Validation {
-    
+public class NotificationAnnulationDemandeValidation extends Notification {
+    String cause;
 }

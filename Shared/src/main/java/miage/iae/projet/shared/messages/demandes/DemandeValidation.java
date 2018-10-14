@@ -3,15 +3,16 @@
  * To change this template file, choose Tools | Templates
  * and open the template in the editor.
  */
-package com.miage.toulouse.shared.messages.demandes;
+package miage.iae.projet.shared.messages.demandes;
 
-import com.miage.toulouse.shared.messages.Etudiant;
+import miage.iae.projet.shared.messages.Etudiant;
+import java.io.Serializable;
 
 /**
  *
  * @author Mahdi
  */
-public abstract class DemandeValidation {
+public abstract class DemandeValidation  implements Serializable{
     Long idDemandeConvention;    
     Etudiant etudiant;
     DemandeValidation () {

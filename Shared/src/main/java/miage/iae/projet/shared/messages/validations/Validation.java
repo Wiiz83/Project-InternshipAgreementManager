@@ -3,14 +3,16 @@
  * To change this template file, choose Tools | Templates
  * and open the template in the editor.
  */
-package com.miage.toulouse.shared.messages.validations;
+package miage.iae.projet.shared.messages.validations;
+
+import java.io.Serializable;
 
 
 /**
  *
  * @author Mahdi
  */
-public abstract class Validation {
+public abstract class Validation implements Serializable {
     Long idDemandeValidation;
     public boolean confirmation;
     public String causeRefus;

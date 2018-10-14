@@ -3,12 +3,15 @@
  * To change this template file, choose Tools | Templates
  * and open the template in the editor.
  */
-package com.miage.toulouse.shared.messages.validations;
+package miage.iae.projet.shared.messages.notifications;
+
+import java.io.Serializable;
+
 
 /**
  *
  * @author Mahdi
  */
-public class ValidationPedagogique extends Validation {
-    public String nomTuteur;
+public abstract class Notification implements Serializable {
+    public Long idDemandeConvention;
 }

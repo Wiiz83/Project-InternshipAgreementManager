@@ -3,9 +3,9 @@
  * To change this template file, choose Tools | Templates
  * and open the template in the editor.
  */
-package com.miage.toulouse.shared.messages.demandes;
+package miage.iae.projet.shared.messages.demandes;
 
-import com.miage.toulouse.shared.messages.Diplome;
+import miage.iae.projet.shared.messages.Diplome;
 
 /**
  *

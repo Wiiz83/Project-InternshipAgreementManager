@@ -5,20 +5,14 @@
  */
 package miage.iae.projet.listeners;
 
-import java.util.logging.Level;
-import java.util.logging.Logger;
-import javax.annotation.Resource;
 import javax.ejb.ActivationConfigProperty;
 import javax.ejb.MessageDriven;
-import javax.jms.Connection;
-import javax.jms.ConnectionFactory;
 import javax.jms.JMSException;
 import javax.jms.Message;
 import javax.jms.MessageListener;
-import javax.jms.MessageProducer;
-import javax.jms.Queue;
-import javax.jms.Session;
+import javax.jms.ObjectMessage;
 import javax.jms.TextMessage;
+import miage.iae.projet.shared.messages.DemandeConvention;
 
 /**
  *
@@ -41,6 +35,14 @@ public class EtudiantMB implements MessageListener {
             try {  
                 String text = tm.getText();  
                 System.out.println("Stages::Demande_convention :" + text);  
+            } catch (JMSException e) {  
+            }  
+        }  
+        if (message instanceof ObjectMessage) {  
+            ObjectMessage om = (ObjectMessage) message;  
+            try {  
+                DemandeConvention demande = om.getBody(DemandeConvention.class);  
+                System.out.println("Stages::Demande_convention :" + demande);  
             } catch (JMSException e) {  
             }  
         }  

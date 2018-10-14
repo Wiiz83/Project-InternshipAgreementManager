@@ -3,13 +3,12 @@
  * To change this template file, choose Tools | Templates
  * and open the template in the editor.
  */
-package com.miage.toulouse.shared.messages;
+package miage.iae.projet.shared.messages.validations;
 
 /**
  *
  * @author Mahdi
  */
-public class ResponsabiliteCivile {
-    public String compagnieAssurance ;
-    public String nContrat;
+public class ValidationAdministrative extends Validation {
+    
 }
