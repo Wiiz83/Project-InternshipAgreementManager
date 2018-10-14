@@ -25,10 +25,10 @@ import miage.iae.projet.shared.messages.demandes.DemandeValidationPedagogique;
 public class ValidationPedagogiqueSender {
 
     @Inject
-    @JMSConnectionFactory("jms/Validation_PedagogiqueFactory")
+    @JMSConnectionFactory("jms/Demande_Validation_PedagogiqueFactory")
     private JMSContext context;
 
-    @Resource(mappedName = "jms/Validation_Pedagogique")
+    @Resource(mappedName = "jms/Demande_Validation_Pedagogique")
     private Queue queue;
 
     public void demanderValidationPedagogique(DemandeValidationPedagogique demande) {

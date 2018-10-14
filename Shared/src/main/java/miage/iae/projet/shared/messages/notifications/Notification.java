@@ -14,4 +14,14 @@ import java.io.Serializable;
  */
 public abstract class Notification implements Serializable {
     public Long idDemandeConvention;
+
+    public Notification(Long idDemandeConvention) {
+        this.idDemandeConvention = idDemandeConvention;
+    }
+
+    @Override
+    public String toString() {
+        return "Notification{" + "idDemandeConvention=" + idDemandeConvention + '}';
+    }
+    
 }

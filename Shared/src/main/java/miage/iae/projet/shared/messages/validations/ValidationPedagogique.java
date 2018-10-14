@@ -11,4 +11,17 @@ package miage.iae.projet.shared.messages.validations;
  */
 public class ValidationPedagogique extends Validation {
     public String nomTuteur;
+
+    public ValidationPedagogique(String nomTuteur, Long idDemandeValidation, boolean confirmation, String causeRefus) {
+        super(idDemandeValidation, confirmation, causeRefus);
+        this.nomTuteur = nomTuteur;
+    }
+
+    @Override
+    public String toString() {
+        return "ValidationPedagogique{" + "nomTuteur=" + nomTuteur + super.toString() +'}';
+    }
+    
+    
+    
 }

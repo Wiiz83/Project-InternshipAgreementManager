@@ -10,5 +10,9 @@ package miage.iae.projet.shared.messages.validations;
  * @author Mahdi
  */
 public class ValidationAdministrative extends Validation {
+
+    public ValidationAdministrative(Long idDemandeValidation, boolean confirmation, String causeRefus) {
+        super(idDemandeValidation, confirmation, causeRefus);
+    }
     
 }

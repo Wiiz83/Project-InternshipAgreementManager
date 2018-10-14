@@ -13,7 +13,7 @@ import javax.jms.JMSConnectionFactory;
 import javax.jms.JMSContext;
 import javax.jms.JMSProducer;
 import javax.jms.Queue;
-import miage.iae.projet.shared.messages.demandes.DemandeValidationJuridique;
+import miage.iae.projet.shared.messages.validations.ValidationJuridique;
 
 /**
  *
@@ -24,14 +24,14 @@ import miage.iae.projet.shared.messages.demandes.DemandeValidationJuridique;
 public class ValidationJuridiqueSender {
 
     @Inject
-    @JMSConnectionFactory("jms/Demande_Validation_JuridiqueFactory")
+    @JMSConnectionFactory("jms/Validation_JuridiqueFactory")
     private JMSContext context;
 
-    @Resource(mappedName = "jms/Demande_Validation_Juridique")
+    @Resource(mappedName = "jms/Validation_Juridique")
     private Queue queue;
 
-    public void demanderValidationJuridique(DemandeValidationJuridique demande) {
+    public void envoyerValidationPedagogique(ValidationJuridique validation) {
         JMSProducer mp = context.createProducer();
-        mp.send(queue, demande);
+        mp.send(queue, validation);
     }
 }

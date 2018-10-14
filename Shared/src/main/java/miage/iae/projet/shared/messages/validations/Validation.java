@@ -13,7 +13,19 @@ import java.io.Serializable;
  * @author Mahdi
  */
 public abstract class Validation implements Serializable {
-    Long idDemandeValidation;
+    public Long idDemandeValidation;
     public boolean confirmation;
     public String causeRefus;
+
+    Validation(Long idDemandeValidation, boolean confirmation, String causeRefus) {
+        this.idDemandeValidation = idDemandeValidation;
+        this.confirmation = confirmation;
+        this.causeRefus = causeRefus;
+    }
+
+    @Override
+    public String toString() {
+        return "Validation{" + "idDemandeValidation=" + idDemandeValidation + ", confirmation=" + confirmation + ", causeRefus=" + causeRefus + '}';
+    }
+    
 }

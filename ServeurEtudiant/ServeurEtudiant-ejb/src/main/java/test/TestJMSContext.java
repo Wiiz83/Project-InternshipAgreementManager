@@ -47,7 +47,7 @@ public class TestJMSContext {
         mp.send(demande_convention, DemandeConventionTest() );
     }
 
-    private DemandeConvention DemandeConventionTest() {
+ private DemandeConvention DemandeConventionTest() {
         DemandeConvention c = new DemandeConvention(
                 new Etudiant(),
                 new Diplome(), new ResponsabiliteCivile(),
@@ -55,21 +55,23 @@ public class TestJMSContext {
                 new Entreprise()
         );
 
-        c.etudiant.nom = "TestJMSContext";
-        c.etudiant.prenom = "TestJMSContext";
+        c.etudiant.nom = "NomTest";
+        c.etudiant.prenom = "prenomTest";
         c.etudiant.numero = new Long(123123);
 
-        c.diplome.intitule = "TestJMSContext";
-        c.diplome.niveau = "TestJMSContextM2";
+        c.diplome.intitule = "MIAGE";
+        c.diplome.niveau = "M2";
 
-        c.responsabiliteCivile.compagnieAssurance = "TestJMSContext";
-        c.responsabiliteCivile.nContrat = "TestJMSContext";
+        c.responsabiliteCivile.compagnieAssurance = "CMP";
+        c.responsabiliteCivile.nContrat = "C545X10";
 
         c.stage.debut = new Date();
         c.stage.fin = new Date();
         c.stage.gratification = 111.12;
-        c.stage.sujet = "TestJMSContext ";
-
+        c.stage.sujet = "sujet stage ";
+        
+        c.entreprise.nom= "comp";
+        c.entreprise.siret="0051q5sd";
         return c;
     }
 }

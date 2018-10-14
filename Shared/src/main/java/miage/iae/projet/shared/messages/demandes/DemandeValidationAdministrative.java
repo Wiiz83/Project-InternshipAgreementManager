@@ -14,16 +14,13 @@ import miage.iae.projet.shared.messages.Etudiant;
  */
 public class DemandeValidationAdministrative extends DemandeValidation{
     public Diplome diplome;
-    DemandeValidationAdministrative() {
+   
+    public DemandeValidationAdministrative() {
         super();
         this.diplome= new Diplome();
     }
 
-    public DemandeValidationAdministrative(Diplome diplome) {
-        this.diplome = diplome;
-    }
-
-    public DemandeValidationAdministrative(Diplome diplome, Long idDemandeConvention, Etudiant etudiant) {
+    public DemandeValidationAdministrative(Long idDemandeConvention, Etudiant etudiant, Diplome diplome) {
         super(idDemandeConvention, etudiant);
         this.diplome = diplome;
     }
