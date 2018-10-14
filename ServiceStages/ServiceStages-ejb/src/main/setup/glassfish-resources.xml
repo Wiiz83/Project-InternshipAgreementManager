@@ -9,6 +9,13 @@
     <connector-connection-pool name="jms/Demande_Validation_AdministrativeFactoryPool"  connection-definition-name="javax.jms.QueueConnectionFactory"  resource-adapter-name="jmsra"/>
     <connector-resource enabled="true" jndi-name="jms/Demande_Validation_AdministrativeFactory" pool-name="jms/Demande_Validation_AdministrativeFactoryPool"  />
 
+    <!-- Sender_JMS Demande_Validation_Juridique -->
+    <admin-object-resource enabled="true" jndi-name="jms/Demande_Validation_Juridique"  res-type="javax.jms.Queue"  res-adapter="jmsra">
+        <property name="Name" value="Demande_Validation_Juridique"/>
+    </admin-object-resource>
+    <connector-connection-pool name="jms/Demande_Validation_JuridiqueFactoryPool"  connection-definition-name="javax.jms.QueueConnectionFactory"  resource-adapter-name="jmsra"/>
+    <connector-resource enabled="true" jndi-name="jms/Demande_Validation_JuridiqueFactory" pool-name="jms/Demande_Validation_JuridiqueFactoryPool"  />
+
     <!-- Listener_JMS Demande_convention -->
     <admin-object-resource enabled="true" jndi-name="jms/Demande_convention"  res-type="javax.jms.Queue"  res-adapter="jmsra">
         <property name="Name" value="Demande_convention"/>
