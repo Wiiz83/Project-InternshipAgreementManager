@@ -13,4 +13,15 @@
     </admin-object-resource>
     <connector-connection-pool name="jms/Demande_Validation_AdministrativeFactoryPool"  connection-definition-name="javax.jms.QueueConnectionFactory"  resource-adapter-name="jmsra"/>
 
+    <!-- JMS Validation_Administrative -->
+    <admin-object-resource enabled="true" jndi-name="jms/Validation_Administrative"  res-type="javax.jms.Queue"  res-adapter="jmsra">
+        <property name="Name" value="Validation_Administrative"/>
+    </admin-object-resource>
+    <connector-connection-pool name="jms/Validation_AdministrativeFactoryPool"  connection-definition-name="javax.jms.QueueConnectionFactory"  resource-adapter-name="jmsra"/>
+    <connector-resource enabled="true" jndi-name="jms/Validation_AdministrativeFactory" pool-name="jms/Validation_AdministrativeFactoryPool"  />
+    <admin-object-resource enabled="true" jndi-name="jms/Validation_Juridique"  res-type="javax.jms.Queue"  res-adapter="jmsra">
+        <property name="Name" value="PhysicalQueue"/>
+    </admin-object-resource>
+    <connector-connection-pool name="jms/Validation_JuridiqueFactoryPool"  connection-definition-name="javax.jms.QueueConnectionFactory"  resource-adapter-name="jmsra"/>
+    <connector-resource enabled="true" jndi-name="jms/Validation_JuridiqueFactory" pool-name="jms/Validation_JuridiqueFactoryPool"  />
 </resources>
