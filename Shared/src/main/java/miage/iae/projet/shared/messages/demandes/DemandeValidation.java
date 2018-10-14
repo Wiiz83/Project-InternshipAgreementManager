@@ -18,4 +18,15 @@ public abstract class DemandeValidation  implements Serializable{
     DemandeValidation () {
         this.etudiant = new Etudiant();
     } 
+
+    public DemandeValidation(Long idDemandeConvention, Etudiant etudiant) {
+        this.idDemandeConvention = idDemandeConvention;
+        this.etudiant = etudiant;
+    }
+
+    @Override
+    public String toString() {
+        return "DemandeValidation{" + "idDemandeConvention=" + idDemandeConvention + ", etudiant=" + etudiant + '}';
+    }
+    
 }

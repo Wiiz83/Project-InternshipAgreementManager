@@ -9,6 +9,17 @@
         <jndi-name>jms/Demande_conventionFactory</jndi-name>
       </mdb-connection-factory>
     </ejb>
+    <ejb>
+      <ejb-name>ServiceScolariteSender</ejb-name>
+      <resource-ref>
+        <res-ref-name>jms/Demande_conventionFactory</res-ref-name>
+        <jndi-name>jms/Demande_conventionFactory</jndi-name>
+      </resource-ref>
+      <message-destination-ref>
+        <message-destination-ref-name>jms/Demande_Validation_Administrative</message-destination-ref-name>
+        <jndi-name>jms/Demande_Validation_Administrative</jndi-name>
+      </message-destination-ref>
+    </ejb>
     <message-destination>
       <jndi-name>jms/Demande_convention</jndi-name>
     </message-destination>

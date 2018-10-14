@@ -8,7 +8,6 @@ package miage.iae.projet.shared.messages.demandes;
 import miage.iae.projet.shared.messages.Diplome;
 import miage.iae.projet.shared.messages.Entreprise;
 import miage.iae.projet.shared.messages.Etudiant;
-import miage.iae.projet.shared.messages.ResponsabiliteCivile;
 import miage.iae.projet.shared.messages.Stage;
 
 /**
@@ -27,5 +26,25 @@ public class DemandeValidationPedagogique extends DemandeValidation {
         this.entreprise = new Entreprise();
         this.diplome = new Diplome();
     }
+
+    public DemandeValidationPedagogique(Stage stage, Entreprise entreprise, Diplome diplome) {
+        this.stage = stage;
+        this.entreprise = entreprise;
+        this.diplome = diplome;
+    }
+
+    public DemandeValidationPedagogique(Stage stage, Entreprise entreprise, Diplome diplome, Long idDemandeConvention, Etudiant etudiant) {
+        super(idDemandeConvention, etudiant);
+        this.stage = stage;
+        this.entreprise = entreprise;
+        this.diplome = diplome;
+    }
+
+    @Override
+    public String toString() {
+        return "DemandeValidationPedagogique{" + "stage=" + stage + ", entreprise=" + entreprise + ", diplome=" + diplome + '}' + super.toString();
+    }
+    
+    
 
 }

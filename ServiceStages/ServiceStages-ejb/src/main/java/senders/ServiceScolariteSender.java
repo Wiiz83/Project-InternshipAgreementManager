@@ -5,8 +5,15 @@
  */
 package senders;
 
+import javax.annotation.Resource;
 import javax.ejb.Stateless;
 import javax.ejb.LocalBean;
+import javax.inject.Inject;
+import javax.jms.JMSConnectionFactory;
+import javax.jms.JMSContext;
+import javax.jms.JMSProducer;
+import javax.jms.Queue;
+import miage.iae.projet.shared.messages.demandes.DemandeValidationAdministrative;
 
 /**
  *
@@ -16,6 +23,15 @@ import javax.ejb.LocalBean;
 @LocalBean
 public class ServiceScolariteSender {
 
-    // Add business logic below. (Right-click in editor and choose
-    // "Insert Code > Add Business Method")
+    @Inject
+    @JMSConnectionFactory("jms/Demande_Validation_AdministrativeFactory")
+    private JMSContext context;
+
+    @Resource(mappedName = "jms/Demande_Validation_Administrative")
+    private Queue demande_Validation_AdministrativeQueue;
+
+    public void demanderValidationAdministrative(DemandeValidationAdministrative demande) {
+        JMSProducer mp = context.createProducer();
+        mp.send(demande_Validation_AdministrativeQueue, demande);
+    }
 }

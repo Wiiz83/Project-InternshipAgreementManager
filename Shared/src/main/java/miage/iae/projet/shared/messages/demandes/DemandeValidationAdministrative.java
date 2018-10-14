@@ -6,6 +6,7 @@
 package miage.iae.projet.shared.messages.demandes;
 
 import miage.iae.projet.shared.messages.Diplome;
+import miage.iae.projet.shared.messages.Etudiant;
 
 /**
  *
@@ -17,4 +18,21 @@ public class DemandeValidationAdministrative extends DemandeValidation{
         super();
         this.diplome= new Diplome();
     }
+
+    public DemandeValidationAdministrative(Diplome diplome) {
+        this.diplome = diplome;
+    }
+
+    public DemandeValidationAdministrative(Diplome diplome, Long idDemandeConvention, Etudiant etudiant) {
+        super(idDemandeConvention, etudiant);
+        this.diplome = diplome;
+    }
+
+    @Override
+    public String toString() {
+        return "DemandeValidationAdministrative{" + "diplome=" + diplome + '}' + super.toString();
+    }
+    
+    
+    
 }
