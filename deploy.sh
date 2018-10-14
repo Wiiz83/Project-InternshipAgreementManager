@@ -14,7 +14,7 @@ cd ./bin/
 
 cat ${githubrepo}/gfressources.cfg | while read gfr
   do  
-  ./asadmin add-resources ${githubrepo}$gfr
+#  ./asadmin add-resources ${githubrepo}$gfr
   done 
 
 cd ${config[openmq_path]}
