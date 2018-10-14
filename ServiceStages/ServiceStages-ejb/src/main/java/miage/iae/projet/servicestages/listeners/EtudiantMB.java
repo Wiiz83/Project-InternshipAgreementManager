@@ -3,7 +3,7 @@
  * To change this template file, choose Tools | Templates
  * and open the template in the editor.
  */
-package miage.iae.projet.listeners;
+package miage.iae.projet.servicestages.listeners;
 
 import javax.ejb.ActivationConfigProperty;
 import javax.ejb.MessageDriven;
@@ -30,14 +30,6 @@ public class EtudiantMB implements MessageListener {
     
     @Override
     public void onMessage(Message message) {
-        if (message instanceof TextMessage) {  
-            TextMessage tm = (TextMessage) message;  
-            try {  
-                String text = tm.getText();  
-                System.out.println("Stages::Demande_convention :" + text);  
-            } catch (JMSException e) {  
-            }  
-        }  
         if (message instanceof ObjectMessage) {  
             ObjectMessage om = (ObjectMessage) message;  
             try {  
