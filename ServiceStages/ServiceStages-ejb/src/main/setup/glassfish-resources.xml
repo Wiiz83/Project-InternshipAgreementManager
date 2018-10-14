@@ -7,7 +7,8 @@
         <property name="Name" value="Demande_Validation_Administrative"/>
     </admin-object-resource>
     <connector-connection-pool name="jms/Demande_Validation_AdministrativeFactoryPool"  connection-definition-name="javax.jms.QueueConnectionFactory"  resource-adapter-name="jmsra"/>
-    
+    <connector-resource enabled="true" jndi-name="jms/Demande_Validation_AdministrativeFactory" pool-name="jms/Demande_Validation_AdministrativeFactoryPool"  />
+
     <!-- Listener_JMS Demande_convention -->
     <admin-object-resource enabled="true" jndi-name="jms/Demande_convention"  res-type="javax.jms.Queue"  res-adapter="jmsra">
         <property name="Name" value="Demande_convention"/>
