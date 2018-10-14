@@ -14,6 +14,7 @@ import javax.jms.JMSContext;
 import javax.jms.JMSProducer;
 import javax.jms.Queue;
 import miage.iae.projet.shared.messages.demandes.DemandeValidationAdministrative;
+import miage.iae.projet.shared.messages.demandes.DemandeValidationPedagogique;
 
 /**
  *
@@ -21,17 +22,17 @@ import miage.iae.projet.shared.messages.demandes.DemandeValidationAdministrative
  */
 @Stateless
 @LocalBean
-public class ServiceScolariteSender {
+public class ValidationPedagogiqueSender {
 
     @Inject
-    @JMSConnectionFactory("jms/Demande_Validation_AdministrativeFactory")
+    @JMSConnectionFactory("jms/Validation_PedagogiqueFactory")
     private JMSContext context;
 
-    @Resource(mappedName = "jms/Demande_Validation_Administrative")
-    private Queue demande_Validation_AdministrativeQueue;
+    @Resource(mappedName = "jms/Validation_Pedagogique")
+    private Queue queue;
 
-    public void demanderValidationAdministrative(DemandeValidationAdministrative demande) {
+    public void demanderValidationPedagogique(DemandeValidationPedagogique demande) {
         JMSProducer mp = context.createProducer();
-        mp.send(demande_Validation_AdministrativeQueue, demande);
+        mp.send(queue, demande);
     }
 }

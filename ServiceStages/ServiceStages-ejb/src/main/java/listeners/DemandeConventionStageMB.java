@@ -20,11 +20,11 @@ import miage.iae.projet.shared.messages.DemandeConvention;
 @MessageDriven(mappedName = "jms/Demande_convention", activationConfig = {
     @ActivationConfigProperty(propertyName = "destinationType", propertyValue = "javax.jms.Queue")
 })
-public class EtudiantMB implements MessageListener {
+public class DemandeConventionStageMB implements MessageListener {
 
    
     
-    public EtudiantMB() {
+    public DemandeConventionStageMB() {
     }
     
     @Override
