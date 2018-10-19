@@ -47,3 +47,5 @@ Conception/~$dico_messages.xlsx
 /ServiceStages/ServiceStages-ear/target/
 /ServiceStages/ServiceStages-web/target/
 path.cfg
+/Shared/target/
+/ServiceScolarite/ServiceScolarite-ear/target/
