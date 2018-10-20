@@ -8,7 +8,7 @@
 * ServeurEtudiant :
 
 ## Business Process Model and Notation
-![](https://preview.ibb.co/ditNGL/BPMN-EAI-1.png)
+![](https://image.ibb.co/iFgni0/BPMN-EAI-1.png)
 
 ## Types de projet  
 * REST + JMS = Projet JEE
