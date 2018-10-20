@@ -7,15 +7,8 @@
 * ServiceStages : Projet JEE / Application d'entreprise 
 * ServeurEtudiant :
 
-## Desription du workfkow 
-1. L'étudiant envoi le formulaire au service des stages 
-2. Le service des stages transmet le volet administratif au service de la scolarité :
-     - Avec le nom, prénom et numéro étudiant : vérifie que l'étudiant est inscrit dans une formation universitaire 
-3. **SI VOLET ADMINISTRATIF VALIDE**, le service des stages transmet le volet au département d'enseignement :
-     - Tout d'abord, le département d'enseignement vérifie :
-         - que le stage est bien inscrit dans le cursus de la formation
-         - que les activités décrites dans le résumé relèvent bien à la fois de la thématique de la formation et du niveau de compétence adéquate   
-         - 
+## Business Process Model and Notation
+![](https://preview.ibb.co/ditNGL/BPMN-EAI-1.png)
 
 ## Types de projet  
 * REST + JMS = Projet JEE
