@@ -1,5 +1,8 @@
 # Système de gestion de convention de stages
 
+## Lancement 
+Exécuter ./deploy.sh depuis la console de git
+
 ## Architecture
 * ServiceJuridique : Projet JEE / Application d'entreprise 
 * DptEnseignement : Projet JEE / Application d'entreprise 
