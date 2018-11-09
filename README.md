@@ -1,5 +1,7 @@
 # Système de gestion de convention de stages
 
+http://www.fsi-adm.ups-tlse.fr/fsi/intra/stage_saisie.php
+
 ## Lancement 
 * Lancer le serveur glassfish
 * Exécuter ./deploy.sh depuis la console de git
