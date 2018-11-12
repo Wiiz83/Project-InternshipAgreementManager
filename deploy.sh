@@ -20,6 +20,5 @@ cat ${githubrepo}/gfressources.cfg | while read gfr
   done 
 
 cd ${config[openmq_path]}
-#./mq/bin/imqusermgr update -u admin -a true -p 123456789
+./mq/bin/imqusermgr update -u admin -a true -p 123456789
 ./mq/bin/imqusermgr add -u jmsclient -p 123456789
-./mq/bin/imqbrokerd -port 56421
