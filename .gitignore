@@ -49,3 +49,6 @@ Conception/~$dico_messages.xlsx
 path.cfg
 /Shared/target/
 /ServiceScolarite/ServiceScolarite-ear/target/
+/OpenDataConventions/OpenDataConventions-ejb/target/
+/OpenDataConventions/OpenDataConventions-web/target/
+/OpenDataConventions/OpenDataConventions-ear/target/
