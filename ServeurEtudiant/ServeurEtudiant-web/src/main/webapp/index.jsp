@@ -156,11 +156,8 @@
                             </div>
                         </fieldset>
 
+                        <button type="button" class="btn btn-primary btn-lg btn-block">Envoyer le formulaire de préconvention</button>
                     </form>
-
-
-
-
                 </div>
             </div>
         </div>
