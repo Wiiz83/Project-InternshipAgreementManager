@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html>
     <head>
-        <title>Département d'enseignement</title>
+        <title>Service juridique</title>
         <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
         <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js"></script>
         <link href="//netdna.bootstrapcdn.com/bootstrap/3.0.0/css/bootstrap.min.css" rel="stylesheet">
@@ -17,17 +17,13 @@
                             <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1">
                                 <span class="sr-only">Toggle navigation</span><span class="icon-bar"></span><span class="icon-bar"></span><span class="icon-bar"></span>
                             </button>
-                            <a class="navbar-brand" href="Index">Département d'enseignement</a>
+                            <a class="navbar-brand">Service juridique</a>
                         </div>
                         <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
                             <ul class="nav navbar-nav">
                                 <li class="active">
-                                    <a href="./preconencours.jsp">Préconventions en cours</a>
+                                    <a href="./index.jsp">Préconventions à valider</a>
                                 </li>
-                                <li>
-                                    <a href="./preconvalides.jsp">Préconventions validées</a>
-                                </li>
-                            </ul>
                             </ul>
                         </div>
                     </nav>
@@ -42,9 +38,9 @@
                                 <th scope="col">Etudiant</th>
                                 <th scope="col">Formation</th>
                                 <th scope="col">Entreprise</th>
-                                <th scope="col">Début</th>
-                                <th scope="col">Fin</th>
-                                <th scope="col">Résumé du sujet et des activités</th>
+                                <th scope="col">Gratification</th>
+                                <th scope="col">Dates</th>
+                                <th scope="col">Responsabilité civile</th>
                                 <th scope="col">Actions</th>
                             </tr>
                         </thead>
@@ -53,10 +49,18 @@
                                 <td>XXXX</td>
                                 <td>XXXX</td>
                                 <td>XXXX</td>
+                                <td><a href="javascript:void(0)" title="Vérifier">
+                                        <i class="glyphicon glyphicon-search"></i>
+                                    </a> 
+                                    XXXX
+                                </td>
                                 <td>XXXX</td>
                                 <td>XXXX</td>
-                                <td>XXXX</td>
-                                <td>XXXX</td>
+                                <td><a href="javascript:void(0)" title="Vérifier">
+                                        <i class="glyphicon glyphicon-search"></i>
+                                    </a> 
+                                    XXXX 
+                                </td>
                                 <td>
                                     <a href="javascript:void(0)" title="Ouvrir">
                                         <i class="glyphicon glyphicon-eye-open"></i>

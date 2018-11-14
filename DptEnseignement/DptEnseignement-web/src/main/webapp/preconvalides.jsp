@@ -17,7 +17,7 @@
                             <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1">
                                 <span class="sr-only">Toggle navigation</span><span class="icon-bar"></span><span class="icon-bar"></span><span class="icon-bar"></span>
                             </button>
-                            <a class="navbar-brand" href="Index">Département d'enseignement</a>
+                            <a class="navbar-brand">Département d'enseignement</a>
                         </div>
                         <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
                             <ul class="nav navbar-nav">
@@ -28,6 +28,18 @@
                                     <a href="./preconvalides.jsp">Préconventions validées</a>
                                 </li>
                             </ul>
+                            <ul class="nav navbar-nav navbar-right">
+                                <form class="navbar-form" role="search" method="post" action="Recherche">
+                                    <div class="form-group">
+                                        <select class="form-control" >
+                                          <option>Informatique</option>
+                                          <option>2</option>
+                                          <option>3</option>
+                                          <option>4</option>
+                                          <option>5</option>
+                                        </select>
+                                    </div> 
+                                </form>
                             </ul>
                         </div>
                     </nav>

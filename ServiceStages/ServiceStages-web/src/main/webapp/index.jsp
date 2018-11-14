@@ -17,7 +17,7 @@
                             <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1">
                                 <span class="sr-only">Toggle navigation</span><span class="icon-bar"></span><span class="icon-bar"></span><span class="icon-bar"></span>
                             </button>
-                            <a class="navbar-brand" href="Index">Service des stages</a>
+                            <a class="navbar-brand">Service des stages</a>
                         </div>
                         <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
                             <ul class="nav navbar-nav">
@@ -33,7 +33,6 @@
                                 <li>
                                     <a href="./preconarchives.jsp">Préconventions archivées</a>
                                 </li>
-                            </ul>
                             </ul>
                         </div>
                     </nav>
@@ -66,13 +65,7 @@
                                 <td>
                                     <a href="javascript:void(0)" title="Ouvrir">
                                         <i class="glyphicon glyphicon-eye-open"></i>
-                                    </a>
-                                    <a href="javascript:void(0)" title="Valider">
-                                        <i class="glyphicon glyphicon-ok"></i>
-                                    </a>
-                                    <a href="javascript:void(0)" title="Refuser">
-                                        <i class="glyphicon glyphicon-remove"></i>
-                                    </a>      
+                                    </a>    
                                 </td>
                             </tr>
                         </tbody>

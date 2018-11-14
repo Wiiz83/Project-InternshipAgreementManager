@@ -17,7 +17,7 @@
                             <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1">
                                 <span class="sr-only">Toggle navigation</span><span class="icon-bar"></span><span class="icon-bar"></span><span class="icon-bar"></span>
                             </button>
-                            <a class="navbar-brand" href="Index">Service des stages</a>
+                            <a class="navbar-brand">Service des stages</a>
                         </div>
                         <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
                             <ul class="nav navbar-nav">
@@ -34,7 +34,6 @@
                                     <a href="./preconarchives.jsp">Préconventions archivées</a>
                                 </li>
                             </ul>
-                            </ul>
                         </div>
                     </nav>
                 </div>
@@ -48,9 +47,8 @@
                                 <th scope="col">Etudiant</th>
                                 <th scope="col">Formation</th>
                                 <th scope="col">Entreprise</th>
-                                <th scope="col">Statut volet administratif</th>
-                                <th scope="col">Statut volet pédagogique</th>
-                                <th scope="col">Statut volet juridique</th>
+                                <th scope="col">Volet invalide</th>
+                                <th scope="col">Motif</th>
                                 <th scope="col">Actions</th>
                             </tr>
                         </thead>
@@ -62,13 +60,9 @@
                                 <td>XXXX</td>
                                 <td>XXXX</td>
                                 <td>XXXX</td>
-                                <td>XXXX</td>
                                 <td>
                                     <a href="javascript:void(0)" title="Ouvrir">
                                         <i class="glyphicon glyphicon-eye-open"></i>
-                                    </a>
-                                    <a href="javascript:void(0)" title="Valider">
-                                        <i class="glyphicon glyphicon-ok"></i>
                                     </a>
                                     <a href="javascript:void(0)" title="Refuser">
                                         <i class="glyphicon glyphicon-remove"></i>
