@@ -1,3 +1,4 @@
+<%@page import="java.util.List"%>
 <!DOCTYPE html>
 <html>
     <head>
@@ -83,6 +84,13 @@
                             </tr>
                         </tbody>
                     </table>
+                    
+                    
+                   <% 
+                       
+                       
+
+                   %>
                     <%
                         /* try {
                         List<Preconvention> PreconvEnCours = DebutRevision.getNavetteList(convertedLong);
