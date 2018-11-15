@@ -2,12 +2,15 @@ package controllers;
 
 import donnees.DemandePedagogique;
 import java.util.Map;
+import javax.ejb.EJB;
+import javax.ejb.Stateless;
 import repositories.PreconventionRepository;
 
+@Stateless
 
 public class PreconventionController {
-    
-    PreconventionRepository pr = new PreconventionRepository();
+   // @EJB
+    PreconventionRepository pr =new PreconventionRepository(); // cpasbien
     
     public Map<Long, DemandePedagogique> recupererPreconventionsEnCours() {
         // APPEL JMS POUR RECUPERATION DE NOUVELLES PRECONV
@@ -19,6 +22,10 @@ public class PreconventionController {
         
         // RENVOI DE LA LISTE DES PRECONV
         return listePEC;
+    }
+    
+    public void ajouterDemande (shared.messages.demandes.DemandeValidationPedagogique demande) {
+        pr.insertNewPreconvention(new DemandePedagogique(demande));
     }
 
    
