@@ -5,7 +5,6 @@
  */
 package miage.iae.projet.shared.donnees;
 
-import miage.iae.projet.shared.donnees.reference.Diplome;
 import java.io.Serializable;
 
 /**

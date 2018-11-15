@@ -6,25 +6,16 @@
 package controllers;
 
 import java.util.List;
-import javax.ejb.Stateless;
+import javax.ejb.Local;
 import miage.iae.projet.shared.messages.demandes.DemandeValidationPedagogique;
 
 /**
  *
  * @author uzanl
  */
-@Stateless
-public class PreconventionController implements PreconventionControllerLocal {
-
-    @Override
-    public List<DemandeValidationPedagogique> getDemandeValidationPedagogiqueEnCours() {
-        
-        
-        
-        return null;
-    }
-
+@Local
+public interface PreconventionControllerLocal {
     
-    
+    List<DemandeValidationPedagogique> getDemandeValidationPedagogiqueEnCours();
     
 }

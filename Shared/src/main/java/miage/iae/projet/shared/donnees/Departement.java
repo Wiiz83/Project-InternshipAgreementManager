@@ -3,7 +3,7 @@
  * To change this template file, choose Tools | Templates
  * and open the template in the editor.
  */
-package miage.iae.projet.shared.donnees.reference;
+package miage.iae.projet.shared.donnees;
 
 import java.util.ArrayList;
 
@@ -11,7 +11,7 @@ import java.util.ArrayList;
  *
  * @author Mahdi
  */
-class Departement {
+public class Departement {
     public ArrayList<Diplome> diplomes;
     public String nom;
 

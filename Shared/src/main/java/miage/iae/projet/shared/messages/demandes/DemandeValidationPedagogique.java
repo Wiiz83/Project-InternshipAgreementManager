@@ -5,7 +5,7 @@
  */
 package miage.iae.projet.shared.messages.demandes;
 
-import miage.iae.projet.shared.donnees.reference.Diplome;
+import miage.iae.projet.shared.donnees.Diplome;
 import miage.iae.projet.shared.donnees.Entreprise;
 import miage.iae.projet.shared.donnees.Etudiant;
 import miage.iae.projet.shared.donnees.Stage;
