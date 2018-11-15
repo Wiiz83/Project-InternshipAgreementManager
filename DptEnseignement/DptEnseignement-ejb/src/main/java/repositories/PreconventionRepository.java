@@ -22,13 +22,19 @@ import shared.messages.demandes.DemandeValidationPedagogique;
  *
  * @author uzanl
  */
-@Singleton
+
+//@Singleton
 public class PreconventionRepository {
     
     private Map<Long, DemandePedagogique> listePreconventions ;
     private Long id;
     
-    @PostConstruct
+    
+    public PreconventionRepository() { //cpabien
+        init();
+    }
+    
+    //@PostConstruct
     public void init() {
         this.id= new Long(0);
         listePreconventions = new HashMap<>();

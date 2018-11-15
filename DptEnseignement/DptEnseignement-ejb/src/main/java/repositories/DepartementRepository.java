@@ -13,7 +13,7 @@ import shared.donnees.Departement;
  *
  * @author uzanl
  */
-@Singleton
+//@Singleton
 public class DepartementRepository {
     
     ArrayList<Departement> listeDepartements = new ArrayList<>();
