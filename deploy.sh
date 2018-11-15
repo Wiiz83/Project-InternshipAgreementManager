@@ -14,11 +14,11 @@ cd ./bin/
 ./asadmin set server.jms-service.type=REMOTE
 ./asadmin set server.jms-service.default-jms-host=jmsuniversite
 
-cat ${githubrepo}/gfressources.cfg | while read gfr
+cat "${githubrepo}/gfressources.cfg" | while read gfr
   do  
-  ./asadmin add-resources ${githubrepo}$gfr
+  ./asadmin add-resources "${githubrepo}$gfr"
   done 
 
-cd ${config[openmq_path]}
+cd "${config[openmq_path]}"
 ./mq/bin/imqusermgr update -u admin -a true -p 123456789
 ./mq/bin/imqusermgr add -u jmsclient -p 123456789
