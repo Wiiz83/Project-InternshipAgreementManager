@@ -7,7 +7,7 @@ find -name "glassfish-resources.xml" > './gfressources.cfg'
 
 githubrepo=${PWD}
 
-cd ${config[galssfish_path]}
+cd "${config[galssfish_path]}"
 cd ./bin/
 #./asadmin delete-jms-host default_JMS_host
 ./asadmin create-jms-host --mqhost localhost --mqport 56421 --mquser jmsclient --mqpassword 123456789 jmsuniversite
