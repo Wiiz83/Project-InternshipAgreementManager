@@ -6,12 +6,14 @@
 package repositories;
 
 import java.util.ArrayList;
-import miage.iae.projet.shared.donnees.Departement;
+import javax.ejb.Singleton;
+import shared.donnees.Departement;
 
 /**
  *
  * @author uzanl
  */
+@Singleton
 public class DepartementRepository {
     
     ArrayList<Departement> listeDepartements = new ArrayList<>();

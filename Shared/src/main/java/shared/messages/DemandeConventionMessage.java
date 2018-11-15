@@ -3,12 +3,12 @@
  * To change this template file, choose Tools | Templates
  * and open the template in the editor.
  */
-package miage.iae.projet.shared.donnees;
+package shared.messages;
 
 /**
  *
  * @author Mahdi
  */
-public class ConfirmationAdministrative extends Confirmation{
+public class DemandeConventionMessage {
     
 }

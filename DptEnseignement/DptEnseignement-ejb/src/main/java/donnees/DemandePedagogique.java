@@ -5,8 +5,8 @@
  */
 package donnees;
 
-import miage.iae.projet.shared.donnees.ConfirmationPedagogique;
-import miage.iae.projet.shared.messages.demandes.DemandeValidationPedagogique;
+import shared.donnees.ConfirmationPedagogique;
+import shared.messages.demandes.DemandeValidationPedagogique;
 
 /**
  *

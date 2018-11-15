@@ -3,12 +3,12 @@
  * To change this template file, choose Tools | Templates
  * and open the template in the editor.
  */
-package miage.iae.projet.shared.messages.demandes;
+package shared.messages.demandes;
 
-import miage.iae.projet.shared.donnees.Diplome;
-import miage.iae.projet.shared.donnees.Entreprise;
-import miage.iae.projet.shared.donnees.Etudiant;
-import miage.iae.projet.shared.donnees.Stage;
+import shared.donnees.Diplome;
+import shared.donnees.Entreprise;
+import shared.donnees.Etudiant;
+import shared.donnees.Stage;
 
 /**
  *

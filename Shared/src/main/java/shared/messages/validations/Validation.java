@@ -3,7 +3,7 @@
  * To change this template file, choose Tools | Templates
  * and open the template in the editor.
  */
-package miage.iae.projet.shared.messages.validations;
+package shared.messages.validations;
 
 import java.io.Serializable;
 

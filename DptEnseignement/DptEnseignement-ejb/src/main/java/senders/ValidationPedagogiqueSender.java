@@ -13,7 +13,7 @@ import javax.jms.JMSConnectionFactory;
 import javax.jms.JMSContext;
 import javax.jms.JMSProducer;
 import javax.jms.Queue;
-import miage.iae.projet.shared.messages.validations.ValidationPedagogique;
+import shared.messages.validations.ValidationPedagogique;
 
 /**
  *

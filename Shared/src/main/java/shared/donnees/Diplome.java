@@ -3,9 +3,9 @@
  * To change this template file, choose Tools | Templates
  * and open the template in the editor.
  */
-package miage.iae.projet.shared.donnees;
+package shared.donnees;
 
-import miage.iae.projet.shared.donnees.Departement;
+import shared.donnees.Departement;
 import java.io.Serializable;
 
 /**
