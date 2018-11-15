@@ -16,7 +16,7 @@ import javax.jms.JMSContext;
 import javax.jms.JMSProducer;
 import javax.jms.Queue;
 import miage.iae.projet.shared.donnees.DemandeConvention;
-import miage.iae.projet.shared.donnees.reference.Diplome;
+import miage.iae.projet.shared.donnees.Diplome;
 import miage.iae.projet.shared.donnees.Entreprise;
 import miage.iae.projet.shared.donnees.Etudiant;
 import miage.iae.projet.shared.donnees.ResponsabiliteCivile;
