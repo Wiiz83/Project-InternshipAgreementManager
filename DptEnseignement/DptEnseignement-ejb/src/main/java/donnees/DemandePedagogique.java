@@ -16,4 +16,9 @@ public class DemandePedagogique {
     public DemandeValidationPedagogique demande;
     public ConfirmationPedagogique confirmation;
     public Boolean validationFinale;    
+
+    public DemandePedagogique(DemandeValidationPedagogique demande) {
+        this.demande = demande;
+    }
+    
 }
