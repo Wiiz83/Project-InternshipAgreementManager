@@ -5,7 +5,7 @@
  */
 package miage.iae.projet.shared.messages.demandes;
 
-import miage.iae.projet.shared.messages.Etudiant;
+import miage.iae.projet.shared.donnees.Etudiant;
 import java.io.Serializable;
 
 /**
@@ -13,13 +13,13 @@ import java.io.Serializable;
  * @author Mahdi
  */
 public abstract class DemandeValidation  implements Serializable{
-    Long idDemandeConvention;    
+    int idDemandeConvention;    
     Etudiant etudiant;
     DemandeValidation () {
         this.etudiant = new Etudiant();
     } 
 
-    public DemandeValidation(Long idDemandeConvention, Etudiant etudiant) {
+    public DemandeValidation(int idDemandeConvention, Etudiant etudiant) {
         this.idDemandeConvention = idDemandeConvention;
         this.etudiant = etudiant;
     }

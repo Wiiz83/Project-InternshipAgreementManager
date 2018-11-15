@@ -5,8 +5,8 @@
  */
 package miage.iae.projet.shared.messages.demandes;
 
-import miage.iae.projet.shared.messages.Diplome;
-import miage.iae.projet.shared.messages.Etudiant;
+import miage.iae.projet.shared.donnees.reference.Diplome;
+import miage.iae.projet.shared.donnees.Etudiant;
 
 /**
  *
@@ -15,12 +15,7 @@ import miage.iae.projet.shared.messages.Etudiant;
 public class DemandeValidationAdministrative extends DemandeValidation{
     public Diplome diplome;
    
-    public DemandeValidationAdministrative() {
-        super();
-        this.diplome= new Diplome();
-    }
-
-    public DemandeValidationAdministrative(Long idDemandeConvention, Etudiant etudiant, Diplome diplome) {
+    public DemandeValidationAdministrative(int idDemandeConvention, Etudiant etudiant, Diplome diplome) {
         super(idDemandeConvention, etudiant);
         this.diplome = diplome;
     }

@@ -3,7 +3,7 @@
  * To change this template file, choose Tools | Templates
  * and open the template in the editor.
  */
-package miage.iae.projet.shared.messages;
+package miage.iae.projet.shared.donnees.reference;
 
 import java.io.Serializable;
 
@@ -15,17 +15,17 @@ public class Diplome implements Serializable {
 
     public String niveau;
     public String intitule;
+    public Departement departement;
     
-    public Diplome() {
-    }
-
+ 
     public Diplome(String niveau, String intitule) {
         this.niveau = niveau;
         this.intitule = intitule;
     }
-    
-    @Override
-    public String toString() {
-        return "Diplome{" + "niveau=" + niveau + ", intitule=" + intitule + '}';
+
+    public void setDepartement(Departement departement) {
+        this.departement = departement;
     }
+    
+
 }

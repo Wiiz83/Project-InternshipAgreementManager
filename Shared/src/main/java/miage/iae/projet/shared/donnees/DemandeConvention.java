@@ -3,8 +3,9 @@
  * To change this template file, choose Tools | Templates
  * and open the template in the editor.
  */
-package miage.iae.projet.shared.messages;
+package miage.iae.projet.shared.donnees;
 
+import miage.iae.projet.shared.donnees.reference.Diplome;
 import java.io.Serializable;
 
 /**
@@ -12,20 +13,17 @@ import java.io.Serializable;
  * @author Mahdi
  */
 public class DemandeConvention implements Serializable {
+    public int id;
     public Etudiant etudiant;
     public Diplome diplome;
     public ResponsabiliteCivile responsabiliteCivile;
     public Stage stage;
     public Entreprise entreprise;
     
-    public DemandeConvention() {
-        this.etudiant = new Etudiant();
-        this.diplome = new Diplome();
-        this.responsabiliteCivile = new ResponsabiliteCivile();
-        this.stage = new Stage();
-        this.entreprise = new Entreprise();
-    }
-
+    public ConfirmationJuridique confirmationJuridique;
+    public ConfirmationPedagogique confirmationPedagogique;
+    public ConfirmationAdministrative confirmationAdministrative;
+    
     public DemandeConvention(Etudiant etudiant, Diplome diplome, ResponsabiliteCivile responsabiliteCivile, Stage stage, Entreprise entreprise) {
         this.etudiant = etudiant;
         this.diplome = diplome;

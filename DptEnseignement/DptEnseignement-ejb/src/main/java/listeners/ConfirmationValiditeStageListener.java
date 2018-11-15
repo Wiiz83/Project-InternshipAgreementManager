@@ -1,5 +1,6 @@
 /*
  * To change this license header, choose License Headers in Project Properties.
+ * To change this template file, choose Tools | Templates
  * and open the template in the editor.
  */
 package listeners;
@@ -13,12 +14,12 @@ import javax.jms.MessageListener;
  *
  * @author Mahdi
  */
-@MessageDriven(mappedName = "jms/Demande_Validation_Pedagogique", activationConfig = {
+@MessageDriven(mappedName = "jms/Confirmation_Validite_Stage", activationConfig = {
     @ActivationConfigProperty(propertyName = "destinationType", propertyValue = "javax.jms.Queue")
 })
-public class DemandeValidationPedagogique implements MessageListener {
+public class ConfirmationValiditeStageListener implements MessageListener {
     
-    public DemandeValidationPedagogique() {
+    public ConfirmationValiditeStageListener() {
     }
     
     @Override

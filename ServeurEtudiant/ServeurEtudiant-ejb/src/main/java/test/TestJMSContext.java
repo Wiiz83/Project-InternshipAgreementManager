@@ -6,8 +6,6 @@
 package test;
 
 import java.util.Date;
-import java.util.logging.Level;
-import java.util.logging.Logger;
 import javax.annotation.PostConstruct;
 import javax.annotation.Resource;
 import javax.ejb.Singleton;
@@ -15,16 +13,14 @@ import javax.ejb.Startup;
 import javax.inject.Inject;
 import javax.jms.JMSConnectionFactory;
 import javax.jms.JMSContext;
-import javax.jms.JMSException;
 import javax.jms.JMSProducer;
-import javax.jms.MessageProducer;
 import javax.jms.Queue;
-import miage.iae.projet.shared.messages.DemandeConvention;
-import miage.iae.projet.shared.messages.Diplome;
-import miage.iae.projet.shared.messages.Entreprise;
-import miage.iae.projet.shared.messages.Etudiant;
-import miage.iae.projet.shared.messages.ResponsabiliteCivile;
-import miage.iae.projet.shared.messages.Stage;
+import miage.iae.projet.shared.donnees.DemandeConvention;
+import miage.iae.projet.shared.donnees.reference.Diplome;
+import miage.iae.projet.shared.donnees.Entreprise;
+import miage.iae.projet.shared.donnees.Etudiant;
+import miage.iae.projet.shared.donnees.ResponsabiliteCivile;
+import miage.iae.projet.shared.donnees.Stage;
 
 /**
  *
@@ -50,14 +46,14 @@ public class TestJMSContext {
  private DemandeConvention DemandeConventionTest() {
         DemandeConvention c = new DemandeConvention(
                 new Etudiant(),
-                new Diplome(), new ResponsabiliteCivile(),
+                new Diplome("M","MIAGE"), new ResponsabiliteCivile(),
                 new Stage(),
                 new Entreprise()
         );
 
         c.etudiant.nom = "NomTest";
         c.etudiant.prenom = "prenomTest";
-        c.etudiant.numero = new Long(123123);
+        c.etudiant.numero = "123123";
 
         c.diplome.intitule = "MIAGE";
         c.diplome.niveau = "M2";

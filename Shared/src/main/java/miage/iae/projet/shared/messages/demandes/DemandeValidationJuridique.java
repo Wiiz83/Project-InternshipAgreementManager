@@ -5,10 +5,10 @@
  */
 package miage.iae.projet.shared.messages.demandes;
 
-import miage.iae.projet.shared.messages.Entreprise;
-import miage.iae.projet.shared.messages.Etudiant;
-import miage.iae.projet.shared.messages.ResponsabiliteCivile;
-import miage.iae.projet.shared.messages.Stage;
+import miage.iae.projet.shared.donnees.Entreprise;
+import miage.iae.projet.shared.donnees.Etudiant;
+import miage.iae.projet.shared.donnees.ResponsabiliteCivile;
+import miage.iae.projet.shared.donnees.Stage;
 
 /**
  *
@@ -33,7 +33,7 @@ public class DemandeValidationJuridique extends DemandeValidation {
         this.entreprise = entreprise;
     }
 
-    public DemandeValidationJuridique(ResponsabiliteCivile responsabiliteCivile, Stage stage, Entreprise entreprise, Long idDemandeConvention, Etudiant etudiant) {
+    public DemandeValidationJuridique(ResponsabiliteCivile responsabiliteCivile, Stage stage, Entreprise entreprise, int idDemandeConvention, Etudiant etudiant) {
         super(idDemandeConvention, etudiant);
         this.responsabiliteCivile = responsabiliteCivile;
         this.stage = stage;

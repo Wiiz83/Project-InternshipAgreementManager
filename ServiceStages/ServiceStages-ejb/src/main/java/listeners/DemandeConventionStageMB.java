@@ -14,7 +14,7 @@ import javax.jms.JMSException;
 import javax.jms.Message;
 import javax.jms.MessageListener;
 import javax.jms.ObjectMessage;
-import miage.iae.projet.shared.messages.DemandeConvention;
+import miage.iae.projet.shared.donnees.DemandeConvention;
 import miage.iae.projet.shared.messages.demandes.DemandeValidationAdministrative;
 import senders.ValidationAdministrativeSender;
 
@@ -40,7 +40,7 @@ public class DemandeConventionStageMB implements MessageListener {
             try {
                 DemandeConvention demande = om.getBody(DemandeConvention.class);
                 System.out.println("Stages::Demande_convention :" + demande);
-                DemandeValidationAdministrative dva = new DemandeValidationAdministrative(new Long(555), demande.etudiant, demande.diplome);
+                DemandeValidationAdministrative dva = new DemandeValidationAdministrative(54, demande.etudiant, demande.diplome);
                 validationAdministrativeSender.demanderValidationAdministrative(dva);
             } catch (JMSException ex) {
                 Logger.getLogger(DemandeConventionStageMB.class.getName()).log(Level.SEVERE, null, ex);

@@ -11,7 +11,7 @@ package miage.iae.projet.shared.messages.notifications;
  */
 public class ConfirmationValiditeStage extends Notification {
 
-    public ConfirmationValiditeStage(Long idDemandeConvention) {
+    public ConfirmationValiditeStage(int idDemandeConvention) {
         super(idDemandeConvention);
     }
     

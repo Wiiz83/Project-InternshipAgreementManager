@@ -12,7 +12,7 @@ package miage.iae.projet.shared.messages.notifications;
 public class NotificationAnnulationDemandeValidation extends Notification {
     String cause;
 
-    public NotificationAnnulationDemandeValidation(String cause, Long idDemandeConvention) {
+    public NotificationAnnulationDemandeValidation(String cause, int idDemandeConvention) {
         super(idDemandeConvention);
         this.cause = cause;
     }

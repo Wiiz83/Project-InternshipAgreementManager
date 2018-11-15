@@ -20,9 +20,9 @@ import javax.jms.MessageListener;
     @ActivationConfigProperty(propertyName = "subscriptionName", propertyValue = "jms/Notification_Annulation_Demande_Validation"),
     @ActivationConfigProperty(propertyName = "destinationType", propertyValue = "javax.jms.Topic")
 })
-public class NotificationAnnulationDemande implements MessageListener {
+public class NotificationAnnulationDemandeListener implements MessageListener {
     
-    public NotificationAnnulationDemande() {
+    public NotificationAnnulationDemandeListener() {
     }
     
     @Override

@@ -3,7 +3,7 @@
  * To change this template file, choose Tools | Templates
  * and open the template in the editor.
  */
-package miage.iae.projet.shared.messages;
+package miage.iae.projet.shared.donnees;
 
 import java.io.Serializable;
 import java.util.Date;

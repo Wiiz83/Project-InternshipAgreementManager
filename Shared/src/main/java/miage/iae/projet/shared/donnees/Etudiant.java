@@ -3,7 +3,7 @@
  * To change this template file, choose Tools | Templates
  * and open the template in the editor.
  */
-package miage.iae.projet.shared.messages;
+package miage.iae.projet.shared.donnees;
 
 import java.io.Serializable;
 
@@ -13,11 +13,11 @@ import java.io.Serializable;
  */
 public class Etudiant implements Serializable {
 
-    public Long numero;
+    public String numero;
     public String nom;
     public String prenom;
 
-    public Etudiant(Long numero, String nom, String prenom) {
+    public Etudiant(String numero, String nom, String prenom) {
         this.numero = numero;
         this.nom = nom;
         this.prenom = prenom;
