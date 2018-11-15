@@ -1,3 +1,6 @@
+<%@page import="donnees.DemandePedagogique"%>
+<%@page import="java.util.Map"%>
+<%@page import="controllers.PreconventionController"%>
 <%@page import="java.util.List"%>
 <!DOCTYPE html>
 <html>
@@ -33,13 +36,13 @@
                                 <form class="navbar-form" role="search" method="post" action="Recherche">
                                     <div class="form-group">
                                         <select class="form-control" >
-                                          <option>Informatique</option>
-                                          <option>2</option>
-                                          <option>3</option>
-                                          <option>4</option>
-                                          <option>5</option>
+                                            <option>Informatique</option>
+                                            <option>2</option>
+                                            <option>3</option>
+                                            <option>4</option>
+                                            <option>5</option>
                                         </select>
-                                    </div> 
+                                    </div>
                                 </form>
                             </ul>
                         </div>
@@ -62,14 +65,27 @@
                             </tr>
                         </thead>
                         <tbody>
+
+                            <%
+                                PreconventionController pc = new PreconventionController();
+                                Map<Long, DemandePedagogique> listePEC = pc.recupererPreconventionsEnCours();
+
+                                Long idEnCours;
+                                DemandePedagogique dpEnCours;
+
+                                for (Map.Entry<Long, DemandePedagogique> entry : listePEC.entrySet()) {
+
+                                    idEnCours = entry.getKey();
+                                    dpEnCours = entry.getValue();
+                            %>
                             <tr>
-                                <td>XXXX</td>
-                                <td>XXXX</td>
-                                <td>XXXX</td>
-                                <td>XXXX</td>
-                                <td>XXXX</td>
-                                <td>XXXX</td>
-                                <td>XXXX</td>
+                                <td><%= idEnCours%></td>
+                                <td>Data non présente</td>
+                                <td><%= dpEnCours.demande.diplome.niveau + " " + dpEnCours.demande.diplome.intitule%></td>
+                                <td><%= dpEnCours.demande.entreprise.nom %></td>
+                                <td><%= dpEnCours.demande.stage.debut %></td>
+                                <td><%= dpEnCours.demande.stage.fin %></td>
+                                <td>Data non présente</td>
                                 <td>
                                     <a href="javascript:void(0)" title="Ouvrir">
                                         <i class="glyphicon glyphicon-eye-open"></i>
@@ -79,47 +95,14 @@
                                     </a>
                                     <a href="javascript:void(0)" title="Refuser">
                                         <i class="glyphicon glyphicon-remove"></i>
-                                    </a>      
+                                    </a>
                                 </td>
                             </tr>
+                            <%
+                                }
+                            %>
                         </tbody>
                     </table>
-                    
-                    
-                   <% 
-                       
-                       
-
-                   %>
-                    <%
-                        /* try {
-                        List<Preconvention> PreconvEnCours = DebutRevision.getNavetteList(convertedLong);
-                        for (Revision r : revisions) {
-                            out.println("<tr>");
-                            out.println("<td>XXXX</td>");
-                            out.println("<td>XXXX</td>");
-                            out.println("<td>XXXX</td>");
-                            out.println("<td>XXXX</td>");
-                            out.println("<td>XXXX</td>");
-                            out.println("<td>XXXX</td>");
-                            out.println("<td>XXXX</td>");
-                            out.println("
-                            <td>
-                                <a href="javascript:void(0)" title="Ouvrir">
-                                    <i class="glyphicon glyphicon-eye-open"></i>
-                                </a>
-                                <a href="javascript:void(0)" title="Valider">
-                                    <i class="glyphicon glyphicon-ok"></i>
-                                </a>
-                                <a href="javascript:void(0)" title="Supprimer">
-                                    <i class="glyphicon glyphicon-remove"></i>
-                                </a>      
-                            </td>
-                            ");
-                            out.println("</tr>");
-                        }
-                    }*/
-                    %>
                 </div>
             </div>
         </div>

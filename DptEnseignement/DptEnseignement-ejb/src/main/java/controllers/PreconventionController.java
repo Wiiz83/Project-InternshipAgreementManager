@@ -1,30 +1,26 @@
-/*
- * To change this license header, choose License Headers in Project Properties.
- * To change this template file, choose Tools | Templates
- * and open the template in the editor.
- */
 package controllers;
 
-import java.util.List;
-import javax.ejb.Stateless;
-import miage.iae.projet.shared.messages.demandes.DemandeValidationPedagogique;
+import donnees.DemandePedagogique;
+import java.util.Map;
+import repositories.PreconventionRepository;
 
-/**
- *
- * @author uzanl
- */
-@Stateless
-public class PreconventionController implements PreconventionControllerLocal {
 
-    @Override
-    public List<DemandeValidationPedagogique> getDemandeValidationPedagogiqueEnCours() {
+public class PreconventionController {
+    
+    PreconventionRepository pr = new PreconventionRepository();
+    
+    public Map<Long, DemandePedagogique> recupererPreconventionsEnCours() {
+        // APPEL JMS POUR RECUPERATION DE NOUVELLES PRECONV
+
+        // STOCKAGE EN MEMOIRE DE CES NOUVELLES PRECONV
         
+        // RECUPERATION DES DEMANDES EN MEMOIRE
+        Map<Long, DemandePedagogique> listePEC = pr.getAllPreconventionsEnCours();
         
-        
-        return null;
+        // RENVOI DE LA LISTE DES PRECONV
+        return listePEC;
     }
 
-    
-    
-    
+   
+
 }
