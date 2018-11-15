@@ -12,7 +12,7 @@ import miage.iae.projet.shared.messages.demandes.DemandeValidationPedagogique;
  *
  * @author Mahdi
  */
-public class Demande {
+public class DemandePedagogique {
     public DemandeValidationPedagogique demande;
     public ConfirmationPedagogique confirmation;
     public Boolean validationFinale;    
