@@ -13,9 +13,9 @@ import java.io.Serializable;
  * @author Mahdi
  */
 public abstract class Validation implements Serializable {
-    public Long idDemandeValidation;
-    public boolean confirmation;
-    public String causeRefus;
+    private Long idDemandeValidation;
+    private boolean confirmation;
+    private String causeRefus;
 
     Validation(Long idDemandeValidation, boolean confirmation, String causeRefus) {
         this.idDemandeValidation = idDemandeValidation;
@@ -23,6 +23,18 @@ public abstract class Validation implements Serializable {
         this.causeRefus = causeRefus;
     }
 
+    public Long getIdDemandeValidation() {
+        return idDemandeValidation;
+    }
+
+    public boolean isConfirmation() {
+        return confirmation;
+    }
+
+    public String getCauseRefus() {
+        return causeRefus;
+    }  
+    
     @Override
     public String toString() {
         return "Validation{" + "idDemandeValidation=" + idDemandeValidation + ", confirmation=" + confirmation + ", causeRefus=" + causeRefus + '}';

@@ -5,7 +5,6 @@
  */
 package shared.donnees;
 
-import shared.donnees.Departement;
 import java.io.Serializable;
 
 /**
@@ -14,19 +13,31 @@ import java.io.Serializable;
  */
 public class Diplome implements Serializable {
 
-    public String niveau;
-    public String intitule;
-    public Departement departement;
-    
- 
-    public Diplome(String niveau, String intitule) {
+    private final String niveau;
+    private final String intitule;
+    private Departement departement;
+
+    public Diplome(String niveau, String intitule, Departement departement) {
         this.niveau = niveau;
         this.intitule = intitule;
+        this.departement = departement;
+    } 
+    
+    public String getNiveau() {
+        return niveau;
     }
 
-    public void setDepartement(Departement departement) {
-        this.departement = departement;
+    public String getIntitule() {
+        return intitule;
     }
-    
+
+    public Departement getDepartement() {
+        return departement;
+    }
+
+    @Override
+    public String toString() {
+        return "Diplome{" + "niveau=" + niveau + ", intitule=" + intitule + ", departement=" + departement + '}';
+    }
 
 }

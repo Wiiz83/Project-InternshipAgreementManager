@@ -13,10 +13,14 @@ import java.io.Serializable;
  * @author Mahdi
  */
 public abstract class Notification implements Serializable {
-    public int idDemandeConvention;
+    private Long idDemandeConvention;
 
-    public Notification(int idDemandeConvention) {
+    public Notification(Long idDemandeConvention) {
         this.idDemandeConvention = idDemandeConvention;
+    }
+
+    public Long getIdDemandeConvention() {
+        return idDemandeConvention;
     }
 
     @Override

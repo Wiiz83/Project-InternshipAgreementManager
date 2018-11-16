@@ -16,21 +16,27 @@ import shared.donnees.Stage;
  */
 public class DemandeValidationPedagogique extends DemandeValidation {
 
-    public Stage stage;
-    public Entreprise entreprise;
-    public Diplome diplome;
+    private Stage stage;
+    private Entreprise entreprise;
+    private Diplome diplome;
 
-    public DemandeValidationPedagogique(Stage stage, Entreprise entreprise, Diplome diplome) {
+    public DemandeValidationPedagogique(Stage stage, Entreprise entreprise, Diplome diplome, Long idDemandeConvention, Etudiant etudiant) {
+        super(idDemandeConvention, etudiant);
         this.stage = stage;
         this.entreprise = entreprise;
         this.diplome = diplome;
     }
 
-    public DemandeValidationPedagogique(Stage stage, Entreprise entreprise, Diplome diplome, int idDemandeConvention, Etudiant etudiant) {
-        super(idDemandeConvention, etudiant);
-        this.stage = stage;
-        this.entreprise = entreprise;
-        this.diplome = diplome;
+    public Stage getStage() {
+        return stage;
+    }
+
+    public Entreprise getEntreprise() {
+        return entreprise;
+    }
+
+    public Diplome getDiplome() {
+        return diplome;
     }
 
     @Override

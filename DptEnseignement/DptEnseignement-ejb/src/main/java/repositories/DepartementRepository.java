@@ -6,7 +6,9 @@
 package repositories;
 
 import java.util.ArrayList;
+import java.util.Collection;
 import javax.ejb.Singleton;
+import shared.Repository;
 import shared.donnees.Departement;
 
 /**
@@ -14,7 +16,7 @@ import shared.donnees.Departement;
  * @author uzanl
  */
 //@Singleton
-public class DepartementRepository {
+public class DepartementRepository  implements Repository<Departement>{
     
     ArrayList<Departement> listeDepartements = new ArrayList<>();
     
@@ -32,8 +34,29 @@ public class DepartementRepository {
         listeDepartements.add(d4); 
     }
 
-    public ArrayList<Departement> getAllDepartements(){
+    @Override
+    public Departement get(Long id) {
+        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+    }
+
+    @Override
+    public Collection<Departement> getAll() {
         return listeDepartements;
+    }
+
+    @Override
+    public void insert(Departement dp) {
+        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+    }
+
+    @Override
+    public void update(Long id, Departement dp) {
+        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+    }
+
+    @Override
+    public void delete(Long id) {
+        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
     }
 
 }

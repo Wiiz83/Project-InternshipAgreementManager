@@ -81,10 +81,10 @@
                             <tr>
                                 <td><%= idEnCours%></td>
                                 <td>Data non présente</td>
-                                <td><%= dpEnCours.demande.diplome.niveau + " " + dpEnCours.demande.diplome.intitule%></td>
-                                <td><%= dpEnCours.demande.entreprise.nom %></td>
-                                <td><%= dpEnCours.demande.stage.debut %></td>
-                                <td><%= dpEnCours.demande.stage.fin %></td>
+                                <td><%= dpEnCours.getDemande().getDiplome().getNiveau() + " " + dpEnCours.getDemande().getDiplome().getIntitule()%></td>
+                                <td><%= dpEnCours.getDemande().getEntreprise().getNom() %></td>
+                                <td><%= dpEnCours.getDemande().getStage().getDebut() %></td>
+                                <td><%= dpEnCours.getDemande().getStage().getFin() %></td>
                                 <td>Data non présente</td>
                                 <td>
                                     <a href="javascript:void(0)" title="Ouvrir">

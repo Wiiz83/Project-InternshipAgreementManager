@@ -5,8 +5,8 @@
  */
 package donnees;
 
-import miage.iae.projet.shared.donnees.ConfirmationJuridique;
-import miage.iae.projet.shared.messages.demandes.DemandeValidationJuridique;
+import shared.donnees.ConfirmationJuridique;
+import shared.messages.demandes.DemandeValidationJuridique;
 
 /**
  *

@@ -5,21 +5,33 @@
  */
 package shared.donnees;
 
+import java.io.Serializable;
+
 /**
  *
  * @author Mahdi
  */
-public abstract class Confirmation {
-    public boolean valide;
-    public String motif;
+public abstract class Confirmation implements Serializable {
+    private boolean valide;
+    private String motif;
 
-    Confirmation() {
+    public Confirmation() {
         this.valide = true;
     }    
 
-    public Confirmation(String motif) {
-        this.valide = false;
+    public Confirmation(boolean valide, String motif) {
+        this.valide = valide;
         this.motif = motif;
     }
+
+    public boolean isValide() {
+        return valide;
+    }
+
+    public String getMotif() {
+        return motif;
+    }
+    
+    
     
 }

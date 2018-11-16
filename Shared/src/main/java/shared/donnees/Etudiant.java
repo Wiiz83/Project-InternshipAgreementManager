@@ -13,9 +13,9 @@ import java.io.Serializable;
  */
 public class Etudiant implements Serializable {
 
-    public String numero;
-    public String nom;
-    public String prenom;
+    private String numero;
+    private String nom;
+    private String prenom;
 
     public Etudiant(String numero, String nom, String prenom) {
         this.numero = numero;
@@ -25,9 +25,19 @@ public class Etudiant implements Serializable {
 
     public Etudiant() {
     }
-    
-    
 
+    public String getNumero() {
+        return numero;
+    }
+
+    public String getNom() {
+        return nom;
+    }
+
+    public String getPrenom() {
+        return prenom;
+    }  
+    
     @Override
     public String toString() {
         return "Etudiant{" + "numero=" + numero + ", nom=" + nom + ", prenom=" + prenom + '}';

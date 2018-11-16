@@ -10,13 +10,17 @@ package shared.messages.validations;
  * @author Mahdi
  */
 public class ValidationPedagogique extends Validation {
-    public String nomTuteur;
+    private String nomTuteur;
 
     public ValidationPedagogique(String nomTuteur, Long idDemandeValidation, boolean confirmation, String causeRefus) {
         super(idDemandeValidation, confirmation, causeRefus);
         this.nomTuteur = nomTuteur;
     }
 
+    public String getNomTuteur() {
+        return nomTuteur;
+    }
+    
     @Override
     public String toString() {
         return "ValidationPedagogique{" + "nomTuteur=" + nomTuteur + super.toString() +'}';

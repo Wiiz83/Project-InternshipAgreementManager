@@ -5,24 +5,23 @@
  */
 package shared.donnees;
 
-import java.util.ArrayList;
+import java.io.Serializable;
 
-/**
- *
- * @author Mahdi
- */
-public class Departement {
-    public ArrayList<Diplome> diplomes;
-    public String nom;
+public class Departement implements Serializable {
 
-        public Departement(String nom) {
+    private final String nom;
+
+    public Departement(String nom) {
         this.nom = nom;
-        this.diplomes = new ArrayList<>();
     }
-    
-    boolean ajouterDiplome (Diplome d) {
-        d.setDepartement(this);
-        return diplomes.add(d);
+
+    public String getNom() {
+        return nom;
     }
-    
+
+    @Override
+    public String toString() {
+        return "Departement{" + " nom=" + nom + "}";
+    }
+
 }

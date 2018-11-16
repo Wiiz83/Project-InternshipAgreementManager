@@ -11,7 +11,7 @@ import javax.jms.JMSException;
 import javax.jms.Message;
 import javax.jms.MessageListener;
 import javax.jms.ObjectMessage;
-import miage.iae.projet.shared.messages.demandes.DemandeValidationAdministrative;
+import shared.messages.demandes.DemandeValidationAdministrative;
 
 /**
  *

@@ -13,18 +13,22 @@ import java.io.Serializable;
  */
 public class Entreprise implements Serializable {
 
-    public String siret;
-    public String nom;
+    private String siret;
+    private String nom;
 
     public Entreprise(String siret, String nom) {
         this.siret = siret;
         this.nom = nom;
     }
 
-    public Entreprise() {
+    public String getSiret() {
+        return siret;
+    }
+
+    public String getNom() {
+        return nom;
     }
     
-
     @Override
     public String toString() {
         return "Entreprise{" + "siret=" + siret + ", nom=" + nom + '}';

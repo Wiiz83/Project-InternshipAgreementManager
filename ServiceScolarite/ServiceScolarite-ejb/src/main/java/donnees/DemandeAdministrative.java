@@ -5,8 +5,8 @@
  */
 package donnees;
 
-import miage.iae.projet.shared.donnees.ConfirmationAdministrative;
-import miage.iae.projet.shared.messages.demandes.DemandeValidationAdministrative;
+import shared.donnees.ConfirmationAdministrative;
+import shared.messages.demandes.DemandeValidationAdministrative;
 
 /**
  *

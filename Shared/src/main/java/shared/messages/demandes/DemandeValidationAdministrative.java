@@ -13,9 +13,9 @@ import shared.donnees.Etudiant;
  * @author Mahdi
  */
 public class DemandeValidationAdministrative extends DemandeValidation{
-    public Diplome diplome;
+    private Diplome diplome;
    
-    public DemandeValidationAdministrative(int idDemandeConvention, Etudiant etudiant, Diplome diplome) {
+    public DemandeValidationAdministrative(Long idDemandeConvention, Etudiant etudiant, Diplome diplome) {
         super(idDemandeConvention, etudiant);
         this.diplome = diplome;
     }
@@ -24,6 +24,12 @@ public class DemandeValidationAdministrative extends DemandeValidation{
     public String toString() {
         return "DemandeValidationAdministrative{" + "diplome=" + diplome + '}' + super.toString();
     }
+
+    public Diplome getDiplome() {
+        return diplome;
+    }
+    
+    
     
     
     

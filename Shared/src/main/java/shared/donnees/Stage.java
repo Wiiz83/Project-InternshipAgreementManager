@@ -14,25 +14,36 @@ import java.util.Date;
  */
 public class Stage implements Serializable {
 
-    public Date debut;
-    public Date fin;
-    public Double gratification;
-    public String sujet;
+    private Date debut;
+    private Date fin;
+    private Double gratification;
+    private String resume;
 
-    public Stage() {
-    }
-
-    public Stage(Date debut, Date fin, Double gratification, String sujet) {
+    public Stage(Date debut, Date fin, Double gratification, String resume) {
         this.debut = debut;
         this.fin = fin;
         this.gratification = gratification;
-        this.sujet = sujet;
+        this.resume = resume;
     }
-    
-    
 
+    public Date getDebut() {
+        return debut;
+    }
+
+    public Date getFin() {
+        return fin;
+    }
+
+    public Double getGratification() {
+        return gratification;
+    }
+
+    public String getResume() {
+        return resume;
+    }   
+    
     @Override
     public String toString() {
-        return "Stage{" + "debut=" + debut + ", fin=" + fin + ", gratification=" + gratification + ", sujet=" + sujet + '}';
+        return "Stage{" + "debut=" + debut + ", fin=" + fin + ", gratification=" + gratification + ", sujet=" + resume + '}';
     }
 }

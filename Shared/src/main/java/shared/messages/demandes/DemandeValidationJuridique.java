@@ -16,24 +16,12 @@ import shared.donnees.Stage;
  */
 public class DemandeValidationJuridique extends DemandeValidation {
 
-    public ResponsabiliteCivile responsabiliteCivile;
-    public Stage stage;
-    public Entreprise entreprise;
+    private ResponsabiliteCivile responsabiliteCivile;
+    private Stage stage;
+    private Entreprise entreprise;
 
-    public DemandeValidationJuridique() {
-        super();
-        this.responsabiliteCivile = new ResponsabiliteCivile();
-        this.stage = new Stage();
-        this.entreprise = new Entreprise();
-    }
 
-    public DemandeValidationJuridique(ResponsabiliteCivile responsabiliteCivile, Stage stage, Entreprise entreprise) {
-        this.responsabiliteCivile = responsabiliteCivile;
-        this.stage = stage;
-        this.entreprise = entreprise;
-    }
-
-    public DemandeValidationJuridique(ResponsabiliteCivile responsabiliteCivile, Stage stage, Entreprise entreprise, int idDemandeConvention, Etudiant etudiant) {
+    public DemandeValidationJuridique(ResponsabiliteCivile responsabiliteCivile, Stage stage, Entreprise entreprise, Long idDemandeConvention, Etudiant etudiant) {
         super(idDemandeConvention, etudiant);
         this.responsabiliteCivile = responsabiliteCivile;
         this.stage = stage;

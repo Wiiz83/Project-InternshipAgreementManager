@@ -10,16 +10,8 @@ package shared.messages.notifications;
  * @author Mahdi
  */
 public class NotificationAnnulationDemandeValidation extends Notification {
-    String cause;
 
-    public NotificationAnnulationDemandeValidation(String cause, int idDemandeConvention) {
+    public NotificationAnnulationDemandeValidation(Long idDemandeConvention) {
         super(idDemandeConvention);
-        this.cause = cause;
-    }
-
-    @Override
-    public String toString() {
-        return "NotificationAnnulationDemandeValidation{" + "cause=" + cause + super.toString() + '}';
-    }
-    
+    }    
 }

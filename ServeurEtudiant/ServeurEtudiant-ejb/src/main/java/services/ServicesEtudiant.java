@@ -13,7 +13,7 @@ import javax.jms.JMSConnectionFactory;
 import javax.jms.JMSContext;
 import javax.jms.JMSProducer;
 import javax.jms.Queue;
-import miage.iae.projet.shared.donnees.DemandeConvention;
+import shared.messages.demandes.DemandeConventionMessage;
 
 /**
  *
@@ -30,7 +30,7 @@ public class ServicesEtudiant {
     @Resource(mappedName = "jms/Demande_convention")
     private Queue demande_convention_file;
 
-    public void ajouterDemandeDeConvention(DemandeConvention demandeConvention) {
+    public void ajouterDemandeDeConvention(DemandeConventionMessage demandeConvention) {
         JMSProducer mp = context.createProducer();
         mp.send(demande_convention_file, demandeConvention);
     }

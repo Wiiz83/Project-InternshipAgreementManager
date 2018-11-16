@@ -13,18 +13,21 @@ import java.io.Serializable;
  */
 public class ResponsabiliteCivile  implements Serializable{
 
-    public String compagnieAssurance ;
-    public String nContrat;
+    private String compagnieAssurance ;
+    private String nContrat;
 
     public ResponsabiliteCivile(String compagnieAssurance, String nContrat) {
         this.compagnieAssurance = compagnieAssurance;
         this.nContrat = nContrat;
     }
 
-    public ResponsabiliteCivile() {
+    public String getCompagnieAssurance() {
+        return compagnieAssurance;
     }
-    
-    
+
+    public String getnContrat() {
+        return nContrat;
+    }
     
     @Override
     public String toString() {

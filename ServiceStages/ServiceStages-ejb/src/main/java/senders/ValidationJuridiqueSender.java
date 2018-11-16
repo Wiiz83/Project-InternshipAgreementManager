@@ -13,7 +13,7 @@ import javax.jms.JMSConnectionFactory;
 import javax.jms.JMSContext;
 import javax.jms.JMSProducer;
 import javax.jms.Queue;
-import miage.iae.projet.shared.messages.demandes.DemandeValidationJuridique;
+import shared.messages.demandes.DemandeValidationJuridique;
 
 /**
  *

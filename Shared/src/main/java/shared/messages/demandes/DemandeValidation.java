@@ -13,16 +13,24 @@ import java.io.Serializable;
  * @author Mahdi
  */
 public abstract class DemandeValidation  implements Serializable{
-    int idDemandeConvention;    
-    Etudiant etudiant;
+    private Long idDemandeConvention;    
+    private Etudiant etudiant;
     DemandeValidation () {
         this.etudiant = new Etudiant();
     } 
 
-    public DemandeValidation(int idDemandeConvention, Etudiant etudiant) {
+    public DemandeValidation(Long idDemandeConvention, Etudiant etudiant) {
         this.idDemandeConvention = idDemandeConvention;
         this.etudiant = etudiant;
     }
+
+    public Long getIdDemandeConvention() {
+        return idDemandeConvention;
+    }
+
+    public Etudiant getEtudiant() {
+        return etudiant;
+    }        
 
     @Override
     public String toString() {

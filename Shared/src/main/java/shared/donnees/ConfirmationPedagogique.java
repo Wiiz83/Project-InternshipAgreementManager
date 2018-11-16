@@ -10,11 +10,19 @@ package shared.donnees;
  * @author Mahdi
  */
 public class ConfirmationPedagogique extends Confirmation {
-    public String nomTuteur;
+    private String nomTuteur;
 
     public ConfirmationPedagogique(String nomTuteur) {
         super();
         this.nomTuteur = nomTuteur;
     }    
+
+    public ConfirmationPedagogique(boolean b, String motif) {
+        super(b,motif);
+    }
+
+    public String getNomTuteur() {
+        return nomTuteur;
+    }  
     
 }
