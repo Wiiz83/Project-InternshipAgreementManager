@@ -9,8 +9,8 @@ import donnees.DemandePedagogique;
 import java.util.Map;
 import javax.ejb.EJB;
 import javax.ejb.Stateless;
-import javax.inject.Inject;
 import repositories.PreconventionRepositoryLocal;
+import senders.ValidationPedagogiqueSender;
 import shared.donnees.ConfirmationPedagogique;
 import shared.messages.validations.ValidationPedagogique;
 
@@ -24,6 +24,10 @@ public class PreconventionController implements PreconventionControllerRemote {
     @EJB
     PreconventionRepositoryLocal repo;
 
+    // TODO: Tester l'injection
+    @EJB
+    ValidationPedagogiqueSender vpSender;
+
     @Override
     public Map<Long, DemandePedagogique> recupererPreconventionsEnCours() {
         // APPEL JMS POUR RECUPERATION DE NOUVELLES PRECONV
@@ -35,7 +39,7 @@ public class PreconventionController implements PreconventionControllerRemote {
         // RENVOI DE LA LISTE DES PRECONV
         return listePEC;
     }
-    
+
     /*
         Traitement des messages JMS reçus
      */
@@ -47,31 +51,32 @@ public class PreconventionController implements PreconventionControllerRemote {
     @Override
     public void confirmerValidationFinale(shared.messages.notifications.ConfirmationValiditeStage cvs) {
         DemandePedagogique dp = repo.get(cvs.getIdDemandeConvention());
-        dp.setValidationFinale (true);
+        dp.setValidationFinale(true);
     }
 
     @Override
     public void annulerDemande(shared.messages.notifications.NotificationAnnulationDemandeValidation n) {
         repo.delete(n.getIdDemandeConvention());
     }
+
     /*
         Actions utilisateur : maj BD + envoi message JMS
-    */
+     */
     @Override
     public void accepterDemande(Long id, String nomTuteur) {
         DemandePedagogique dp = repo.get(id);
-        dp.setConfirmation ( new ConfirmationPedagogique(nomTuteur));
+        dp.setConfirmation(new ConfirmationPedagogique(nomTuteur));
         repo.update(id, dp);
         ValidationPedagogique msg = new ValidationPedagogique(nomTuteur, id, true, null);
-        //envoyer msg par jms
+        vpSender.envoyerValidationPedagogique(msg);
     }
 
     @Override
     public void refuserDemande(Long id, String motif) {
         DemandePedagogique dp = repo.get(id);
-        dp.setConfirmation( new ConfirmationPedagogique(false, motif));
+        dp.setConfirmation(new ConfirmationPedagogique(false, motif));
         repo.update(id, dp);
         ValidationPedagogique msg = new ValidationPedagogique(null, id, true, motif);
-        //envoyer msg par jms
+        vpSender.envoyerValidationPedagogique(msg);
     }
 }

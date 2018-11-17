@@ -5,10 +5,17 @@
  */
 package listeners;
 
+import controllers.PreconventionControllerRemote;
+import java.util.logging.Level;
+import java.util.logging.Logger;
 import javax.ejb.ActivationConfigProperty;
+import javax.ejb.EJB;
 import javax.ejb.MessageDriven;
+import javax.jms.JMSException;
 import javax.jms.Message;
 import javax.jms.MessageListener;
+import javax.jms.ObjectMessage;
+import shared.messages.notifications.NotificationAnnulationDemandeValidation;
 
 /**
  *
@@ -21,12 +28,24 @@ import javax.jms.MessageListener;
     @ActivationConfigProperty(propertyName = "destinationType", propertyValue = "javax.jms.Topic")
 })
 public class NotificationAnnulationDemandeListener implements MessageListener {
-    
+    @EJB
+    PreconventionControllerRemote pc;
+
     public NotificationAnnulationDemandeListener() {
     }
-    
+
     @Override
     public void onMessage(Message message) {
+        if (message instanceof ObjectMessage) {
+            ObjectMessage om = (ObjectMessage) message;
+            try {
+                NotificationAnnulationDemandeValidation notif = om.getBody(NotificationAnnulationDemandeValidation.class);
+                System.out.println("DptEnseignement::ConfirmationValiditeStage :" + notif);
+                pc.annulerDemande(notif);
+            } catch (JMSException ex) {
+                Logger.getLogger(DemandeValidationPedagogiqueListener.class.getName()).log(Level.SEVERE, null, ex);
+            }
+        }
     }
-    
+
 }

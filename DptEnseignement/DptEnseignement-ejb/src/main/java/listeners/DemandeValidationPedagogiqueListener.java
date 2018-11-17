@@ -26,25 +26,26 @@ import shared.messages.demandes.DemandeValidationPedagogique;
     @ActivationConfigProperty(propertyName = "destinationType", propertyValue = "javax.jms.Queue")
 })
 public class DemandeValidationPedagogiqueListener implements MessageListener {
+
     @EJB
     PreconventionControllerRemote pc;
-    
+
     public DemandeValidationPedagogiqueListener() {
     }
-    
+
     @Override
     public void onMessage(Message message) {
-  if (message instanceof ObjectMessage) {
+        if (message instanceof ObjectMessage) {
             ObjectMessage om = (ObjectMessage) message;
             try {
                 shared.messages.demandes.DemandeValidationPedagogique demande = om.getBody(DemandeValidationPedagogique.class);
                 System.out.println("DptEnseignement::Demande_convention :" + demande);
-                pc.ajouterDemande(demande);                
+                pc.ajouterDemande(demande);
             } catch (JMSException ex) {
                 Logger.getLogger(DemandeValidationPedagogiqueListener.class.getName()).log(Level.SEVERE, null, ex);
 
             }
         }
     }
-    
+
 }
