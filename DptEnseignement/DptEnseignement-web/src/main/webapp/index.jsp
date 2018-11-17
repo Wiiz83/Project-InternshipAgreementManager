@@ -1,4 +1,4 @@
-<%@page import="controllers.PreconventionControllerLocal"%>
+<%@page import="controllers.PreconventionControllerRemote"%>
 <%@page import="controllers.PreconventionController"%>
 <%@page import="javax.naming.InitialContext"%>
 <%@page import="donnees.DemandePedagogique"%>
@@ -81,7 +81,7 @@
                        
                         //PreconventionController pc2 =(PreconventionController) ic.lookup("PreconventionController"); 
                         
-                        PreconventionControllerLocal pc2 = (PreconventionControllerLocal) ic.lookup("controllers.PreconventionControllerLocal");
+                        PreconventionControllerRemote pc2 = (PreconventionControllerRemote) ic.lookup("controllers.PreconventionControllerRemote");
                         
                         
                         Map<Long, DemandePedagogique> listePEC2 = pc2.recupererPreconventionsEnCours();
