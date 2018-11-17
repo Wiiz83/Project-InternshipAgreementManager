@@ -7,7 +7,6 @@ package controllers;
 
 import donnees.DemandePedagogique;
 import java.util.Map;
-import javax.ejb.Local;
 import javax.ejb.Remote;
 import shared.messages.notifications.ConfirmationValiditeStage;
 import shared.messages.notifications.NotificationAnnulationDemandeValidation;

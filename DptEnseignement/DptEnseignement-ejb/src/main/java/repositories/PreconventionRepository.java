@@ -25,7 +25,7 @@ import shared.messages.demandes.DemandeValidationPedagogique;
  * @author uzanl
  */
 @Singleton
-public class PreconventionRepository implements Repository<DemandePedagogique> {
+public class PreconventionRepository implements PreconventionRepositoryLocal {
 
     private Map<Long, DemandePedagogique> listePreconventions;
     private Long id;
@@ -38,6 +38,7 @@ public class PreconventionRepository implements Repository<DemandePedagogique> {
     public void init() {
         this.id = new Long(0);
         listePreconventions = new HashMap<>();
+        System.out.println("PreconventionRepository: Singleton");
         this.test();
     }
 
@@ -79,6 +80,7 @@ public class PreconventionRepository implements Repository<DemandePedagogique> {
         this.listePreconventions.remove(id);
     }
 
+    @Override
     public Map<Long, DemandePedagogique> getAllPreconventionsEnCours() {
         Map<Long, DemandePedagogique> listePreconventionsEnCours = new HashMap<>();
         for (Map.Entry<Long, DemandePedagogique> entry : listePreconventions.entrySet()) {
@@ -89,6 +91,7 @@ public class PreconventionRepository implements Repository<DemandePedagogique> {
         return listePreconventionsEnCours;
     }
 
+    @Override
     public Map<Long, DemandePedagogique> getAllPreconventionsValides() {
         Map<Long, DemandePedagogique> listePreconventionsValides = new HashMap<>();
         for (Map.Entry<Long, DemandePedagogique> entry : listePreconventions.entrySet()) {

@@ -7,9 +7,9 @@ package controllers;
 
 import donnees.DemandePedagogique;
 import java.util.Map;
-import javax.ejb.EJB;
 import javax.ejb.Stateless;
-import repositories.PreconventionRepository;
+import javax.inject.Inject;
+import repositories.PreconventionRepositoryLocal;
 import shared.donnees.ConfirmationPedagogique;
 import shared.messages.validations.ValidationPedagogique;
 
@@ -20,8 +20,8 @@ import shared.messages.validations.ValidationPedagogique;
 @Stateless
 public class PreconventionController implements PreconventionControllerRemote {
 
-    // @EJB
-    PreconventionRepository repo = new PreconventionRepository(); // cpasbien
+    @Inject
+    PreconventionRepositoryLocal repo; // cpasbien
 
     @Override
     public Map<Long, DemandePedagogique> recupererPreconventionsEnCours() {
