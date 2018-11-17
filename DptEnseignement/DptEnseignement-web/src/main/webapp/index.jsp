@@ -1,6 +1,8 @@
+<%@page import="controllers.PreconventionControllerLocal"%>
+<%@page import="controllers.PreconventionController"%>
+<%@page import="javax.naming.InitialContext"%>
 <%@page import="donnees.DemandePedagogique"%>
 <%@page import="java.util.Map"%>
-<%@page import="controllers.PreconventionController"%>
 <%@page import="java.util.List"%>
 <!DOCTYPE html>
 <html>
@@ -67,13 +69,33 @@
                         <tbody>
 
                             <%
-                                PreconventionController pc = new PreconventionController();
-                                Map<Long, DemandePedagogique> listePEC = pc.recupererPreconventionsEnCours();
+                                
+                              
+                        /*InitialContext ctx = new InitialContext();
+                        PreconventionController pc2 = (PreconventionController) ctx.lookup("PreconventionControllerLocal"); //java:app/jdbc/SpacelibDataSource
+                        Map<Long, DemandePedagogique> listePEC2 = pc2.recupererPreconventionsEnCours();
+                        System.out.println("listePEC2 : " + listePEC2);
+                      */
+                        
+                        javax.naming.InitialContext ic = new javax.naming.InitialContext();
+                       
+                        //PreconventionController pc2 =(PreconventionController) ic.lookup("PreconventionController"); 
+                        
+                        PreconventionControllerLocal pc2 = (PreconventionControllerLocal) ic.lookup("controllers.PreconventionControllerLocal");
+                        
+                        
+                        Map<Long, DemandePedagogique> listePEC2 = pc2.recupererPreconventionsEnCours();
+                        System.out.println("listePEC2 : " + listePEC2);
+                                
+                               // Map<Long, DemandePedagogique> listePEC = (Map<Long, DemandePedagogique>) request.getAttribute("listeResultat");
+                                
+                                //PreconventionController pc = new PreconventionController();
+                                //Map<Long, DemandePedagogique> listePEC = pc.recupererPreconventionsEnCours();
 
                                 Long idEnCours;
                                 DemandePedagogique dpEnCours;
 
-                                for (Map.Entry<Long, DemandePedagogique> entry : listePEC.entrySet()) {
+                                for (Map.Entry<Long, DemandePedagogique> entry : listePEC2.entrySet()) {
 
                                     idEnCours = entry.getKey();
                                     dpEnCours = entry.getValue();
