@@ -30,10 +30,6 @@ public class PreconventionRepository implements PreconventionRepositoryLocal {
     private Map<Long, DemandePedagogique> listePreconventions;
     private Long id;
 
-    public PreconventionRepository() { //cpabien
-        init();
-    }
-
     @PostConstruct
     public void init() {
         this.id = new Long(0);
