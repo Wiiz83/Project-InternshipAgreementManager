@@ -52,6 +52,7 @@ public class PreconventionController implements PreconventionControllerRemote {
     public void confirmerValidationFinale(shared.messages.notifications.ConfirmationValiditeStage cvs) {
         DemandePedagogique dp = repo.get(cvs.getIdDemandeConvention());
         dp.setValidationFinale(true);
+        repo.update(cvs.getIdDemandeConvention(), dp);
     }
 
     @Override
