@@ -16,7 +16,9 @@ import javax.jms.Message;
 import javax.jms.MessageListener;
 import javax.jms.ObjectMessage;
 import senders.ValidationAdministrativeSender;
+import senders.ValidationPedagogiqueSender;
 import shared.messages.demandes.DemandeValidationAdministrative;
+import shared.messages.demandes.DemandeValidationPedagogique;
 
 /**
  *
@@ -29,6 +31,9 @@ public class DemandeConventionStageMB implements MessageListener {
 
     @EJB
     ValidationAdministrativeSender validationAdministrativeSender;
+    
+        @EJB
+    ValidationPedagogiqueSender validationPedagogiqueSender;
 
     public DemandeConventionStageMB() {
     }
@@ -41,7 +46,11 @@ public class DemandeConventionStageMB implements MessageListener {
                 shared.messages.demandes.DemandeConventionMessage demande = om.getBody(shared.messages.demandes.DemandeConventionMessage.class);
                 System.out.println("Stages::Demande_convention :" + demande);
                 DemandeValidationAdministrative dva = new DemandeValidationAdministrative(new Long(54), demande.getEtudiant(), demande.getDiplome());
-                validationAdministrativeSender.demanderValidationAdministrative(dva);
+                validationAdministrativeSender.demanderValidationAdministrative(dva);    
+                
+                DemandeValidationPedagogique dvop = new DemandeValidationPedagogique(demande.getStage(),demande.getEntreprise(),demande.getDiplome(), new Long(42),demande.getEtudiant());
+                validationPedagogiqueSender.demanderValidationPedagogique(dvop);
+                
             } catch (JMSException ex) {
                 Logger.getLogger(DemandeConventionStageMB.class.getName()).log(Level.SEVERE, null, ex);
 

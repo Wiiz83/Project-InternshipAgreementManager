@@ -10,6 +10,8 @@ import java.util.Collection;
 import java.util.Date;
 import java.util.HashMap;
 import java.util.Map;
+import javax.annotation.PostConstruct;
+import javax.ejb.Singleton;
 import shared.Repository;
 import shared.donnees.Departement;
 import shared.donnees.Diplome;
@@ -22,7 +24,7 @@ import shared.messages.demandes.DemandeValidationPedagogique;
  *
  * @author uzanl
  */
-//@Singleton
+@Singleton
 public class PreconventionRepository implements Repository<DemandePedagogique> {
 
     private Map<Long, DemandePedagogique> listePreconventions;
@@ -32,7 +34,7 @@ public class PreconventionRepository implements Repository<DemandePedagogique> {
         init();
     }
 
-    //@PostConstruct
+    @PostConstruct
     public void init() {
         this.id = new Long(0);
         listePreconventions = new HashMap<>();
@@ -43,7 +45,7 @@ public class PreconventionRepository implements Repository<DemandePedagogique> {
     private void test() {
         Stage s = new Stage(new Date(2018, 10, 10), new Date(2018, 12, 15), new Double(500), "Super stage!");
         Entreprise e = new Entreprise("49646464464", "Air France");
-        Diplome d = new Diplome("Master 2", "Informatique", new Departement(""));
+        Diplome d = new Diplome("Master XX", "Informatique", new Departement(""));
         Etudiant etudiant = new Etudiant("TEST", "TEST", "TEST");
         DemandeValidationPedagogique dvp = new DemandeValidationPedagogique(s, e, d, new Long(564), etudiant);
         DemandePedagogique dp = new DemandePedagogique(dvp);
