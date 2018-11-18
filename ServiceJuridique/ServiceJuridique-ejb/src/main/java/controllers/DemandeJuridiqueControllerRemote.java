@@ -5,8 +5,12 @@
  */
 package controllers;
 
+import donnees.DemandeJuridique;
+import java.util.Collection;
 import javax.ejb.Local;
 import javax.ejb.Remote;
+import shared.donnees.Entreprise;
+import shared.messages.notifications.NotificationAnnulationDemandeValidation;
 
 /**
  *
@@ -14,5 +18,16 @@ import javax.ejb.Remote;
  */
 @Remote
 public interface DemandeJuridiqueControllerRemote {
+
+    public Collection<DemandeJuridique> obtenirDemandes();
+
+    public void ajouterDemande(DemandeJuridique demande);
+
+    public void annulerDemande(NotificationAnnulationDemandeValidation n);
+
+    public void refuserDemande(Long id, String motif);
+
+    public void accepterDemande(Long id);
     
+    public boolean verifierEntreprise (Entreprise e);
 }

@@ -5,7 +5,16 @@
  */
 package controllers;
 
+import donnees.DemandeJuridique;
+import java.util.Collection;
+import javax.ejb.EJB;
 import javax.ejb.Stateless;
+import repositories.DemandeJuridiqueRepositoryLocal;
+import senders.ValidationJuridiqueSender;
+import shared.donnees.Entreprise;
+import shared.messages.notifications.NotificationAnnulationDemandeValidation;
+import shared.messages.validations.ValidationAdministrative;
+import shared.messages.validations.ValidationJuridique;
 
 /**
  *
@@ -14,6 +23,48 @@ import javax.ejb.Stateless;
 @Stateless
 public class DemandeJuridiqueController implements DemandeJuridiqueControllerRemote {
 
-    // Add business logic below. (Right-click in editor and choose
-    // "Insert Code > Add Business Method")
+    @EJB 
+    DemandeJuridiqueRepositoryLocal repo ;
+    
+    @EJB
+    ValidationJuridiqueSender validationJuridiqueSender;
+           
+    
+    @Override
+    public Collection<DemandeJuridique> obtenirDemandes() {
+        return this.repo.getAll();
+    }
+
+    @Override
+    public void ajouterDemande(DemandeJuridique demande) {
+        this.repo.insert(demande);
+    }
+
+    @Override
+    public void annulerDemande(NotificationAnnulationDemandeValidation n) {
+        this.repo.delete(n.getIdDemandeConvention());
+    }
+
+
+      @Override
+    public void refuserDemande(Long id, String motif) {
+        DemandeJuridique dp = repo.get(id);
+        repo.delete(id);
+        ValidationJuridique msg = new ValidationJuridique(id, false, motif);
+        validationJuridiqueSender.envoyerValidationPedagogique(msg);
+    }
+
+    @Override
+    public void accepterDemande(Long id) {
+        DemandeJuridique dp = repo.get(id);
+        repo.delete(id);
+        ValidationJuridique msg = new ValidationJuridique(id);
+        validationJuridiqueSender.envoyerValidationPedagogique(msg);
+    }
+
+    @Override
+    public boolean verifierEntreprise(Entreprise e) {
+        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+    }
+
 }

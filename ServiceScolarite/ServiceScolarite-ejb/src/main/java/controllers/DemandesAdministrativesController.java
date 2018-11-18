@@ -40,18 +40,14 @@ public class DemandesAdministrativesController implements DemandesAdministrative
 
     @Override
     public void refuserDemande(Long id, String motif) {
-        DemandeAdministrative dp = repo.get(id);
-        dp.setValidation(new ValidationAdministrative(id, false, motif));
-        repo.update(id, dp);
+        repo.delete(id);
         ValidationAdministrative msg = new ValidationAdministrative(id, false, motif);
         validationAdministrativeSender.envoyerValidationAdministrative(msg);
     }
 
     @Override
     public void accepterDemande(Long id) {
-        DemandeAdministrative dp = repo.get(id);
-        dp.setValidation(new ValidationAdministrative(id));
-        repo.update(id, dp);
+        repo.delete(id);
         ValidationAdministrative msg = new ValidationAdministrative(id);
         validationAdministrativeSender.envoyerValidationAdministrative(msg);
     }
