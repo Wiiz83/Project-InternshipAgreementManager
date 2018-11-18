@@ -13,7 +13,6 @@ import repositories.DemandeJuridiqueRepositoryLocal;
 import senders.ValidationJuridiqueSender;
 import shared.donnees.Entreprise;
 import shared.messages.notifications.NotificationAnnulationDemandeValidation;
-import shared.messages.validations.ValidationAdministrative;
 import shared.messages.validations.ValidationJuridique;
 
 /**
