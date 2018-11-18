@@ -48,7 +48,7 @@ public class PreconventionController implements PreconventionControllerRemote {
 
     @Override
     public Map<Long, DemandePedagogique> recupererPreconventionsValides(Long dptKey) {
-        return this.repo.getAllPreconventionsValides( dptKey);
+        return this.repo.getAllPreconventionsValides(dptKey);
     }
 
     /*
@@ -77,18 +77,18 @@ public class PreconventionController implements PreconventionControllerRemote {
     @Override
     public void accepterDemande(Long id, String nomTuteur) {
         DemandePedagogique dp = repo.get(id);
-        dp.setValidation(new ValidationPedagogique(id, nomTuteur));
-        repo.update(id, dp);
         ValidationPedagogique msg = new ValidationPedagogique(id, nomTuteur);
+        dp.setValidation(msg);
+        repo.update(id, dp);
         vpSender.envoyerValidationPedagogique(msg);
     }
 
     @Override
     public void refuserDemande(Long id, String motif) {
         DemandePedagogique dp = repo.get(id);
-        dp.setValidation(new ValidationPedagogique(id, false, motif));
-        repo.update(id, dp);
         ValidationPedagogique msg = new ValidationPedagogique(id, false, motif);
+        dp.setValidation(msg);
+        repo.update(id, dp);
         vpSender.envoyerValidationPedagogique(msg);
     }
 
