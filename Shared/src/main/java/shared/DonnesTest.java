@@ -24,7 +24,7 @@ public class DonnesTest {
     public Long id = new Long(564);
     public Stage s = new Stage(new Date(2018, 10, 10), new Date(2018, 12, 15), new Double(500), "Super stage!");
     public Entreprise e = new Entreprise("49646464464", "Air France");
-    public Diplome d = new Diplome("Master 2", "Informatique", new Departement(""));
+    public Diplome d = new Diplome("Master 2", "Informatique");
     public Etudiant etudiant = new Etudiant("TEST", "TEST", "TEST");
     public ResponsabiliteCivile r = new ResponsabiliteCivile("ResponsabiliteCivile_1","ResponsabiliteCivile_2");
     public ArrayList<Departement> listeDepartements = new ArrayList<>();
@@ -42,6 +42,8 @@ public class DonnesTest {
         listeDepartements.add(d2);
         listeDepartements.add(d3);
         listeDepartements.add(d4);
+        
+        d.setDepartement(d0);
         
         demandes.add(
                 new DemandeConventionMessage(

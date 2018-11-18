@@ -5,8 +5,11 @@
  */
 package controllers;
 
+import java.util.Collection;
 import javax.ejb.Local;
 import javax.ejb.Remote;
+import shared.donnees.Departement;
+import shared.donnees.Diplome;
 
 /**
  *
@@ -16,5 +19,9 @@ import javax.ejb.Remote;
 public interface DemandesConventionsEtudiantControllerRemote {
 
     void ajouterDemande(shared.messages.demandes.DemandeConventionMessage demande);
+    
+      Collection<Departement> obtenirDepartements();
+    
+      Collection<Diplome> obtenirDiplomes(Departement d);
 
 }

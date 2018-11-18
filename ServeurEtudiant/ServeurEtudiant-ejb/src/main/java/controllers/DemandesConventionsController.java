@@ -5,9 +5,12 @@
  */
 package controllers;
 
+import java.util.Collection;
 import javax.ejb.EJB;
 import javax.ejb.Stateless;
 import senders.DemandeConventionMessageSender;
+import shared.donnees.Departement;
+import shared.donnees.Diplome;
 import shared.messages.demandes.DemandeConventionMessage;
 
 /**
@@ -23,6 +26,16 @@ public class DemandesConventionsController implements DemandesConventionsEtudian
     @Override
     public void ajouterDemande(DemandeConventionMessage demande) {
         demandeConventionMessageSender.ajouterDemandeDeConvention(demande);
+    }
+
+    @Override
+    public Collection<Departement> obtenirDepartements() {
+        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+    }
+
+    @Override
+    public Collection<Diplome> obtenirDiplomes(Departement d) {
+        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
     }
 
 }

@@ -6,10 +6,13 @@
 package shared.donnees;
 
 import java.io.Serializable;
+import java.util.HashSet;
+import java.util.Set;
 
 public class Departement implements Serializable {
 
     private final String nom;
+    private final Set<Diplome> diplomes  = new HashSet<>(); ;
 
     public Departement(String nom) {
         this.nom = nom;
@@ -23,5 +26,17 @@ public class Departement implements Serializable {
     public String toString() {
         return "Departement{" + " nom=" + nom + "}";
     }
+
+    public void ajouterDiplome(Diplome d) {
+        this.diplomes.add(d);
+    }
+
+    public Set<Diplome> getDiplomes() {
+        return diplomes;
+    }
+    
+    
+
+ 
 
 }

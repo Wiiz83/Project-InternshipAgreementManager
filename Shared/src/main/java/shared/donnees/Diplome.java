@@ -17,11 +17,17 @@ public class Diplome implements Serializable {
     private final String intitule;
     private Departement departement;
 
-    public Diplome(String niveau, String intitule, Departement departement) {
+    public Diplome(String niveau, String intitule) {
         this.niveau = niveau;
-        this.intitule = intitule;
-        this.departement = departement;
+        this.intitule = intitule;        
     } 
+
+    public void setDepartement(Departement departement) {
+        this.departement = departement;
+        departement.ajouterDiplome(this);
+    }
+    
+   
     
     public String getNiveau() {
         return niveau;
