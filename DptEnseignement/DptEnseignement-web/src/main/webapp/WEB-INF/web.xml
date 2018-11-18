@@ -8,6 +8,10 @@
         <servlet-name>InvaliderPreconvention</servlet-name>
         <servlet-class>InvaliderPreconvention</servlet-class>
     </servlet>
+    <servlet>
+        <servlet-name>ChangerDepartement</servlet-name>
+        <servlet-class>ChangerDepartement</servlet-class>
+    </servlet>
     <servlet-mapping>
         <servlet-name>ValiderPreconvention</servlet-name>
         <url-pattern>/ValiderPreconvention</url-pattern>
@@ -15,6 +19,10 @@
     <servlet-mapping>
         <servlet-name>InvaliderPreconvention</servlet-name>
         <url-pattern>/InvaliderPreconvention</url-pattern>
+    </servlet-mapping>
+    <servlet-mapping>
+        <servlet-name>ChangerDepartement</servlet-name>
+        <url-pattern>/ChangerDepartement</url-pattern>
     </servlet-mapping>
     <session-config>
         <session-timeout>

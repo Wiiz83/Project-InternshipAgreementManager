@@ -35,24 +35,19 @@
                                 <li>
                                     <a href="./preconvalides.jsp">Préconventions validées</a>
                                 </li>
+                                <li>
+                                    <a href="./dptenseignement.jsp">Changer de département</a>
+                                </li>
                             </ul>
                             <ul class="nav navbar-nav navbar-right">
-                                <form class="navbar-form" role="search" method="post" action="Recherche">
-                                    <div class="form-group">
-                                        <select class="form-control" >
-                                            <%
-                                                javax.naming.InitialContext ic = new javax.naming.InitialContext();
-                                                PreconventionControllerRemote pc2 = (PreconventionControllerRemote) ic.lookup("controllers.PreconventionControllerRemote");
-                                                Collection<Departement> listeD = pc2.obtenirDepartements();
-                                                for (Departement depEnCours : listeD) {
-                                            %>
-                                            <option><%= depEnCours.getNom() %></option>
-                                            <%
-                                                }
-                                            %>
-                                        </select>
-                                    </div>
-                                </form>
+                                <span class="navbar-text">Département en cours : <% 
+                                    if (session.getAttribute("NomDptEnCours") != null) {  
+                                        out.print(session.getAttribute("NomDptEnCours"));
+                                    } else {
+                                        out.print("Informatique");
+                                    }
+                                %>
+                                </span>
                             </ul>
                         </div>
                     </nav>
@@ -76,7 +71,16 @@
                         <tbody>
 
                             <%
-                                Map<Long, DemandePedagogique> listePEC2 = pc2.recupererPreconventionsEnCours();
+                                javax.naming.InitialContext ic = new javax.naming.InitialContext();
+                                PreconventionControllerRemote pc2 = (PreconventionControllerRemote) ic.lookup("controllers.PreconventionControllerRemote");
+                               
+                                Long idDptEnCours = 1L;
+                                
+                                if(session.getAttribute("IdDptEnCours") != null){
+                                    idDptEnCours = Long.parseLong(session.getAttribute("IdDptEnCours").toString());
+                                }
+                                
+                                Map<Long, DemandePedagogique> listePEC2 = pc2.recupererPreconventionsEnCours(idDptEnCours);
                                 Long idEnCours;
                                 DemandePedagogique dpEnCours;
                                 for (Map.Entry<Long, DemandePedagogique> entry : listePEC2.entrySet()) {
@@ -128,6 +132,7 @@
                         <div class="form-group">
                             <label for="message-text" class="col-form-label">Nom du tuteur :</label>
                             <input type="text" class="form-control" id="recipient-name" name="nomTuteur">
+                            <input id="prodId" name="currentDepartementID" type="hidden" value="">
                         </div>
                         
                     </div>
@@ -154,6 +159,7 @@
                         <div class="form-group">
                             <label for="message-text" class="col-form-label">Motif du refus :</label>
                             <textarea class="form-control" id="message-text" name="motifRefus" ></textarea>
+                            <input id="prodId" name="currentDepartementID" type="hidden" value="">
                         </div>
                     </div>
                     <div class="modal-footer">
@@ -169,7 +175,6 @@
 <script LANGUAGE="JavaScript">
 $(document).on("click", ".storeId", function () {
      var currentId = $(this).data('id');
-     console.log(currentId);
      document.getElementById("getIdInvalide").value = currentId;
      document.getElementById("getIdValide").value = currentId;
 });
