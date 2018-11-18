@@ -23,6 +23,8 @@ public interface PreconventionControllerRemote {
 
     public Map<Long, DemandePedagogique> recupererPreconventionsEnCours();
 
+    public Map<Long, DemandePedagogique> recupererPreconventionsValides();
+
     public void ajouterDemande(shared.messages.demandes.DemandeValidationPedagogique demande);
 
     public void confirmerValidationFinale(ConfirmationValiditeStage cvs);

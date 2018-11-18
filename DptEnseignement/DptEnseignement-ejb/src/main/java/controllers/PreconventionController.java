@@ -96,4 +96,9 @@ public class PreconventionController implements PreconventionControllerRemote {
     public Collection<Diplome> obtenirDiplomes(Departement d) {
         return dprepo.obtenirDiplomes(d);
     }
+
+    @Override
+    public Map<Long, DemandePedagogique> recupererPreconventionsValides() {
+        return this.repo.getAllPreconventionsValides();
+    }
 }
