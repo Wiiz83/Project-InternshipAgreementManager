@@ -23,11 +23,6 @@ public class DemandesConventionsRepository extends KVRepository<DemandeConventio
 
     private final Collection<DemandeConvention> demandesArchivees = new HashSet<>();
 
-    Predicate<DemandeConvention> estValide = d
-            -> d.getValidationAdministrative() != null && d.getValidationAdministrative().isValide()
-            && d.getValidationJuridique() != null && d.getValidationJuridique().isValide()
-            && d.getValidationPedagogique() != null && d.getValidationPedagogique().isValide();
-
     @Override
     public Collection<DemandeConvention> obtenirDemandesEncours() {
         return this.kvstore.values().stream().filter(
@@ -42,7 +37,7 @@ public class DemandesConventionsRepository extends KVRepository<DemandeConventio
         return this.kvstore
                 .values()
                 .stream()
-                .filter(this.estValide
+                .filter(Predicats.estValidee
                 ).collect(Collectors.toSet());
     }
 
@@ -51,11 +46,7 @@ public class DemandesConventionsRepository extends KVRepository<DemandeConventio
         return this.kvstore
                 .values()
                 .stream()
-                .filter(
-                        d
-                        -> d.getValidationAdministrative() != null && !d.getValidationAdministrative().isValide()
-                        || d.getValidationJuridique() != null && !d.getValidationJuridique().isValide()
-                        || d.getValidationPedagogique() != null && !d.getValidationPedagogique().isValide()
+                .filter(Predicats.estRefusee
                 ).collect(Collectors.toSet());
     }
 
@@ -69,11 +60,6 @@ public class DemandesConventionsRepository extends KVRepository<DemandeConventio
         DemandeConvention d = this.kvstore.get(key);
         this.demandesArchivees.add(d);
         this.kvstore.remove(key);
-    }
-
-    @Override
-    public boolean estValide(Long key) {
-        return estValide.test(this.kvstore.get(key)) ;
     }
 
 }

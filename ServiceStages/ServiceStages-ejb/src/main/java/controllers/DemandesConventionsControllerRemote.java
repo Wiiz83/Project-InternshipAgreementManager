@@ -23,6 +23,8 @@ public interface DemandesConventionsControllerRemote {
     void validationPedagogique (shared.messages.validations.ValidationPedagogique vp);
     
     void validationJuridique (shared.messages.validations.ValidationJuridique vj);
+    
+    boolean estValide(DemandeConvention dc); 
 
     void archiverDemande(Long id);
 

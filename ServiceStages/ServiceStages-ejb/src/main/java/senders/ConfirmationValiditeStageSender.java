@@ -6,6 +6,8 @@
 package senders;
 
 import javax.annotation.Resource;
+import javax.ejb.LocalBean;
+import javax.ejb.Stateless;
 import javax.inject.Inject;
 import javax.jms.JMSConnectionFactory;
 import javax.jms.JMSContext;
@@ -16,8 +18,10 @@ import javax.jms.Queue;
  *
  * @author Mahdi
  */
+@Stateless
+@LocalBean
 public class ConfirmationValiditeStageSender {
-/*
+
     @Inject
     @JMSConnectionFactory("jms/Confirmation_Validite_StageFactory")
     private JMSContext context;
@@ -29,5 +33,5 @@ public class ConfirmationValiditeStageSender {
         JMSProducer mp = context.createProducer();
         mp.send(Confirmation_Validite_Stage, c);
     }
-*/
+
 }

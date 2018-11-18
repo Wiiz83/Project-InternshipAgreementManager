@@ -17,7 +17,9 @@ import shared.messages.demandes.DemandeValidationAdministrative;
 import shared.messages.demandes.DemandeValidationJuridique;
 import shared.messages.demandes.DemandeValidationPedagogique;
 import repositories.DemandesConventionsRepositoryLocal;
+import repositories.Predicats;
 import senders.ConfirmationValiditeStageSender;
+import shared.messages.notifications.ConfirmationValiditeStage;
 import shared.messages.validations.ValidationAdministrative;
 import shared.messages.validations.ValidationJuridique;
 import shared.messages.validations.ValidationPedagogique;
@@ -38,8 +40,8 @@ public class DemandesConventionsController implements DemandesConventionsControl
     @EJB
     ValidationJuridiqueSender validationJuridiqueSender;
 
-  //  @EJB
-  //  ConfirmationValiditeStageSender confirmationValiditeStageSender;
+    @EJB
+    ConfirmationValiditeStageSender confirmationValiditeStageSender;
 
     @EJB
     DemandesConventionsRepositoryLocal drepo;
@@ -89,16 +91,15 @@ public class DemandesConventionsController implements DemandesConventionsControl
         DemandeConvention demande = this.drepo.get(va.getKey());
         demande.setValidationAdministrative(va);
         this.drepo.update(va.getKey(), demande);
-        this.notifierSiValide(va.getKey());
+        this.verifierEtNotifier(demande);
     }
 
     @Override
     public void validationPedagogique(ValidationPedagogique vp) {
-        //bug null pointer ici!
         DemandeConvention demande = this.drepo.get(vp.getKey());
         demande.setValidationPedagogique(vp);
         this.drepo.update(vp.getKey(), demande);
-        this.notifierSiValide(vp.getKey());
+        this.verifierEtNotifier(demande);
     }
 
     @Override
@@ -106,16 +107,21 @@ public class DemandesConventionsController implements DemandesConventionsControl
         DemandeConvention demande = this.drepo.get(vj.getKey());
         demande.setValidationJuridique(vj);
         this.drepo.update(vj.getKey(), demande);
-        this.notifierSiValide(vj.getKey());
+        this.verifierEtNotifier(demande);
     }
 
-    private boolean notifierSiValide(Long key) {
-        boolean valide = this.drepo.estValide(key);
-       /* if (valide) {
-            confirmationValiditeStageSender.demanderConfirmerValiditeStage(
-                    new shared.messages.notifications.ConfirmationValiditeStage(key)
-            );
-        } */
-        return valide;
+    private void verifierEtNotifier(DemandeConvention demande) {
+        if (Predicats.estValidee.test(demande)) {
+            this.confirmationValiditeStageSender.demanderConfirmerValiditeStage(new ConfirmationValiditeStage(demande.getKey()));
+        }
+        if (Predicats.estRefusee.test(demande)) {
+
+        }
+
+    }
+
+    @Override
+    public boolean estValide(DemandeConvention dc) {
+        return Predicats.estValidee.test(demande);
     }
 }

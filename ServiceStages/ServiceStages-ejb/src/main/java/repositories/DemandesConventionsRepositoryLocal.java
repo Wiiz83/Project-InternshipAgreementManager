@@ -27,5 +27,4 @@ public interface DemandesConventionsRepositoryLocal extends Repository<DemandeCo
 
     void archiver(Long key);
 
-    boolean estValide(Long key);
 }

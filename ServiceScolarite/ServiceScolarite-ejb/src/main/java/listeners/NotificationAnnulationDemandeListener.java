@@ -26,22 +26,24 @@ import shared.messages.notifications.NotificationAnnulationDemandeValidation;
     @ActivationConfigProperty(propertyName = "destinationType", propertyValue = "javax.jms.Topic")
 })
 public class NotificationAnnulationDemandeListener implements MessageListener {
-        @EJB 
+
+    @EJB
     DemandesAdministrativesControllerRemote ctrl;
+
     public NotificationAnnulationDemandeListener() {
     }
-    
-       @Override
+
+    @Override
     public void onMessage(Message message) {
-        if (message instanceof ObjectMessage) {  
-            ObjectMessage om = (ObjectMessage) message;  
-            try {  
-                NotificationAnnulationDemandeValidation  demande = om.getBody(NotificationAnnulationDemandeValidation.class);  
-                System.out.println("Scolarite::Demande_Validation_Administrative :" + demande);  
+        if (message instanceof ObjectMessage) {
+            ObjectMessage om = (ObjectMessage) message;
+            try {
+                NotificationAnnulationDemandeValidation demande = om.getBody(NotificationAnnulationDemandeValidation.class);
+                System.out.println("Scolarite::NotificationAnnulationDemandeValidation :" + demande);
                 ctrl.annulerDemande(demande);
-            } catch (JMSException e) {  
-            }  
-        }  
-    } 
-    
+            } catch (JMSException e) {
+            }
+        }
+    }
+
 }
