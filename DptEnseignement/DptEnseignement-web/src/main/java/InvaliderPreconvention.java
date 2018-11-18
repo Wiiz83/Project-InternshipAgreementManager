@@ -26,8 +26,12 @@ public class InvaliderPreconvention extends HttpServlet {
     protected void processRequest(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
         String idPreconv = request.getParameter("IdPreconvention");
         String motifRefus = request.getParameter("motifRefus");
-        if (!idPreconv.isEmpty()) {
-            System.out.println("servlet.processRequest() : " + idPreconv);
+        System.out.println(idPreconv + " - "+ motifRefus);
+        
+        if (!idPreconv.isEmpty() && !motifRefus.isEmpty()) {
+            pc.refuserDemande(Long.parseLong(idPreconv), motifRefus);
+            RequestDispatcher rd = request.getRequestDispatcher("./index.jsp");
+            rd.forward(request, response);
         } else {
             RequestDispatcher rd = request.getRequestDispatcher("./index.jsp");
             rd.forward(request, response);

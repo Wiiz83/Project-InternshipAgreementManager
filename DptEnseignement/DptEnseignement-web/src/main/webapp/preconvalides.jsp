@@ -1,3 +1,6 @@
+<%@page import="donnees.DemandePedagogique"%>
+<%@page import="java.util.Map"%>
+<%@page import="controllers.PreconventionControllerRemote"%>
 <!DOCTYPE html>
 <html>
     <head>
@@ -62,24 +65,37 @@
                             </tr>
                         </thead>
                         <tbody>
+
+                            <%
+                                javax.naming.InitialContext ic = new javax.naming.InitialContext();
+                                PreconventionControllerRemote pc2 = (PreconventionControllerRemote) ic.lookup("controllers.PreconventionControllerRemote");
+                                Map<Long, DemandePedagogique> listePEC2 = pc2.recupererPreconventionsEnCours();
+                                Long idEnCours;
+                                DemandePedagogique dpEnCours;
+                                for (Map.Entry<Long, DemandePedagogique> entry : listePEC2.entrySet()) {
+                                    idEnCours = entry.getKey();
+                                    dpEnCours = entry.getValue();
+                            %>
                             <tr>
-                                <td>XXXX</td>
-                                <td>XXXX</td>
-                                <td>XXXX</td>
-                                <td>XXXX</td>
-                                <td>XXXX</td>
-                                <td>XXXX</td>
-                                <td>XXXX</td>
-                                <td>XXXX</td>
+                                <td><%= idEnCours%></td>
+                                <td><%= dpEnCours.getDemande().getEtudiant().getPrenom() + " " + dpEnCours.getDemande().getEtudiant().getNom().toUpperCase() + "(" + dpEnCours.getDemande().getEtudiant().getNumero() + ")" %></td>
+                                <td><%= dpEnCours.getDemande().getDiplome().getNiveau() + " " + dpEnCours.getDemande().getDiplome().getIntitule()%></td>
+                                <td><%= dpEnCours.getDemande().getEntreprise().getNom()%></td>
+                                <td><%= dpEnCours.getDemande().getStage().getDebut()%></td>
+                                <td><%= dpEnCours.getDemande().getStage().getFin()%></td>
+                                <td><%= dpEnCours.getDemande().getStage().getResume() %></td>
                                 <td>
-                                    <a href="javascript:void(0)" title="Ouvrir">
+                                    <button>
                                         <i class="glyphicon glyphicon-eye-open"></i>
-                                    </a>
-                                    <a href="javascript:void(0)" title="Supprimer">
+                                    </button>
+                                    <button class="storeId" data-id="<%= idEnCours%>" data-toggle="modal" data-target="#ModelPreconvInvalide">
                                         <i class="glyphicon glyphicon-floppy-remove"></i>
-                                    </a>      
+                                    </button>
                                 </td>
                             </tr>
+                            <%
+                                }
+                            %>
                         </tbody>
                     </table>
                 </div>
