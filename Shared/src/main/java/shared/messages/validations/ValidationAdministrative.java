@@ -19,4 +19,9 @@ public class ValidationAdministrative extends Validation {
         super(idDemandeValidation, valide, causeRefus);
     }
 
+    @Override
+    public String getVolet() {
+        return "Administratif";
+    }
+
 }

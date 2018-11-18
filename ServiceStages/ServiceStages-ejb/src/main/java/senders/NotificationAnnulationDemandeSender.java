@@ -12,9 +12,7 @@ import javax.inject.Inject;
 import javax.jms.JMSConnectionFactory;
 import javax.jms.JMSContext;
 import javax.jms.JMSProducer;
-import javax.jms.Queue;
 import javax.jms.Topic;
-import shared.messages.demandes.DemandeValidationAdministrative;
 import shared.messages.notifications.NotificationAnnulationDemandeValidation;
 
 /**

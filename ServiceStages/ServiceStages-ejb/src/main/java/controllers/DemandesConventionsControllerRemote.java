@@ -8,6 +8,7 @@ package controllers;
 import donnees.DemandeConvention;
 import java.util.Collection;
 import javax.ejb.Remote;
+import shared.messages.validations.Validation;
 
 /**
  *
@@ -35,4 +36,6 @@ public interface DemandesConventionsControllerRemote {
     Collection<DemandeConvention> obtenirDemandesRefusees();
 
     Collection<DemandeConvention> obtenirDemandesArchivees();  
+    
+    Validation obtenirVoletInvalide(DemandeConvention dc);
 }

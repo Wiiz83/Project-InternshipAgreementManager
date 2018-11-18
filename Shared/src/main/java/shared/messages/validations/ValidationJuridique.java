@@ -19,5 +19,10 @@ public class ValidationJuridique extends Validation {
         super(idDemandeValidation, valide, causeRefus);
     }
 
+    @Override
+    public String getVolet() {
+        return "Juridique";
+    }
+
     
 }

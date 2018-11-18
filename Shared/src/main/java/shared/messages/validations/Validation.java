@@ -18,11 +18,13 @@ public abstract class Validation implements Serializable, HasKey {
     private final boolean valide;
     private final String causeRefus;
 
+
     public Validation(Long idDemandeValidation,boolean valide, String causeRefus) {
         this.idDemandeValidation = idDemandeValidation; 
         this.valide = valide;
         this.causeRefus = causeRefus;
     }
+
 
     protected Validation(Long idDemandeValidation) {
         this.idDemandeValidation=idDemandeValidation;
@@ -33,6 +35,8 @@ public abstract class Validation implements Serializable, HasKey {
     public boolean isValide() {
         return valide;
     }
+    
+    abstract public String getVolet();
 
     public Long getIdDemandeValidation() {
         return idDemandeValidation;

@@ -30,4 +30,9 @@ public class ValidationPedagogique extends Validation {
     public String toString() {
         return "ValidationPedagogique{" + "nomTuteur=" + nomTuteur + super.toString() +'}';
     }
+
+    @Override
+    public String getVolet() {
+        return "Pédagogique";
+    }
 }
