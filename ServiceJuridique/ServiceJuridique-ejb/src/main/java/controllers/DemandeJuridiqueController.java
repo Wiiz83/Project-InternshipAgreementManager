@@ -48,7 +48,6 @@ public class DemandeJuridiqueController implements DemandeJuridiqueControllerRem
 
       @Override
     public void refuserDemande(Long id, String motif) {
-        DemandeJuridique dp = repo.get(id);
         repo.delete(id);
         ValidationJuridique msg = new ValidationJuridique(id, false, motif);
         validationJuridiqueSender.envoyerValidationPedagogique(msg);
@@ -56,7 +55,6 @@ public class DemandeJuridiqueController implements DemandeJuridiqueControllerRem
 
     @Override
     public void accepterDemande(Long id) {
-        DemandeJuridique dp = repo.get(id);
         repo.delete(id);
         ValidationJuridique msg = new ValidationJuridique(id);
         validationJuridiqueSender.envoyerValidationPedagogique(msg);
