@@ -6,21 +6,22 @@
 package donnees;
 
 import java.io.Serializable;
-import shared.donnees.ConfirmationAdministrative;
-import shared.donnees.ConfirmationJuridique;
-import shared.donnees.ConfirmationPedagogique;
 import shared.donnees.Diplome;
 import shared.donnees.Entreprise;
 import shared.donnees.Etudiant;
+import shared.donnees.HasKey;
 import shared.donnees.ResponsabiliteCivile;
 import shared.donnees.Stage;
+import shared.messages.validations.ValidationAdministrative;
+import shared.messages.validations.ValidationJuridique;
+import shared.messages.validations.ValidationPedagogique;
 
 /**
  *
  * @author Mahdi
  */
-public class DemandeConvention implements Serializable {
-    private int id;
+public class DemandeConvention implements Serializable, HasKey {
+    private Long id;
    
     private Etudiant etudiant;
     private Diplome diplome;
@@ -28,9 +29,33 @@ public class DemandeConvention implements Serializable {
     private Stage stage;
     private Entreprise entreprise;
     
-    private ConfirmationJuridique confirmationJuridique;
-    private ConfirmationPedagogique confirmationPedagogique;
-    private ConfirmationAdministrative confirmationAdministrative;
+    private ValidationJuridique validationJuridique;
+    private ValidationPedagogique validationPedagogique;
+    private ValidationAdministrative validationAdministrative;
+
+    public ValidationJuridique getValidationJuridique() {
+        return validationJuridique;
+    }
+
+    public void setValidationJuridique(ValidationJuridique validationJuridique) {
+        this.validationJuridique = validationJuridique;
+    }
+
+    public ValidationPedagogique getValidationPedagogique() {
+        return validationPedagogique;
+    }
+
+    public void setValidationPedagogique(ValidationPedagogique validationPedagogique) {
+        this.validationPedagogique = validationPedagogique;
+    }
+
+    public ValidationAdministrative getValidationAdministrative() {
+        return validationAdministrative;
+    }
+
+    public void setValidationAdministrative(ValidationAdministrative validationAdministrative) {
+        this.validationAdministrative = validationAdministrative;
+    }
     
     public DemandeConvention(Etudiant etudiant, Diplome diplome, ResponsabiliteCivile responsabiliteCivile, Stage stage, Entreprise entreprise) {
         this.etudiant = etudiant;
@@ -40,12 +65,8 @@ public class DemandeConvention implements Serializable {
         this.entreprise = entreprise;
     }
 
-    public int getId() {
+    public Long getId() {
         return id;
-    }
-
-    public void setId(int id) {
-        this.id = id;
     }
 
     public Etudiant getEtudiant() {
@@ -87,22 +108,22 @@ public class DemandeConvention implements Serializable {
     public void setEntreprise(Entreprise entreprise) {
         this.entreprise = entreprise;
     }    
-    
-    public void setConfirmationJuridique(ConfirmationJuridique confirmationJuridique) {
-        this.confirmationJuridique = confirmationJuridique;
+ 
+    @Override
+    public Long getKey() {
+        return id;
     }
 
-    public void setConfirmationPedagogique(ConfirmationPedagogique confirmationPedagogique) {
-        this.confirmationPedagogique = confirmationPedagogique;
-    }
-
-    public void setConfirmationAdministrative(ConfirmationAdministrative confirmationAdministrative) {
-        this.confirmationAdministrative = confirmationAdministrative;
+    @Override
+    public void setKey(Long key) {
+        this.id= key;
     }
     
+        
     @Override
     public String toString() {
         return "DemandeConvention{" + "etudiant=" + etudiant + ", diplome=" + diplome + ", responsabiliteCivile=" + responsabiliteCivile + ", stage=" + stage + ", entreprise=" + entreprise + '}';
     }
+
     
 }

@@ -11,8 +11,12 @@ package shared.messages.validations;
  */
 public class ValidationAdministrative extends Validation {
 
-    public ValidationAdministrative(Long idDemandeValidation, boolean confirmation, String causeRefus) {
-        super(idDemandeValidation, confirmation, causeRefus);
+    public ValidationAdministrative(Long idDemandeValidation) {
+        super(idDemandeValidation);
     }
-    
+
+    public ValidationAdministrative(Long idDemandeValidation, boolean valide, String causeRefus) {
+        super(idDemandeValidation, valide, causeRefus);
+    }
+
 }

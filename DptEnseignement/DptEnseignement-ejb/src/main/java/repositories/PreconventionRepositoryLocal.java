@@ -9,7 +9,7 @@ import donnees.DemandePedagogique;
 import java.util.Collection;
 import java.util.Map;
 import javax.ejb.Local;
-import shared.Repository;
+import shared.repository.Repository;
 
 /**
  *

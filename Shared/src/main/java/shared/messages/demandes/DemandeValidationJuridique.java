@@ -21,7 +21,7 @@ public class DemandeValidationJuridique extends DemandeValidation {
     private Entreprise entreprise;
 
 
-    public DemandeValidationJuridique(ResponsabiliteCivile responsabiliteCivile, Stage stage, Entreprise entreprise, Long idDemandeConvention, Etudiant etudiant) {
+    public DemandeValidationJuridique(Long idDemandeConvention,ResponsabiliteCivile responsabiliteCivile, Stage stage, Entreprise entreprise,  Etudiant etudiant) {
         super(idDemandeConvention, etudiant);
         this.responsabiliteCivile = responsabiliteCivile;
         this.stage = stage;

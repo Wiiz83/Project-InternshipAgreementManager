@@ -3,7 +3,7 @@
  * To change this template file, choose Tools | Templates
  * and open the template in the editor.
  */
-package shared;
+package shared.repository;
 
 import java.util.Collection;
 
@@ -25,4 +25,6 @@ public interface Repository<T> {
     public void update(Long id, T dp);
 
     public void delete(Long id);
+    
+    
 }

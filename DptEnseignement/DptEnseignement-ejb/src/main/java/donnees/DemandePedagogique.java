@@ -5,17 +5,18 @@
  */
 package donnees;
 
-import shared.donnees.ConfirmationPedagogique;
+import shared.messages.validations.ValidationPedagogique;
+import shared.donnees.HasKey;
 import shared.messages.demandes.DemandeValidationPedagogique;
 
 /**
  *
  * @author Mahdi
  */
-public class DemandePedagogique {
+public class DemandePedagogique implements HasKey {
 
     DemandeValidationPedagogique demande;
-    ConfirmationPedagogique confirmation;
+    ValidationPedagogique validation;
     Boolean validationFinale;
 
     public DemandePedagogique(DemandeValidationPedagogique demande) {
@@ -26,9 +27,6 @@ public class DemandePedagogique {
         return demande;
     }
 
-    public ConfirmationPedagogique getConfirmation() {
-        return confirmation;
-    }
 
     public Boolean getValidationFinale() {
         return validationFinale;
@@ -38,7 +36,26 @@ public class DemandePedagogique {
         this.validationFinale = validationFinale;
     }
 
-    public void setConfirmation(ConfirmationPedagogique confirmation) {
-        this.confirmation = confirmation;
+    public ValidationPedagogique getValidation() {
+        return validation;
+    }
+
+    public void setValidation(ValidationPedagogique validation) {
+        this.validation = validation;
+    }
+    
+    @Override
+    public String toString() {
+        return "DemandePedagogique{" + "demande=" + demande + ", confirmation=" + validation + ", validationFinale=" + validationFinale + '}';
+    }    
+
+    @Override
+    public Long getKey() {
+        return this.demande.getIdDemandeConvention();
+    }
+
+    @Override
+    public void setKey(Long key) {
+        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
     }
 }

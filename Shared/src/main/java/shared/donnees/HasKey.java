@@ -9,6 +9,7 @@ package shared.donnees;
  *
  * @author Mahdi
  */
-public class ConfirmationAdministrative extends Confirmation{
-    
+public interface HasKey {
+    public Long getKey();
+    public void setKey(Long key);
 }

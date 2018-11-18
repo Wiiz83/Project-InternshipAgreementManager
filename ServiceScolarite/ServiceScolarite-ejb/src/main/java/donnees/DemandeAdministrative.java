@@ -5,7 +5,7 @@
  */
 package donnees;
 
-import shared.donnees.ConfirmationAdministrative;
+import shared.messages.validations.ValidationAdministrative;
 import shared.messages.demandes.DemandeValidationAdministrative;
 
 /**
@@ -14,10 +14,28 @@ import shared.messages.demandes.DemandeValidationAdministrative;
  */
 public class DemandeAdministrative {
 
-    public DemandeValidationAdministrative demande;
-    public ConfirmationAdministrative confirmation;
+    private DemandeValidationAdministrative demande;
+    private ValidationAdministrative validation;
 
     public DemandeAdministrative(DemandeValidationAdministrative demande) {
         this.demande = demande;
     }
+
+    public DemandeValidationAdministrative getDemande() {
+        return demande;
+    }
+
+    public void setDemande(DemandeValidationAdministrative demande) {
+        this.demande = demande;
+    }
+
+    public ValidationAdministrative getValidation() {
+        return validation;
+    }
+
+    public void setValidation(ValidationAdministrative validation) {
+        this.validation = validation;
+    }
+    
+    
 }

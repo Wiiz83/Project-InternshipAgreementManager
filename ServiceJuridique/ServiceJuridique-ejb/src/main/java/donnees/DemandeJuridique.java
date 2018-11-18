@@ -5,7 +5,7 @@
  */
 package donnees;
 
-import shared.donnees.ConfirmationJuridique;
+import shared.messages.validations.ValidationJuridique;
 import shared.messages.demandes.DemandeValidationJuridique;
 
 /**
@@ -14,10 +14,27 @@ import shared.messages.demandes.DemandeValidationJuridique;
  */
 public class DemandeJuridique {
 
-    public DemandeValidationJuridique demande;
-    public ConfirmationJuridique confirmation;
+    private DemandeValidationJuridique demande;
+    private ValidationJuridique confirmation;
 
     public DemandeJuridique(DemandeValidationJuridique demande) {
         this.demande = demande;
     }
+
+    public DemandeValidationJuridique getDemande() {
+        return demande;
+    }
+
+    public void setDemande(DemandeValidationJuridique demande) {
+        this.demande = demande;
+    }
+
+    public ValidationJuridique getConfirmation() {
+        return confirmation;
+    }
+
+    public void setConfirmation(ValidationJuridique confirmation) {
+        this.confirmation = confirmation;
+    }
+    
 }

@@ -11,7 +11,6 @@ import javax.ejb.EJB;
 import javax.ejb.Stateless;
 import repositories.PreconventionRepositoryLocal;
 import senders.ValidationPedagogiqueSender;
-import shared.donnees.ConfirmationPedagogique;
 import shared.messages.validations.ValidationPedagogique;
 
 /**
@@ -66,18 +65,18 @@ public class PreconventionController implements PreconventionControllerRemote {
     @Override
     public void accepterDemande(Long id, String nomTuteur) {
         DemandePedagogique dp = repo.get(id);
-        dp.setConfirmation(new ConfirmationPedagogique(nomTuteur));
+        dp.setValidation(new ValidationPedagogique(id, nomTuteur));
         repo.update(id, dp);
-        ValidationPedagogique msg = new ValidationPedagogique(nomTuteur, id, true, null);
+        ValidationPedagogique msg = new ValidationPedagogique(id, nomTuteur);
         vpSender.envoyerValidationPedagogique(msg);
     }
 
     @Override
     public void refuserDemande(Long id, String motif) {
         DemandePedagogique dp = repo.get(id);
-        dp.setConfirmation(new ConfirmationPedagogique(false, motif));
+        dp.setValidation(new ValidationPedagogique(id, false, motif));
         repo.update(id, dp);
-        ValidationPedagogique msg = new ValidationPedagogique(null, id, true, motif);
+        ValidationPedagogique msg = new ValidationPedagogique(id, false, motif);
         vpSender.envoyerValidationPedagogique(msg);
     }
 }

@@ -10,13 +10,18 @@ package shared.messages.validations;
  * @author Mahdi
  */
 public class ValidationPedagogique extends Validation {
-    private String nomTuteur;
+    private final String nomTuteur;
 
-    public ValidationPedagogique(String nomTuteur, Long idDemandeValidation, boolean confirmation, String causeRefus) {
-        super(idDemandeValidation, confirmation, causeRefus);
+    public ValidationPedagogique(Long id, String nomTuteur) {
+        super(id);
         this.nomTuteur = nomTuteur;
     }
 
+    public ValidationPedagogique(Long idDemandeValidation, boolean valide, String causeRefus) {
+        super(idDemandeValidation, valide, causeRefus);
+        this.nomTuteur = null;
+    }
+    
     public String getNomTuteur() {
         return nomTuteur;
     }
@@ -25,7 +30,4 @@ public class ValidationPedagogique extends Validation {
     public String toString() {
         return "ValidationPedagogique{" + "nomTuteur=" + nomTuteur + super.toString() +'}';
     }
-    
-    
-    
 }

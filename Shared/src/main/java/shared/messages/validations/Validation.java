@@ -6,38 +6,54 @@
 package shared.messages.validations;
 
 import java.io.Serializable;
-
+import shared.donnees.HasKey;
 
 /**
  *
  * @author Mahdi
  */
-public abstract class Validation implements Serializable {
-    private Long idDemandeValidation;
-    private boolean confirmation;
-    private String causeRefus;
+public abstract class Validation implements Serializable, HasKey {
 
-    Validation(Long idDemandeValidation, boolean confirmation, String causeRefus) {
-        this.idDemandeValidation = idDemandeValidation;
-        this.confirmation = confirmation;
+    private Long idDemandeValidation;
+    private final boolean valide;
+    private final String causeRefus;
+
+    public Validation(Long idDemandeValidation,boolean valide, String causeRefus) {
+        this.valide = valide;
         this.causeRefus = causeRefus;
+    }
+
+    protected Validation(Long idDemandeValidation) {
+        this.idDemandeValidation=idDemandeValidation;
+        this.valide = true;
+        causeRefus = null;
+    }
+
+    public boolean isValide() {
+        return valide;
     }
 
     public Long getIdDemandeValidation() {
         return idDemandeValidation;
     }
 
-    public boolean isConfirmation() {
-        return confirmation;
-    }
-
     public String getCauseRefus() {
         return causeRefus;
-    }  
-    
+    }
+
     @Override
     public String toString() {
-        return "Validation{" + "idDemandeValidation=" + idDemandeValidation + ", confirmation=" + confirmation + ", causeRefus=" + causeRefus + '}';
+        return "Validation{" + "idDemandeValidation=" + idDemandeValidation + ", confirmation=" + valide + ", causeRefus=" + causeRefus + '}';
     }
-    
+
+    @Override
+    public Long getKey() {
+        return this.idDemandeValidation;
+    }
+
+    @Override
+    public void setKey(Long key) {
+        this.idDemandeValidation = key;
+    }
+
 }

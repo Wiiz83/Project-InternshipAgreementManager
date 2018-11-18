@@ -11,8 +11,13 @@ package shared.messages.validations;
  */
 public class ValidationJuridique extends Validation {
 
-    public ValidationJuridique(Long idDemandeValidation, boolean confirmation, String causeRefus) {
-        super(idDemandeValidation, confirmation, causeRefus);
+    public ValidationJuridique(Long idDemandeValidation) {
+        super(idDemandeValidation);
     }
+    
+    public ValidationJuridique(Long idDemandeValidation, boolean valide, String causeRefus) {
+        super(idDemandeValidation, valide, causeRefus);
+    }
+
     
 }
