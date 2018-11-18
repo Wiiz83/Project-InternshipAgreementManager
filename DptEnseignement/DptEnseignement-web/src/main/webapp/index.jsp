@@ -1,3 +1,5 @@
+<%@page import="shared.donnees.Departement"%>
+<%@page import="java.util.Collection"%>
 <%@page import="controllers.PreconventionControllerRemote"%>
 <%@page import="controllers.PreconventionController"%>
 <%@page import="javax.naming.InitialContext"%>
@@ -10,9 +12,9 @@
         <title>Département d'enseignement</title>
         <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
         <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js"></script>
-        <link href="//netdna.bootstrapcdn.com/bootstrap/3.0.0/css/bootstrap.min.css" rel="stylesheet">
-        <script charset="utf-8" src="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/js/bootstrap.min.js"></script>
-        <script charset="utf-8" src="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/js/bootstrap.bundle.min.js"></script>
+        <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous">
+        <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap-theme.min.css" integrity="sha384-rHyoN1iRsVXV4nD0JutlnGaslCJuC7uwjduW9SVrLvRYooPp2bWYgmgJQIXwl/Sp" crossorigin="anonymous">
+        <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js" integrity="sha384-Tc5IQib027qvyjSMfHjOMaLkfuWVxZxUPnCJA7l2mCWNIpG9mGCD8wGNIcPD7Txa" crossorigin="anonymous"></script>
     </head>
     <body>
         <div class="container-fluid">
@@ -38,11 +40,16 @@
                                 <form class="navbar-form" role="search" method="post" action="Recherche">
                                     <div class="form-group">
                                         <select class="form-control" >
-                                            <option>Informatique</option>
-                                            <option>2</option>
-                                            <option>3</option>
-                                            <option>4</option>
-                                            <option>5</option>
+                                            <%
+                                                javax.naming.InitialContext ic = new javax.naming.InitialContext();
+                                                PreconventionControllerRemote pc2 = (PreconventionControllerRemote) ic.lookup("controllers.PreconventionControllerRemote");
+                                                Collection<Departement> listeD = pc2.obtenirDepartements();
+                                                for (Departement depEnCours : listeD) {
+                                            %>
+                                            <option><%= depEnCours.getNom() %></option>
+                                            <%
+                                                }
+                                            %>
                                         </select>
                                     </div>
                                 </form>
@@ -69,8 +76,6 @@
                         <tbody>
 
                             <%
-                                javax.naming.InitialContext ic = new javax.naming.InitialContext();
-                                PreconventionControllerRemote pc2 = (PreconventionControllerRemote) ic.lookup("controllers.PreconventionControllerRemote");
                                 Map<Long, DemandePedagogique> listePEC2 = pc2.recupererPreconventionsEnCours();
                                 Long idEnCours;
                                 DemandePedagogique dpEnCours;
@@ -90,11 +95,11 @@
                                     <button>
                                         <i class="glyphicon glyphicon-eye-open"></i>
                                     </button>
-                                    <button OnClick=<% session.setAttribute("idEnCours", idEnCours); %> data - toggle = "modal" data-target="#ModelPreconvValide">
+                                    <button class="storeId" data-id="<%= idEnCours%>" data-toggle="modal" data-target="#ModelPreconvValide">
                                         <i class="glyphicon glyphicon-ok"></i>
                                     </button>
-                                    <button OnClick=<% session.setAttribute("idEnCours", idEnCours); %> data - toggle = "modal" data-target="#ModelPreconvInvalide">
-                                        <i class="glyphicon glyphicon-ok"></i>
+                                    <button class="storeId" data-id="<%= idEnCours%>" data-toggle="modal" data-target="#ModelPreconvInvalide">
+                                        <i class="glyphicon glyphicon-remove"></i>
                                     </button>
                                 </td>
                             </tr>
@@ -115,7 +120,6 @@
             <div class="modal-content">
                 <form method="post" action="ValiderPreconvention">
                     <div class="modal-header">
-                        <h5 class="modal-title" id="exampleModalLongTitle">Modal title</h5>
                         <button type="button" class="close" data-dismiss="modal" aria-label="Close">
                             <span aria-hidden="true">&times;</span>
                         </button>
@@ -129,7 +133,7 @@
                     </div>
                     <div class="modal-footer">
                         <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
-                        <button type="button" class="btn btn-primary" type="submit" name="IdPreconvention" value="<%= session.getAttribute("idEnCours")%>">Envoyer</button>
+                        <button id="getIdValide" class="btn btn-primary" type="submit" name="IdPreconvention" value="">Envoyer</button>
                     </div>
                 </form>
             </div>
@@ -142,7 +146,6 @@
             <div class="modal-content">
                 <form method="post" action="InvaliderPreconvention">
                     <div class="modal-header">
-                        <h5 class="modal-title" id="exampleModalLongTitle">Modal title</h5>
                         <button type="button" class="close" data-dismiss="modal" aria-label="Close">
                             <span aria-hidden="true">&times;</span>
                         </button>
@@ -155,12 +158,22 @@
                     </div>
                     <div class="modal-footer">
                         <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
-                        <button type="button" class="btn btn-primary" type="submit" name="IdPreconvention" value="<%= session.getAttribute("idEnCours")%>">Envoyer</button>
+                        <button id="getIdInvalide" class="btn btn-primary" type="submit" name="IdPreconvention" value="">Envoyer</button>
                     </div>
                 </form>
             </div>
         </div>
     </div>   
+
+                    
+<script LANGUAGE="JavaScript">
+$(document).on("click", ".storeId", function () {
+     var currentId = $(this).data('id');
+     console.log(currentId);
+     document.getElementById("getIdInvalide").value = currentId;
+     document.getElementById("getIdValide").value = currentId;
+});
+</script>
 
 </body>
 </html>
