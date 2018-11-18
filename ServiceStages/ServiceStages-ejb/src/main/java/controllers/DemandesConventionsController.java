@@ -17,6 +17,7 @@ import shared.messages.demandes.DemandeValidationAdministrative;
 import shared.messages.demandes.DemandeValidationJuridique;
 import shared.messages.demandes.DemandeValidationPedagogique;
 import repositories.DemandesConventionsRepositoryLocal;
+import senders.ConfirmationValiditeStageSender;
 import shared.messages.validations.ValidationAdministrative;
 import shared.messages.validations.ValidationJuridique;
 import shared.messages.validations.ValidationPedagogique;
@@ -37,6 +38,8 @@ public class DemandesConventionsController implements DemandesConventionsControl
     @EJB
     ValidationJuridiqueSender validationJuridiqueSender;
 
+    @EJB
+    ConfirmationValiditeStageSender confirmationValiditeStageSender;
 
     @EJB
     DemandesConventionsRepositoryLocal drepo;
@@ -82,24 +85,36 @@ public class DemandesConventionsController implements DemandesConventionsControl
     }
 
     @Override
-    public void validationAdministrative(ValidationAdministrative va) {        
-       this.drepo.get(va.getKey()).setValidationAdministrative(va);
-       if( this.drepo.estValide(va.getKey())) {
-           // TODO 
-       }
+    public void validationAdministrative(ValidationAdministrative va) {
+        DemandeConvention demande = this.drepo.get(va.getKey());
+        demande.setValidationAdministrative(va);
+        this.drepo.update(va.getKey(), demande);
+        this.notifierSiValide(va.getKey());
     }
 
     @Override
     public void validationPedagogique(ValidationPedagogique vp) {
-        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+        DemandeConvention demande = this.drepo.get(vp.getKey());
+        demande.setValidationPedagogique(vp);
+        this.drepo.update(vp.getKey(), demande);
+        this.notifierSiValide(vp.getKey());
     }
 
     @Override
     public void validationJuridique(ValidationJuridique vj) {
-        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+        DemandeConvention demande = this.drepo.get(vj.getKey());
+        demande.setValidationJuridique(vj);
+        this.drepo.update(vj.getKey(), demande);
+        this.notifierSiValide(vj.getKey());
     }
-    
-    private boolean estValide (Long key) {
-       return this.drepo.estValide(key);
+
+    private boolean notifierSiValide(Long key) {
+        boolean valide = this.drepo.estValide(key);
+        if (valide) {
+            confirmationValiditeStageSender.demanderConfirmerValiditeStage(
+                    new shared.messages.notifications.ConfirmationValiditeStage(key)
+            );
+        }
+        return valide;
     }
 }
