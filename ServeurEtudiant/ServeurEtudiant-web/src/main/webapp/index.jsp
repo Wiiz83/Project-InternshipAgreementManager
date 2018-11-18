@@ -43,7 +43,7 @@
             </div>
             <div class="row" style="margin-left:100px; margin-right:100px; margin-top:20px;">
                 <div class="col-md-12">
-                    <form class="form-horizontal">
+                    <form class="form-horizontal" method="post" action="EnvoiFormulaire">
                         <fieldset>
                             <!-- Form Name -->
                             <legend>Etudiant</legend>
@@ -51,21 +51,21 @@
                             <div class="form-group">
                                 <label class="col-md-2 control-label" for="textinput">Nom :</label>  
                                 <div class="col-md-4">
-                                    <input id="textinput" name="textinput" type="text" class="form-control">
+                                    <input id="textinput" name="NomEtudiant" type="text" class="form-control">
                                 </div>
                                 <label class="col-md-2 control-label" for="textinput">Prénom :</label>  
                                 <div class="col-md-4">
-                                    <input id="textinput" name="textinput" type="text" class="form-control">
+                                    <input id="textinput" name="PrenomEtudiant" type="text" class="form-control">
                                 </div>
                             </div>    
                             <div class="form-group">
                                 <label class="col-md-2 control-label" for="textinput">Numéro étudiant :</label>  
                                 <div class="col-md-4">
-                                    <input id="textinput" name="textinput" type="text" class="form-control input-md">
+                                    <input id="textinput" name="NumeroEtudiant" type="text" class="form-control input-md">
                                 </div>
                                 <label class="col-md-2 control-label" for="textinput">Email :</label>  
                                 <div class="col-md-4">
-                                    <input id="textinput" name="textinput" type="text" class="form-control input-md">
+                                    <input id="textinput" name="EmailEtudiant" type="text" class="form-control input-md">
                                 </div>
                             </div>
                         </fieldset>
@@ -76,7 +76,7 @@
                             <div class="form-group">
                                 <label class="col-md-2 control-label" for="textinput">Niveau :</label>  
                                 <div class="col-md-4">
-                                    <select class="form-control" id="exampleFormControlSelect1">
+                                    <select class="form-control" id="exampleFormControlSelect1" name="NiveauFormation">
                                         <option>Master</option>
                                         <option>Licence</option>
                                         <option>3</option>
@@ -86,7 +86,7 @@
                                 </div>
                                 <label class="col-md-2 control-label" for="textinput">Intitulé :</label>  
                                 <div class="col-md-4">
-                                    <select class="form-control" id="exampleFormControlSelect1">
+                                    <select class="form-control" id="exampleFormControlSelect1" name="IntituleFormation">
                                         <option>Informatique</option>
                                         <option>2</option>
                                         <option>3</option>
@@ -103,11 +103,11 @@
                             <div class="form-group">
                                 <label class="col-md-2 control-label" for="textinput">Compagnie d'assurance :</label>  
                                 <div class="col-md-4">
-                                    <input id="textinput" name="textinput" type="text" class="form-control input-md">
+                                    <input id="textinput" name="NomAssurance" type="text" class="form-control input-md">
                                 </div>
                                 <label class="col-md-2 control-label" for="textinput">Numéro de contrat :</label>  
                                 <div class="col-md-4">
-                                    <input id="textinput" name="textinput" type="text" class="form-control input-md">
+                                    <input id="textinput" name="NumContratAssurance" type="text" class="form-control input-md">
                                 </div>
                             </div>
                         </fieldset>
@@ -118,17 +118,17 @@
                             <div class="form-group">
                                 <label class="col-md-2 control-label" for="textinput">Nom :</label>  
                                 <div class="col-md-4">
-                                    <input id="textinput" name="textinput" type="text" class="form-control input-md">
+                                    <input id="textinput" name="NomEntreprise" type="text" class="form-control input-md">
                                 </div>
                                 <label class="col-md-2 control-label" for="textinput">Numéro SIRET :</label>  
                                 <div class="col-md-4">
-                                    <input id="textinput" name="textinput" type="text" class="form-control input-md">
+                                    <input id="textinput" name="SiretEntreprise" type="text" class="form-control input-md">
                                 </div>
                             </div>    
                             <div class="form-group">
                                 <label class="col-md-2 control-label" for="textinput">Email de contact :</label>  
                                 <div class="col-md-4">
-                                    <input id="textinput" name="textinput" type="text" class="form-control input-md">
+                                    <input id="textinput" name="EmailEntreprise" type="text" class="form-control input-md">
                                 </div>  
                             </div>
                         </fieldset>
@@ -139,17 +139,17 @@
                             <div class="form-group">
                                 <label class="col-md-2 control-label" for="textinput">Date de début :</label>  
                                 <div class="col-md-4">
-                                    <input id="textinput" name="textinput" type="text" class="form-control input-md">
+                                    <input id="textinput" name="DebutStage" type="text" class="form-control input-md">
                                 </div>
                                 <label class="col-md-2 control-label" for="textinput">Date de fin :</label>  
                                 <div class="col-md-4">
-                                    <input id="textinput" name="textinput" type="text" class="form-control input-md">
+                                    <input id="textinput" name="FinStage" type="text" class="form-control input-md">
                                 </div>
                             </div>
                             <div class="form-group">
                                 <label class="col-md-2 control-label" for="textinput">Montant de la gratification :</label>  
                                 <div class="col-md-4">
-                                    <input id="textinput" name="textinput" type="text" class="form-control input-md">
+                                    <input id="textinput" name="GratificationStage" type="text" class="form-control input-md">
                                 </div> 
                             </div>
                         </fieldset>
@@ -159,12 +159,12 @@
                             <!-- Text input-->
                             <div class="form-group">
                                 <div class="col-md-12">
-                                    <textarea class="form-control" rows="5" style="resize: none;"></textarea>
+                                    <textarea class="form-control" name="ResumeStage" rows="5" style="resize: none;"></textarea>
                                 </div> 
                             </div>
                         </fieldset>
 
-                        <button type="button" class="btn btn-primary btn-lg btn-block">Envoyer le formulaire de préconvention</button>
+                        <button type="submit" class="btn btn-primary btn-lg btn-block">Envoyer le formulaire de préconvention</button>
                     </form>
                 </div>
             </div>

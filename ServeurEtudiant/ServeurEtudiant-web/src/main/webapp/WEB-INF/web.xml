@@ -4,9 +4,17 @@
         <servlet-name>EnvoiFormulaire</servlet-name>
         <servlet-class>EnvoiFormulaire</servlet-class>
     </servlet>
+    <servlet>
+        <servlet-name>EnvoyerFormulaire</servlet-name>
+        <servlet-class>EnvoyerFormulaire</servlet-class>
+    </servlet>
     <servlet-mapping>
         <servlet-name>EnvoiFormulaire</servlet-name>
         <url-pattern>/EnvoiFormulaire</url-pattern>
+    </servlet-mapping>
+    <servlet-mapping>
+        <servlet-name>EnvoyerFormulaire</servlet-name>
+        <url-pattern>/EnvoyerFormulaire</url-pattern>
     </servlet-mapping>
     <session-config>
         <session-timeout>
