@@ -1,3 +1,6 @@
+<%@page import="donnees.DemandeConvention"%>
+<%@page import="java.util.Collection"%>
+<%@page import="controllers.DemandesConventionsControllerRemote"%>
 <!DOCTYPE html>
 <html>
     <head>
@@ -54,51 +57,31 @@
                             </tr>
                         </thead>
                         <tbody>
+                            <%
+                                javax.naming.InitialContext ic = new javax.naming.InitialContext();
+                                DemandesConventionsControllerRemote ejb = (DemandesConventionsControllerRemote) ic.lookup("controllers.DemandesConventionsControllerRemote");
+                                Collection<DemandeConvention> liste = ejb.obtenirDemandesEncours();
+                                for (DemandeConvention demandeEnCours : liste) {
+                            %>
                             <tr>
-                                <td>XXXX</td>
-                                <td>XXXX</td>
-                                <td>XXXX</td>
-                                <td>XXXX</td>
-                                <td>XXXX</td>
-                                <td>XXXX</td>
-                                <td>XXXX</td>
+                                <td><%= demandeEnCours.getKey() %></td>
+                                <td><%= demandeEnCours.getEtudiant().getPrenom() + " " + demandeEnCours.getEtudiant().getNom().toUpperCase() + "(" + demandeEnCours.getEtudiant().getNumero() + ")" %></td>
+                                <td><%= demandeEnCours.getDiplome().getNiveau() + " " + demandeEnCours.getDiplome().getIntitule() %></td>
+                                <td><%= demandeEnCours.getEntreprise().getNom() + " (" + demandeEnCours.getEntreprise().getSiret() + ")" %></td>
+                                <td><%= ejb.estValide(demandeEnCours.getValidationAdministrative())  %></td>
+                                <td><%= demandeEnCours.getValidationPedagogique() %></td>
+                                <td><%= demandeEnCours.getValidationJuridique() %></td>
                                 <td>
                                     <a href="javascript:void(0)" title="Ouvrir">
                                         <i class="glyphicon glyphicon-eye-open"></i>
                                     </a>    
                                 </td>
                             </tr>
+                            <%
+                                }
+                            %>
                         </tbody>
                     </table>
-                    <%
-                        /* try {
-                        List<Preconvention> PreconvEnCours = DebutRevision.getNavetteList(convertedLong);
-                        for (Revision r : revisions) {
-                            out.println("<tr>");
-                            out.println("<td>XXXX</td>");
-                            out.println("<td>XXXX</td>");
-                            out.println("<td>XXXX</td>");
-                            out.println("<td>XXXX</td>");
-                            out.println("<td>XXXX</td>");
-                            out.println("<td>XXXX</td>");
-                            out.println("<td>XXXX</td>");
-                            out.println("
-                            <td>
-                                <a href="javascript:void(0)" title="Ouvrir">
-                                    <i class="glyphicon glyphicon-eye-open"></i>
-                                </a>
-                                <a href="javascript:void(0)" title="Valider">
-                                    <i class="glyphicon glyphicon-ok"></i>
-                                </a>
-                                <a href="javascript:void(0)" title="Supprimer">
-                                    <i class="glyphicon glyphicon-remove"></i>
-                                </a>      
-                            </td>
-                            ");
-                            out.println("</tr>");
-                        }
-                    }*/
-                    %>
                 </div>
             </div>
         </div>
