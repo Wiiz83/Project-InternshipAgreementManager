@@ -24,9 +24,9 @@ public interface PreconventionRepositoryLocal extends Repository<DemandePedagogi
 
     Collection<DemandePedagogique> getAll();
 
-    Map<Long, DemandePedagogique> getAllPreconventionsEnCours();
+    Map<Long, DemandePedagogique> getAllPreconventionsEnCours(Long dptKey);
 
-    Map<Long, DemandePedagogique> getAllPreconventionsValides();
+    Map<Long, DemandePedagogique> getAllPreconventionsValides(Long dptKey);
 
     void insert(DemandePedagogique dp);
 

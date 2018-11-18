@@ -18,14 +18,12 @@ import shared.repository.KVRepository;
 @Singleton
 public class PreconventionRepository extends KVRepository<DemandePedagogique> implements PreconventionRepositoryLocal {
 
-
- 
-
     @Override
-    public Map<Long, DemandePedagogique> getAllPreconventionsEnCours() {
+    public Map<Long, DemandePedagogique> getAllPreconventionsEnCours(Long dptKey) {
         Map<Long, DemandePedagogique> listePreconventionsEnCours = new HashMap<>();
         for (Map.Entry<Long, DemandePedagogique> entry : kvstore.entrySet()) {
-            if (entry.getValue().getValidation() == null) {
+            if (entry.getValue().getDemande().getDiplome().getDepartement().getKey().equals(dptKey)
+                    && entry.getValue().getValidation() == null) {
                 listePreconventionsEnCours.put(entry.getKey(), entry.getValue());
             }
         }
@@ -33,10 +31,12 @@ public class PreconventionRepository extends KVRepository<DemandePedagogique> im
     }
 
     @Override
-    public Map<Long, DemandePedagogique> getAllPreconventionsValides() {
+    public Map<Long, DemandePedagogique> getAllPreconventionsValides(Long dptKey) {
         Map<Long, DemandePedagogique> listePreconventionsValides = new HashMap<>();
         for (Map.Entry<Long, DemandePedagogique> entry : kvstore.entrySet()) {
-            if (entry.getValue().getValidationFinale() == true) {
+            if (entry.getValue().getDemande().getDiplome().getDepartement().getKey().equals(dptKey)
+                    && entry.getValue().getValidationFinale() != null
+                    && entry.getValue().getValidationFinale()) {
                 listePreconventionsValides.put(entry.getKey(), entry.getValue());
             }
         }

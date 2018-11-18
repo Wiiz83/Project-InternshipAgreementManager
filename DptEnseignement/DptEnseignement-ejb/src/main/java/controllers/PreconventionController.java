@@ -40,7 +40,7 @@ public class PreconventionController implements PreconventionControllerRemote {
 
         // STOCKAGE EN MEMOIRE DE CES NOUVELLES PRECONV
         // RECUPERATION DES DEMANDES EN MEMOIRE
-        Map<Long, DemandePedagogique> listePEC = repo.getAllPreconventionsEnCours();
+        Map<Long, DemandePedagogique> listePEC = repo.getAllPreconventionsEnCours(dptKey);
 
         // RENVOI DE LA LISTE DES PRECONV
         return listePEC;
@@ -48,7 +48,7 @@ public class PreconventionController implements PreconventionControllerRemote {
 
     @Override
     public Map<Long, DemandePedagogique> recupererPreconventionsValides(Long dptKey) {
-        return this.repo.getAllPreconventionsValides();
+        return this.repo.getAllPreconventionsValides( dptKey);
     }
 
     /*
