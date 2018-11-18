@@ -1,3 +1,6 @@
+<%@page import="donnees.DemandeConvention"%>
+<%@page import="java.util.Collection"%>
+<%@page import="controllers.DemandesConventionsControllerRemote"%>
 <!DOCTYPE html>
 <html>
     <head>
@@ -40,6 +43,7 @@
             </div>
             <div class="row" style="margin:50px">
                 <div class="col-md-12">
+                    <form method="post" action="ArchiverPreconvention">
                     <table class="table"  id="example" class="display" style="width:100%">
                         <thead>
                             <tr>
@@ -54,25 +58,34 @@
                             </tr>
                         </thead>
                         <tbody>
+                            <%
+                                javax.naming.InitialContext ic = new javax.naming.InitialContext();
+                                DemandesConventionsControllerRemote ejb = (DemandesConventionsControllerRemote) ic.lookup("controllers.DemandesConventionsControllerRemote");
+                                Collection<DemandeConvention> liste = ejb.obtenirDemandesValidees();
+                                for (DemandeConvention demandeEnCours : liste) {
+                            %>
                             <tr>
-                                <td>XXXX</td>
-                                <td>XXXX</td>
-                                <td>XXXX</td>
-                                <td>XXXX</td>
-                                <td>XXXX</td>
-                                <td>XXXX</td>
-                                <td>XXXX</td>
+                                <td><%= demandeEnCours.getKey() %></td>
+                                <td><%= demandeEnCours.getEtudiant().getPrenom() + " " + demandeEnCours.getEtudiant().getNom().toUpperCase() + "(" + demandeEnCours.getEtudiant().getNumero() + ")" %></td>
+                                <td><%= demandeEnCours.getDiplome().getNiveau() + " " + demandeEnCours.getDiplome().getIntitule() %></td>
+                                <td><%= demandeEnCours.getEntreprise().getNom() + " (" + demandeEnCours.getEntreprise().getSiret() + ")" %></td>
+                                <td><%= demandeEnCours.getStage().getDebut() %></td>
+                                <td><%= demandeEnCours.getStage().getFin() %></td>
+                                <td><%= demandeEnCours.getValidationPedagogique().getNomTuteur() %></td>
                                 <td>
                                     <a href="javascript:void(0)" title="Ouvrir">
                                         <i class="glyphicon glyphicon-eye-open"></i>
                                     </a>
-                                    <a href="javascript:void(0)" title="Refuser">
-                                        <i class="glyphicon glyphicon-remove"></i>
-                                    </a>      
+                                    <form method="post" action="ArchiverPreconvention">
+                                        <button id="getIdValide" class="btn btn-primary" type="submit" name="IdPreconvention" value="<%= demandeEnCours.getKey() %>">
+                                            <i class="glyphicon glyphicon-remove"></i>
+                                        </button>      
+                                  </form>   
                                 </td>
                             </tr>
                         </tbody>
                     </table>
+                    </form>
                 </div>
             </div>
         </div>
