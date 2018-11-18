@@ -68,9 +68,9 @@
                                 <td><%= demandeEnCours.getEtudiant().getPrenom() + " " + demandeEnCours.getEtudiant().getNom().toUpperCase() + "(" + demandeEnCours.getEtudiant().getNumero() + ")" %></td>
                                 <td><%= demandeEnCours.getDiplome().getNiveau() + " " + demandeEnCours.getDiplome().getIntitule() %></td>
                                 <td><%= demandeEnCours.getEntreprise().getNom() + " (" + demandeEnCours.getEntreprise().getSiret() + ")" %></td>
-                                <td><%= demandeEnCours.getValidationAdministrative() == null? "En cours " : demandeEnCours.getValidationAdministrative().isValide()  %></td>
-                                <td><%= demandeEnCours.getValidationPedagogique()  == null? "En cours " :demandeEnCours.getValidationPedagogique().isValide()  %></td>
-                                <td><%= demandeEnCours.getValidationJuridique()  == null? "En cours " :demandeEnCours.getValidationJuridique().isValide() %></td>
+                                <td><%= demandeEnCours.getValidationAdministrative() == null? "En cours " : "Validé"  %></td>
+                                <td><%= demandeEnCours.getValidationPedagogique()  == null? "En cours " :"Validé"  %></td>
+                                <td><%= demandeEnCours.getValidationJuridique()  == null? "En cours " :"Validé" %></td>
                                 <td>
                                     <a href="javascript:void(0)" title="Ouvrir">
                                         <i class="glyphicon glyphicon-eye-open"></i>
