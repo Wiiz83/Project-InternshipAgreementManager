@@ -15,12 +15,18 @@ public class Entreprise implements Serializable {
 
     private String siret;
     private String nom;
+    private String mail; 
 
-    public Entreprise(String siret, String nom) {
+    public Entreprise(String siret, String nom, String mail) {
         this.siret = siret;
         this.nom = nom;
+        this.mail = mail;
     }
 
+    public String getMail() {
+        return mail;
+    }
+    
     public String getSiret() {
         return siret;
     }
