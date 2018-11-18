@@ -14,23 +14,23 @@ import java.util.Date;
  */
 public class Stage implements Serializable {
 
-    private Date debut;
-    private Date fin;
+    private String debut;
+    private String fin;
     private Double gratification;
     private String resume;
 
-    public Stage(Date debut, Date fin, Double gratification, String resume) {
+    public Stage(String debut, String fin, Double gratification, String resume) {
         this.debut = debut;
         this.fin = fin;
         this.gratification = gratification;
         this.resume = resume;
     }
 
-    public Date getDebut() {
+    public String getDebut() {
         return debut;
     }
 
-    public Date getFin() {
+    public String getFin() {
         return fin;
     }
 

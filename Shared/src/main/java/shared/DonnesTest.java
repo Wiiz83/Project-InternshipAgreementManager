@@ -22,7 +22,7 @@ import shared.messages.demandes.DemandeConventionMessage;
 public class DonnesTest {
 
     public Long id = new Long(564);
-    public Stage s = new Stage(new Date(2018, 10, 10), new Date(2018, 12, 15), new Double(500), "Super stage!");
+    public Stage s = new Stage("11-12-2014", "11-12-2015", new Double(500), "Super stage!");
     public Entreprise e = new Entreprise("49646464464", "Air France","mail@af.fr");
     public Diplome d = new Diplome("Master 2", "Informatique");
     public Etudiant etudiant = new Etudiant("TEST", "TEST", "TEST","mail@mail.com");
