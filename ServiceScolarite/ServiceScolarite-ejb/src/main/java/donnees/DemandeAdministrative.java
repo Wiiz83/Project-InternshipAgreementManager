@@ -5,6 +5,7 @@
  */
 package donnees;
 
+import shared.donnees.HasKey;
 import shared.messages.validations.ValidationAdministrative;
 import shared.messages.demandes.DemandeValidationAdministrative;
 
@@ -12,7 +13,7 @@ import shared.messages.demandes.DemandeValidationAdministrative;
  *
  * @author Mahdi
  */
-public class DemandeAdministrative {
+public class DemandeAdministrative implements HasKey {
 
     private DemandeValidationAdministrative demande;
     private ValidationAdministrative validation;
@@ -35,6 +36,16 @@ public class DemandeAdministrative {
 
     public void setValidation(ValidationAdministrative validation) {
         this.validation = validation;
+    }
+
+    @Override
+    public Long getKey() {
+        return this.demande.getIdDemandeConvention();
+    }
+
+    @Override
+    public void setKey(Long key) {
+        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
     }
     
     
