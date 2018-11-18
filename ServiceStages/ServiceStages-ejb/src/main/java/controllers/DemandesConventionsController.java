@@ -122,6 +122,6 @@ public class DemandesConventionsController implements DemandesConventionsControl
 
     @Override
     public boolean estValide(DemandeConvention dc) {
-        return Predicats.estValidee.test(demande);
+        return Predicats.estValidee.test(dc);
     }
 }
