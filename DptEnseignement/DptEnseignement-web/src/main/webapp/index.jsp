@@ -80,28 +80,22 @@
                             %>
                             <tr>
                                 <td><%= idEnCours%></td>
-                                <td>Data non présente</td>
+                                <td><%= dpEnCours.getDemande().getEtudiant().getPrenom() + " " + dpEnCours.getDemande().getEtudiant().getNom().toUpperCase() + "(" + dpEnCours.getDemande().getEtudiant().getNumero() + ")" %></td>
                                 <td><%= dpEnCours.getDemande().getDiplome().getNiveau() + " " + dpEnCours.getDemande().getDiplome().getIntitule()%></td>
                                 <td><%= dpEnCours.getDemande().getEntreprise().getNom()%></td>
                                 <td><%= dpEnCours.getDemande().getStage().getDebut()%></td>
                                 <td><%= dpEnCours.getDemande().getStage().getFin()%></td>
-                                <td>Data non présente</td>
+                                <td><%= dpEnCours.getDemande().getStage().getResume() %></td>
                                 <td>
-                                    <form method="post" action="servlet">
-                                        <button type="submit" value="ouvrir">
-                                            <i class="glyphicon glyphicon-eye-open"></i>
-                                        </button>
-                                    </form>
-                                    <form method="post" action="ValiderPreconvention">
-                                        <button type="submit" value='<%= idEnCours %>'>
-                                            <i class="glyphicon glyphicon-ok"></i>
-                                        </button>
-                                    </form>
-                                    <form method="post" action="InvaliderPreconvention">
-                                        <button type="submit" value='<%= idEnCours %>'>
-                                            <i class="glyphicon glyphicon-remove"></i>
-                                        </button>
-                                    </form>
+                                    <button>
+                                        <i class="glyphicon glyphicon-eye-open"></i>
+                                    </button>
+                                    <button OnClick=<% session.setAttribute("idEnCours", idEnCours); %> data - toggle = "modal" data-target="#ModelPreconvValide">
+                                        <i class="glyphicon glyphicon-ok"></i>
+                                    </button>
+                                    <button OnClick=<% session.setAttribute("idEnCours", idEnCours); %> data - toggle = "modal" data-target="#ModelPreconvInvalide">
+                                        <i class="glyphicon glyphicon-ok"></i>
+                                    </button>
                                 </td>
                             </tr>
                             <%
@@ -114,5 +108,59 @@
             </div>
         </div>
     </div>
+
+    <!-- Modal Valide -->
+    <div class="modal fade" id="ModelPreconvValide" tabindex="-1" role="dialog" aria-labelledby="exampleModalCenterTitle" aria-hidden="true">
+        <div class="modal-dialog modal-dialog-centered" role="document">
+            <div class="modal-content">
+                <form method="post" action="ValiderPreconvention">
+                    <div class="modal-header">
+                        <h5 class="modal-title" id="exampleModalLongTitle">Modal title</h5>
+                        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                            <span aria-hidden="true">&times;</span>
+                        </button>
+                    </div>
+                    <div class="modal-body">
+                        <div class="form-group">
+                            <label for="message-text" class="col-form-label">Nom du tuteur :</label>
+                            <input type="text" class="form-control" id="recipient-name" name="nomTuteur">
+                        </div>
+                        
+                    </div>
+                    <div class="modal-footer">
+                        <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+                        <button type="button" class="btn btn-primary" type="submit" name="IdPreconvention" value="<%= session.getAttribute("idEnCours")%>">Envoyer</button>
+                    </div>
+                </form>
+            </div>
+        </div>
+    </div>
+
+    <!-- Modal Invalide -->
+    <div class="modal fade" id="ModelPreconvInvalide" tabindex="-1" role="dialog" aria-labelledby="exampleModalCenterTitle" aria-hidden="true">
+        <div class="modal-dialog modal-dialog-centered" role="document">
+            <div class="modal-content">
+                <form method="post" action="InvaliderPreconvention">
+                    <div class="modal-header">
+                        <h5 class="modal-title" id="exampleModalLongTitle">Modal title</h5>
+                        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                            <span aria-hidden="true">&times;</span>
+                        </button>
+                    </div>
+                    <div class="modal-body">
+                        <div class="form-group">
+                            <label for="message-text" class="col-form-label">Motif du refus :</label>
+                            <textarea class="form-control" id="message-text" name="motifRefus" ></textarea>
+                        </div>
+                    </div>
+                    <div class="modal-footer">
+                        <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+                        <button type="button" class="btn btn-primary" type="submit" name="IdPreconvention" value="<%= session.getAttribute("idEnCours")%>">Envoyer</button>
+                    </div>
+                </form>
+            </div>
+        </div>
+    </div>   
+
 </body>
 </html>

@@ -8,6 +8,7 @@ import controllers.PreconventionControllerRemote;
 import java.io.IOException;
 import java.io.PrintWriter;
 import javax.ejb.EJB;
+import javax.servlet.RequestDispatcher;
 import javax.servlet.ServletException;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
@@ -23,7 +24,15 @@ public class ValiderPreconvention extends HttpServlet {
     PreconventionControllerRemote pc;
     
     protected void processRequest(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-        System.out.println("servlet.processRequest()");
+        String idPreconv = request.getParameter("IdPreconvention");
+        String nomTuteur = request.getParameter("nomTuteur");
+        if (!idPreconv.isEmpty()) {
+            System.out.println("servlet.processRequest() : " + idPreconv);
+            pc.accepterDemande(Long.parseLong(idPreconv), nomTuteur);
+        } else {
+            RequestDispatcher rd = request.getRequestDispatcher("./index.jsp");
+            rd.forward(request, response);
+        }
     }
 
     // <editor-fold defaultstate="collapsed" desc="HttpServlet methods. Click on the + sign on the left to edit the code.">
