@@ -18,7 +18,7 @@ import shared.messages.demandes.DemandeConventionMessage;
  * @author Mahdi
  */
 @Stateless
-public class DemandesConventionsController implements DemandesConventionsEtudiantControllerRemote {
+public class DemandesConventionsEtudiantController implements DemandesConventionsEtudiantControllerRemote {
 
     @EJB
     DemandeConventionMessageSender demandeConventionMessageSender;
