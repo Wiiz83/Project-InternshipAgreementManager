@@ -10,6 +10,7 @@ import java.util.Collection;
 import javax.ejb.Singleton;
 import shared.repository.Repository;
 import shared.donnees.Departement;
+import shared.donnees.Diplome;
 
 /**
  *
@@ -44,6 +45,11 @@ public class DepartementRepository  implements DepartementRepositoryLocal{
     @Override
     public void delete(Long id) {
         throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+    }
+
+    @Override
+    public Collection<Diplome> obtenirDiplomes(Departement d) {
+        return d.getDiplomes();
     }
 
 }

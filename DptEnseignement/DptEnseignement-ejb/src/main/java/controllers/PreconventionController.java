@@ -6,11 +6,15 @@
 package controllers;
 
 import donnees.DemandePedagogique;
+import java.util.Collection;
 import java.util.Map;
 import javax.ejb.EJB;
 import javax.ejb.Stateless;
+import repositories.DepartementRepositoryLocal;
 import repositories.PreconventionRepositoryLocal;
 import senders.ValidationPedagogiqueSender;
+import shared.donnees.Departement;
+import shared.donnees.Diplome;
 import shared.messages.validations.ValidationPedagogique;
 
 /**
@@ -26,6 +30,9 @@ public class PreconventionController implements PreconventionControllerRemote {
     // TODO: Tester l'injection
     @EJB
     ValidationPedagogiqueSender vpSender;
+    
+    @EJB
+    DepartementRepositoryLocal dprepo;
 
     @Override
     public Map<Long, DemandePedagogique> recupererPreconventionsEnCours() {
@@ -78,5 +85,15 @@ public class PreconventionController implements PreconventionControllerRemote {
         repo.update(id, dp);
         ValidationPedagogique msg = new ValidationPedagogique(id, false, motif);
         vpSender.envoyerValidationPedagogique(msg);
+    }
+
+    @Override
+    public Collection<Departement> obtenirDepartements() {
+        return dprepo.getAll();
+    }
+
+    @Override
+    public Collection<Diplome> obtenirDiplomes(Departement d) {
+        return dprepo.obtenirDiplomes(d);
     }
 }

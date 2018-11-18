@@ -9,12 +9,12 @@ import java.util.Collection;
 import javax.ejb.Local;
 import shared.repository.Repository;
 import shared.donnees.Departement;
+import shared.donnees.Diplome;
 
 /**
  *
  * @author Mahdi
  */
-
 @Local
 public interface DepartementRepositoryLocal extends Repository<Departement> {
 
@@ -27,5 +27,6 @@ public interface DepartementRepositoryLocal extends Repository<Departement> {
     void insert(Departement dp);
 
     void update(Long id, Departement dp);
-    
+
+    Collection<Diplome> obtenirDiplomes(Departement d);
 }
