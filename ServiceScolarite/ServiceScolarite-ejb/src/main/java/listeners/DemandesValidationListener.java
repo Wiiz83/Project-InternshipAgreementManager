@@ -5,7 +5,9 @@
  */
 package listeners;
 
+import controllers.DemandesAdministrativesControllerRemote;
 import javax.ejb.ActivationConfigProperty;
+import javax.ejb.EJB;
 import javax.ejb.MessageDriven;
 import javax.jms.JMSException;
 import javax.jms.Message;
@@ -21,7 +23,8 @@ import shared.messages.demandes.DemandeValidationAdministrative;
     @ActivationConfigProperty(propertyName = "destinationType", propertyValue = "javax.jms.Queue")
 })
 public class DemandesValidationListener implements MessageListener {
-    
+    @EJB 
+    DemandesAdministrativesControllerRemote ctrl;
     public DemandesValidationListener() {
     }
     
@@ -32,9 +35,9 @@ public class DemandesValidationListener implements MessageListener {
             try {  
                 DemandeValidationAdministrative  demande = om.getBody(DemandeValidationAdministrative.class);  
                 System.out.println("Scolarite::Demande_Validation_Administrative :" + demande);  
+                ctrl.ajouterDemande(demande);
             } catch (JMSException e) {  
             }  
         }  
-    }
-    
+    }    
 }

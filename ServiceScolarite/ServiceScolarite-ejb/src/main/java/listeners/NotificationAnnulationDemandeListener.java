@@ -5,10 +5,15 @@
  */
 package listeners;
 
+import controllers.DemandesAdministrativesControllerRemote;
 import javax.ejb.ActivationConfigProperty;
+import javax.ejb.EJB;
 import javax.ejb.MessageDriven;
+import javax.jms.JMSException;
 import javax.jms.Message;
 import javax.jms.MessageListener;
+import javax.jms.ObjectMessage;
+import shared.messages.notifications.NotificationAnnulationDemandeValidation;
 
 /**
  *
@@ -20,13 +25,23 @@ import javax.jms.MessageListener;
     @ActivationConfigProperty(propertyName = "subscriptionName", propertyValue = "jms/Notification_Annulation_Demande_Validation"),
     @ActivationConfigProperty(propertyName = "destinationType", propertyValue = "javax.jms.Topic")
 })
-public class NotificationAnnulationDemande implements MessageListener {
-    
-    public NotificationAnnulationDemande() {
+public class NotificationAnnulationDemandeListener implements MessageListener {
+        @EJB 
+    DemandesAdministrativesControllerRemote ctrl;
+    public NotificationAnnulationDemandeListener() {
     }
     
-    @Override
+       @Override
     public void onMessage(Message message) {
-    }
+        if (message instanceof ObjectMessage) {  
+            ObjectMessage om = (ObjectMessage) message;  
+            try {  
+                NotificationAnnulationDemandeValidation  demande = om.getBody(NotificationAnnulationDemandeValidation.class);  
+                System.out.println("Scolarite::Demande_Validation_Administrative :" + demande);  
+                ctrl.annulerDemande(demande);
+            } catch (JMSException e) {  
+            }  
+        }  
+    } 
     
 }

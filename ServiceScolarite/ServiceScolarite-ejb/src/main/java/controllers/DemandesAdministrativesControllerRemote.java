@@ -8,7 +8,6 @@ package controllers;
 import donnees.DemandeAdministrative;
 import java.util.Collection;
 import javax.ejb.Remote;
-import shared.messages.notifications.ConfirmationValiditeStage;
 import shared.messages.notifications.NotificationAnnulationDemandeValidation;
 
 /**
