@@ -37,6 +37,15 @@
     <connector-connection-pool name="jms/Confirmation_Validite_StageFactoryPool"  connection-definition-name="javax.jms.QueueConnectionFactory"  resource-adapter-name="jmsra"/>
     <connector-resource enabled="true" jndi-name="jms/Confirmation_Validite_StageFactory" pool-name="jms/Confirmation_Validite_StageFactoryPool"  />
 
+    <!-- Sender_JMS Notification_Annulation_Demande_Validation -->
+
+    <admin-object-resource enabled="true" jndi-name="jms/Notification_Annulation_Demande_Validation"  res-type="javax.jms.Topic"  res-adapter="jmsra">
+        <property name="Name" value="Notification_Annulation_Demande_Validation"/>
+    </admin-object-resource>
+    <connector-connection-pool name="jms/Notification_Annulation_Demande_ValidationFactoryPool"  connection-definition-name="javax.jms.TopicConnectionFactory"  resource-adapter-name="jmsra"/>
+    <connector-resource enabled="true" jndi-name="jms/Notification_Annulation_Demande_ValidationFactory" pool-name="jms/Notification_Annulation_Demande_ValidationFactoryPool"  />
+    
+    
     
     <!-- Listener_JMS Validation_Administrative -->
     <admin-object-resource enabled="true" jndi-name="jms/Validation_Administrative"  res-type="javax.jms.Queue"  res-adapter="jmsra">

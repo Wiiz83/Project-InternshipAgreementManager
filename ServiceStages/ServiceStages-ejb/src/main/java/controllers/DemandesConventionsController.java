@@ -19,7 +19,9 @@ import shared.messages.demandes.DemandeValidationPedagogique;
 import repositories.DemandesConventionsRepositoryLocal;
 import repositories.Predicats;
 import senders.ConfirmationValiditeStageSender;
+import senders.NotificationAnnulationDemandeSender;
 import shared.messages.notifications.ConfirmationValiditeStage;
+import shared.messages.notifications.NotificationAnnulationDemandeValidation;
 import shared.messages.validations.ValidationAdministrative;
 import shared.messages.validations.ValidationJuridique;
 import shared.messages.validations.ValidationPedagogique;
@@ -42,6 +44,9 @@ public class DemandesConventionsController implements DemandesConventionsControl
 
     @EJB
     ConfirmationValiditeStageSender confirmationValiditeStageSender;
+    
+    @EJB
+    NotificationAnnulationDemandeSender notificationAnnulationDemande;
 
     @EJB
     DemandesConventionsRepositoryLocal drepo;
@@ -115,9 +120,8 @@ public class DemandesConventionsController implements DemandesConventionsControl
             this.confirmationValiditeStageSender.demanderConfirmerValiditeStage(new ConfirmationValiditeStage(demande.getKey()));
         }
         if (Predicats.estRefusee.test(demande)) {
-
+            notificationAnnulationDemande.notifierAnnulation(new NotificationAnnulationDemandeValidation(demande.getKey()));      
         }
-
     }
 
     @Override
