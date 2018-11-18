@@ -124,7 +124,7 @@ public class DemandesConventionsController implements DemandesConventionsControl
             notificationAnnulationDemande.notifierAnnulation(new NotificationAnnulationDemandeValidation(demande.getKey()));      
         }
     }
-
+/*
     @Override
     public boolean estValide(DemandeConvention dc) {
         return Predicats.estValidee.test(dc);
@@ -140,6 +140,7 @@ public class DemandesConventionsController implements DemandesConventionsControl
             return dc.getValidationPedagogique();
         return null;                    
     }
+*/
     
     
     

@@ -18,14 +18,12 @@ import shared.messages.validations.Validation;
 public interface DemandesConventionsControllerRemote {
 
     void ajouterDemande(shared.messages.demandes.DemandeConventionMessage demande);
-    
-    void validationAdministrative (shared.messages.validations.ValidationAdministrative va);
-    
-    void validationPedagogique (shared.messages.validations.ValidationPedagogique vp);
-    
-    void validationJuridique (shared.messages.validations.ValidationJuridique vj);
-    
-    boolean estValide(DemandeConvention dc); 
+
+    void validationAdministrative(shared.messages.validations.ValidationAdministrative va);
+
+    void validationPedagogique(shared.messages.validations.ValidationPedagogique vp);
+
+    void validationJuridique(shared.messages.validations.ValidationJuridique vj);
 
     void archiverDemande(Long id);
 
@@ -35,7 +33,8 @@ public interface DemandesConventionsControllerRemote {
 
     Collection<DemandeConvention> obtenirDemandesRefusees();
 
-    Collection<DemandeConvention> obtenirDemandesArchivees();  
-    
-    Validation obtenirVoletInvalide(DemandeConvention dc);
+    Collection<DemandeConvention> obtenirDemandesArchivees();
+
+    //Validation obtenirVoletInvalide(DemandeConvention dc);
+    //    boolean estValide(DemandeConvention dc); 
 }
