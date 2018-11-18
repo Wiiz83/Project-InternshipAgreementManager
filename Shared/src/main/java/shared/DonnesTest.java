@@ -37,6 +37,11 @@ public class DonnesTest {
         Departement d2 = new Departement("Mathématiques");
         Departement d3 = new Departement("Activités Physiques");
         Departement d4 = new Departement("Langues et Civilisations");
+        d0.setKey(new Long(1));
+        d1.setKey(new Long(2));
+        d2.setKey(new Long(3));
+        d3.setKey(new Long(4));
+        d4.setKey(new Long(5));
         listeDepartements.add(d0);
         listeDepartements.add(d1);
         listeDepartements.add(d2);

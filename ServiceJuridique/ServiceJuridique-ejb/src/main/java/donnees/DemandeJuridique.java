@@ -5,6 +5,7 @@
  */
 package donnees;
 
+import shared.donnees.HasKey;
 import shared.messages.validations.ValidationJuridique;
 import shared.messages.demandes.DemandeValidationJuridique;
 
@@ -12,7 +13,7 @@ import shared.messages.demandes.DemandeValidationJuridique;
  *
  * @author Mahdi
  */
-public class DemandeJuridique {
+public class DemandeJuridique implements HasKey {
 
     private DemandeValidationJuridique demande;
     private ValidationJuridique confirmation;
@@ -36,5 +37,15 @@ public class DemandeJuridique {
     public void setConfirmation(ValidationJuridique confirmation) {
         this.confirmation = confirmation;
     }
-    
+
+    @Override
+    public Long getKey() {
+        return this.demande.getIdDemandeConvention();
+    }
+
+    @Override
+    public void setKey(Long key) {
+        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+    }
+
 }
