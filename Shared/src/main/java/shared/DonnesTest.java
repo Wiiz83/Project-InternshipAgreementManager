@@ -11,6 +11,7 @@ import shared.donnees.Departement;
 import shared.donnees.Diplome;
 import shared.donnees.Entreprise;
 import shared.donnees.Etudiant;
+import shared.donnees.ResponsabiliteCivile;
 import shared.donnees.Stage;
 
 /**
@@ -24,6 +25,7 @@ public class DonnesTest {
     public Entreprise e = new Entreprise("49646464464", "Air France");
     public Diplome d = new Diplome("Master 2", "Informatique", new Departement(""));
     public Etudiant etudiant = new Etudiant("TEST", "TEST", "TEST");
+    public ResponsabiliteCivile r = new ResponsabiliteCivile("ResponsabiliteCivile_1","ResponsabiliteCivile_2");
     public ArrayList<Departement> listeDepartements = new ArrayList<>();
 
     public DonnesTest() {

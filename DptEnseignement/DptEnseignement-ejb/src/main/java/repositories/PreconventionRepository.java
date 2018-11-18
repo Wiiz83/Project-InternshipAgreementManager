@@ -6,10 +6,8 @@
 package repositories;
 
 import donnees.DemandePedagogique;
-import java.util.Collection;
 import java.util.HashMap;
 import java.util.Map;
-import javax.annotation.PostConstruct;
 import javax.ejb.Singleton;
 import shared.repository.KVRepository;
 

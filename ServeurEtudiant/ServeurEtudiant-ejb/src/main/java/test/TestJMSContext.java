@@ -15,6 +15,7 @@ import javax.jms.JMSConnectionFactory;
 import javax.jms.JMSContext;
 import javax.jms.JMSProducer;
 import javax.jms.Queue;
+import shared.DonnesTest;
 import shared.donnees.Departement;
 import shared.donnees.Diplome;
 import shared.donnees.Entreprise;
@@ -41,13 +42,14 @@ public class TestJMSContext {
     @PostConstruct
     public void init() {
         JMSProducer mp = context.createProducer();
+        DonnesTest  dt = new DonnesTest();
         mp.send(demande_convention,
                 new DemandeConventionMessage(
-                        new Etudiant("TEST", "TEST", "TEST"),
-                        new Diplome("M", "MIAGE", new Departement("Info")), 
-                        new ResponsabiliteCivile("qsd", "455"),
-                        new Stage(new Date(), new Date(), 45.541, ""),
-                        new Entreprise("qsdqsdf", "qsd")
+                        dt.etudiant,
+                        dt.d, 
+                        dt.r,
+                        dt.s,
+                        dt.e
                 ));
     }
 }

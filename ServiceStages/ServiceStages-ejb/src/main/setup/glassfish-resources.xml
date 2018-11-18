@@ -30,7 +30,13 @@
     <connector-connection-pool name="jms/Demande_Validation_PedagogiqueFactoryPool"  connection-definition-name="javax.jms.QueueConnectionFactory"  resource-adapter-name="jmsra"/>
     <connector-resource enabled="true" jndi-name="jms/Demande_Validation_PedagogiqueFactory" pool-name="jms/Demande_Validation_PedagogiqueFactoryPool"  />
 
-    
+    <!-- Sender_JMS Confirmation_Validite_Stage -->
+    <admin-object-resource enabled="true" jndi-name="jms/Confirmation_Validite_Stage"  res-type="javax.jms.Queue"  res-adapter="jmsra">
+        <property name="Name" value="Confirmation_Validite_Stage"/>
+    </admin-object-resource>
+    <connector-connection-pool name="jms/Confirmation_Validite_StageFactoryPool"  connection-definition-name="javax.jms.QueueConnectionFactory"  resource-adapter-name="jmsra"/>
+    <connector-resource enabled="true" jndi-name="jms/Confirmation_Validite_StageFactory" pool-name="jms/Confirmation_Validite_StageFactoryPool"  />
+
     
     <!-- Listener_JMS Validation_Administrative -->
     <admin-object-resource enabled="true" jndi-name="jms/Validation_Administrative"  res-type="javax.jms.Queue"  res-adapter="jmsra">

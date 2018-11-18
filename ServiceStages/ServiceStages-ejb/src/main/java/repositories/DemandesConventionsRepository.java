@@ -10,14 +10,14 @@ import java.util.Collection;
 import java.util.HashSet;
 import java.util.function.Predicate;
 import java.util.stream.Collectors;
-import javax.ejb.Stateless;
+import javax.ejb.Singleton;
 import shared.repository.KVRepository;
 
 /**
  *
  * @author Mahdi
  */
-@Stateless
+@Singleton
 public class DemandesConventionsRepository extends KVRepository<DemandeConvention>
         implements DemandesConventionsRepositoryLocal {
 
