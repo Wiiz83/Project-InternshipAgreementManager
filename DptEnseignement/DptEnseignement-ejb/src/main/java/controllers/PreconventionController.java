@@ -30,12 +30,12 @@ public class PreconventionController implements PreconventionControllerRemote {
     // TODO: Tester l'injection
     @EJB
     ValidationPedagogiqueSender vpSender;
-    
+
     @EJB
     DepartementRepositoryLocal dprepo;
 
     @Override
-    public Map<Long, DemandePedagogique> recupererPreconventionsEnCours() {
+    public Map<Long, DemandePedagogique> recupererPreconventionsEnCours(Long dptKey) {
         // APPEL JMS POUR RECUPERATION DE NOUVELLES PRECONV
 
         // STOCKAGE EN MEMOIRE DE CES NOUVELLES PRECONV
@@ -44,6 +44,11 @@ public class PreconventionController implements PreconventionControllerRemote {
 
         // RENVOI DE LA LISTE DES PRECONV
         return listePEC;
+    }
+
+    @Override
+    public Map<Long, DemandePedagogique> recupererPreconventionsValides(Long dptKey) {
+        return this.repo.getAllPreconventionsValides();
     }
 
     /*
@@ -96,4 +101,5 @@ public class PreconventionController implements PreconventionControllerRemote {
     public Collection<Diplome> obtenirDiplomes(Departement d) {
         return dprepo.obtenirDiplomes(d);
     }
+
 }

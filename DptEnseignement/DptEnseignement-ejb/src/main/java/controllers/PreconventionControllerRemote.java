@@ -21,7 +21,9 @@ import shared.messages.notifications.NotificationAnnulationDemandeValidation;
 @Remote
 public interface PreconventionControllerRemote {
 
-    public Map<Long, DemandePedagogique> recupererPreconventionsEnCours();
+    public Map<Long, DemandePedagogique> recupererPreconventionsEnCours(Long dptKey);
+
+    public Map<Long, DemandePedagogique> recupererPreconventionsValides(Long dptKey);
 
     public void ajouterDemande(shared.messages.demandes.DemandeValidationPedagogique demande);
 

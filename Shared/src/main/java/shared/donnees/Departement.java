@@ -9,10 +9,11 @@ import java.io.Serializable;
 import java.util.HashSet;
 import java.util.Set;
 
-public class Departement implements Serializable {
+public class Departement implements Serializable, HasKey{
 
     private final String nom;
-    private final Set<Diplome> diplomes  = new HashSet<>(); ;
+    private final Set<Diplome> diplomes  = new HashSet<>(); 
+    public Long id ;
 
     public Departement(String nom) {
         this.nom = nom;
@@ -33,6 +34,16 @@ public class Departement implements Serializable {
 
     public Set<Diplome> getDiplomes() {
         return diplomes;
+    }
+
+    @Override
+    public Long getKey() {
+        return this.id;
+    }
+
+    @Override
+    public void setKey(Long key) {
+        id = key;
     }
     
     
