@@ -5,22 +5,14 @@
  */
 package test;
 
-import controllers.PreconventionControllerRemote;
-import donnees.DemandePedagogique;
-import java.util.Date;
+
 import javax.annotation.PostConstruct;
 import javax.ejb.EJB;
 import javax.ejb.Singleton;
-import javax.ejb.LocalBean;
 import javax.ejb.Startup;
 import repositories.DepartementRepositoryLocal;
 import shared.DonnesTest;
 import shared.donnees.Departement;
-import shared.donnees.Diplome;
-import shared.donnees.Entreprise;
-import shared.donnees.Etudiant;
-import shared.donnees.Stage;
-import shared.messages.demandes.DemandeValidationPedagogique;
 
 /**
  *
