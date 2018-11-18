@@ -42,7 +42,6 @@ Conception/~$dico_messages.xlsx
 /ServeurEtudiant/ServeurEtudiant-ejb/target/
 /ServeurEtudiant/ServeurEtudiant-web/target/
 /ServeurEtudiant/ServeurEtudiant-ear/target/
-/wtf2/wtf2-ejb/target/
 /ServiceStages/ServiceStages-ejb/target/
 /ServiceStages/ServiceStages-ear/target/
 /ServiceStages/ServiceStages-web/target/
@@ -53,5 +52,7 @@ path.cfg
 /OpenDataConventions/OpenDataConventions-web/target/
 /OpenDataConventions/OpenDataConventions-ear/target/
 /ServeurDonneesReference/ServeurDonneesReference-ejb/target/
-gfressources.cfg
+/ServiceJuridique/ServiceJuridique-ejb/target/
+/ServiceJuridique/ServiceJuridique-ear/target/
+/ServiceJuridique/ServiceJuridique-web/target/
 gfressources.cfg
