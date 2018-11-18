@@ -13,6 +13,7 @@ import shared.donnees.Entreprise;
 import shared.donnees.Etudiant;
 import shared.donnees.ResponsabiliteCivile;
 import shared.donnees.Stage;
+import shared.messages.demandes.DemandeConventionMessage;
 
 /**
  *
@@ -27,19 +28,29 @@ public class DonnesTest {
     public Etudiant etudiant = new Etudiant("TEST", "TEST", "TEST");
     public ResponsabiliteCivile r = new ResponsabiliteCivile("ResponsabiliteCivile_1","ResponsabiliteCivile_2");
     public ArrayList<Departement> listeDepartements = new ArrayList<>();
+    public ArrayList <DemandeConventionMessage>  demandes = new ArrayList<>();
 
     public DonnesTest() {
 
-        Departement d = new Departement("Informatique");
+        Departement d0 = new Departement("Informatique");
         Departement d1 = new Departement("Études du monde anglophone");
         Departement d2 = new Departement("Mathématiques");
         Departement d3 = new Departement("Activités Physiques");
         Departement d4 = new Departement("Langues et Civilisations");
-        listeDepartements.add(d);
+        listeDepartements.add(d0);
         listeDepartements.add(d1);
         listeDepartements.add(d2);
         listeDepartements.add(d3);
         listeDepartements.add(d4);
+        
+        demandes.add(
+                new DemandeConventionMessage(
+                        etudiant,
+                        d, 
+                        r,
+                        s,
+                        e
+                ));
 
     }
 

@@ -38,8 +38,8 @@ public class DemandesConventionsController implements DemandesConventionsControl
     @EJB
     ValidationJuridiqueSender validationJuridiqueSender;
 
-    @EJB
-    ConfirmationValiditeStageSender confirmationValiditeStageSender;
+  //  @EJB
+  //  ConfirmationValiditeStageSender confirmationValiditeStageSender;
 
     @EJB
     DemandesConventionsRepositoryLocal drepo;
@@ -110,11 +110,11 @@ public class DemandesConventionsController implements DemandesConventionsControl
 
     private boolean notifierSiValide(Long key) {
         boolean valide = this.drepo.estValide(key);
-        if (valide) {
+       /* if (valide) {
             confirmationValiditeStageSender.demanderConfirmerValiditeStage(
                     new shared.messages.notifications.ConfirmationValiditeStage(key)
             );
-        }
+        } */
         return valide;
     }
 }

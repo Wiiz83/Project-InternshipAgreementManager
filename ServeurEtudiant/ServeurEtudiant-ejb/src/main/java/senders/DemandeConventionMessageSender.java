@@ -3,7 +3,7 @@
  * To change this template file, choose Tools | Templates
  * and open the template in the editor.
  */
-package services;
+package senders;
 
 import javax.annotation.Resource;
 import javax.ejb.Stateless;
@@ -21,7 +21,7 @@ import shared.messages.demandes.DemandeConventionMessage;
  */
 @Stateless
 @LocalBean
-public class ServicesEtudiant {
+public class DemandeConventionMessageSender {
 
     @Inject
     @JMSConnectionFactory("jms/Demande_conventionFactory")
