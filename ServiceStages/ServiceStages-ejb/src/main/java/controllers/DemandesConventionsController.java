@@ -94,6 +94,7 @@ public class DemandesConventionsController implements DemandesConventionsControl
 
     @Override
     public void validationPedagogique(ValidationPedagogique vp) {
+        //bug null pointer ici!
         DemandeConvention demande = this.drepo.get(vp.getKey());
         demande.setValidationPedagogique(vp);
         this.drepo.update(vp.getKey(), demande);

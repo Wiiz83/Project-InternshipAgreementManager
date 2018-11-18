@@ -16,11 +16,13 @@ public class Etudiant implements Serializable {
     private String numero;
     private String nom;
     private String prenom;
+    private String mail;
 
-    public Etudiant(String numero, String nom, String prenom) {
+    public Etudiant(String numero, String nom, String prenom, String mail) {
         this.numero = numero;
         this.nom = nom;
         this.prenom = prenom;
+        this.mail = mail;
     }
 
     public Etudiant() {
@@ -37,6 +39,10 @@ public class Etudiant implements Serializable {
     public String getPrenom() {
         return prenom;
     }  
+
+    public String getMail() {
+        return mail;
+    }
     
     @Override
     public String toString() {

@@ -6,6 +6,7 @@
 package test;
 
 
+import controllers.PreconventionControllerRemote;
 import javax.annotation.PostConstruct;
 import javax.ejb.EJB;
 import javax.ejb.Singleton;
@@ -26,11 +27,14 @@ public class Demarrage {
     @EJB
     DepartementRepositoryLocal drepo;    
     
+    @EJB
+PreconventionControllerRemote ctrl;    
     @PostConstruct
     public void init() {
         DonnesTest dt = new DonnesTest();
         for (Departement d : dt.listeDepartements) {
             drepo.insert(d);
         }
+        System.out.println(ctrl.obtenirDepartements());
     }
 }
