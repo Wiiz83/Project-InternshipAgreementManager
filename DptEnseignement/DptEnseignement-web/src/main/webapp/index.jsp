@@ -69,34 +69,12 @@
                         <tbody>
 
                             <%
-                                
-                              
-                        /*InitialContext ctx = new InitialContext();
-                        PreconventionController pc2 = (PreconventionController) ctx.lookup("PreconventionControllerLocal"); //java:app/jdbc/SpacelibDataSource
-                        Map<Long, DemandePedagogique> listePEC2 = pc2.recupererPreconventionsEnCours();
-                        System.out.println("listePEC2 : " + listePEC2);
-                      */
-                        
-                        javax.naming.InitialContext ic = new javax.naming.InitialContext();
-                       
-                        //PreconventionController pc2 =(PreconventionController) ic.lookup("PreconventionController"); 
-                        
-                        PreconventionControllerRemote pc2 = (PreconventionControllerRemote) ic.lookup("controllers.PreconventionControllerRemote");
-                        
-                        
-                        Map<Long, DemandePedagogique> listePEC2 = pc2.recupererPreconventionsEnCours();
-                        System.out.println("listePEC2 : " + listePEC2);
-                                
-                               // Map<Long, DemandePedagogique> listePEC = (Map<Long, DemandePedagogique>) request.getAttribute("listeResultat");
-                                
-                                //PreconventionController pc = new PreconventionController();
-                                //Map<Long, DemandePedagogique> listePEC = pc.recupererPreconventionsEnCours();
-
+                                javax.naming.InitialContext ic = new javax.naming.InitialContext();
+                                PreconventionControllerRemote pc2 = (PreconventionControllerRemote) ic.lookup("controllers.PreconventionControllerRemote");
+                                Map<Long, DemandePedagogique> listePEC2 = pc2.recupererPreconventionsEnCours();
                                 Long idEnCours;
                                 DemandePedagogique dpEnCours;
-
                                 for (Map.Entry<Long, DemandePedagogique> entry : listePEC2.entrySet()) {
-
                                     idEnCours = entry.getKey();
                                     dpEnCours = entry.getValue();
                             %>
@@ -104,20 +82,26 @@
                                 <td><%= idEnCours%></td>
                                 <td>Data non présente</td>
                                 <td><%= dpEnCours.getDemande().getDiplome().getNiveau() + " " + dpEnCours.getDemande().getDiplome().getIntitule()%></td>
-                                <td><%= dpEnCours.getDemande().getEntreprise().getNom() %></td>
-                                <td><%= dpEnCours.getDemande().getStage().getDebut() %></td>
-                                <td><%= dpEnCours.getDemande().getStage().getFin() %></td>
+                                <td><%= dpEnCours.getDemande().getEntreprise().getNom()%></td>
+                                <td><%= dpEnCours.getDemande().getStage().getDebut()%></td>
+                                <td><%= dpEnCours.getDemande().getStage().getFin()%></td>
                                 <td>Data non présente</td>
                                 <td>
-                                    <a href="javascript:void(0)" title="Ouvrir">
-                                        <i class="glyphicon glyphicon-eye-open"></i>
-                                    </a>
-                                    <a href="javascript:void(0)" title="Valider">
-                                        <i class="glyphicon glyphicon-ok"></i>
-                                    </a>
-                                    <a href="javascript:void(0)" title="Refuser">
-                                        <i class="glyphicon glyphicon-remove"></i>
-                                    </a>
+                                    <form method="post" action="servlet">
+                                        <button type="submit" value="ouvrir">
+                                            <i class="glyphicon glyphicon-eye-open"></i>
+                                        </button>
+                                    </form>
+                                    <form method="post" action="ValiderPreconvention">
+                                        <button type="submit" value='<%= idEnCours %>'>
+                                            <i class="glyphicon glyphicon-ok"></i>
+                                        </button>
+                                    </form>
+                                    <form method="post" action="InvaliderPreconvention">
+                                        <button type="submit" value='<%= idEnCours %>'>
+                                            <i class="glyphicon glyphicon-remove"></i>
+                                        </button>
+                                    </form>
                                 </td>
                             </tr>
                             <%
@@ -125,6 +109,7 @@
                             %>
                         </tbody>
                     </table>
+
                 </div>
             </div>
         </div>
