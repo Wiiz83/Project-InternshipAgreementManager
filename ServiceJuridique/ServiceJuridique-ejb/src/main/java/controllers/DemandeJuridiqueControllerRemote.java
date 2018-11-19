@@ -32,7 +32,7 @@ public interface DemandeJuridiqueControllerRemote {
 
     public void accepterDemande(Long id);
 
-    public boolean verifierEntreprise(Entreprise e);
+    public boolean verifierEntreprise(String siret, String nom);
 
     public boolean verifierResponsabiliteCivile(Long id);
 }

@@ -39,7 +39,7 @@ public class DemandeValidationPedagogiqueListener implements MessageListener {
             ObjectMessage om = (ObjectMessage) message;
             try {
                 shared.messages.demandes.DemandeValidationPedagogique demande = om.getBody(DemandeValidationPedagogique.class);
-                System.out.println("DptEnseignement::Demande_convention :" + demande);
+                System.out.println("DptEnseignement::DemandeValidationPedagogique :" + demande);
                 pc.ajouterDemande(demande);
             } catch (JMSException ex) {
                 Logger.getLogger(DemandeValidationPedagogiqueListener.class.getName()).log(Level.SEVERE, null, ex);

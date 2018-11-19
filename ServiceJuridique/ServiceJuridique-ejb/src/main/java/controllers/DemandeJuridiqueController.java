@@ -61,7 +61,7 @@ public class DemandeJuridiqueController implements DemandeJuridiqueControllerRem
     }
 
     @Override
-    public boolean verifierEntreprise(Entreprise e) {
+    public boolean verifierEntreprise(String siret, String nom) {
         return false; //TODO
     }
 
