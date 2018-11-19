@@ -7,6 +7,9 @@ package repositories;
 
 import java.util.ArrayList;
 import java.util.Collection;
+import java.util.Comparator;
+import java.util.stream.Collector;
+import java.util.stream.Collectors;
 import javax.ejb.Singleton;
 import shared.donnees.Departement;
 import shared.donnees.Diplome;
@@ -16,10 +19,9 @@ import shared.donnees.Diplome;
  * @author uzanl
  */
 @Singleton
-public class DepartementRepository  implements DepartementRepositoryLocal{
-    
+public class DepartementRepository implements DepartementRepositoryLocal {
+
     ArrayList<Departement> listeDepartements = new ArrayList<>();
-    
 
     @Override
     public Departement get(Long id) {
@@ -49,6 +51,15 @@ public class DepartementRepository  implements DepartementRepositoryLocal{
     @Override
     public Collection<Diplome> obtenirDiplomes(Departement d) {
         return d.getDiplomes();
+    }
+
+    @Override
+    public Collection<Diplome> obtenirTousLesDiplomes() {
+        return this.listeDepartements
+                .stream()
+                .flatMap(o -> o.getDiplomes().stream())
+                .sorted(Comparator.comparing((diplome) -> diplome.getNiveau()))
+                .collect(Collectors.toSet());
     }
 
 }

@@ -23,5 +23,7 @@ public interface DemandesConventionsEtudiantControllerRemote {
       Collection<Departement> obtenirDepartements();
     
       Collection<Diplome> obtenirDiplomes(Departement d);
+      
+      Collection<Diplome> obtenirTousLesDiplomes();
 
 }

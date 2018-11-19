@@ -42,4 +42,9 @@ public class DemandesConventionsEtudiantController implements DemandesConvention
         return dprepo.obtenirDiplomes(d);
     }
 
+    @Override
+    public Collection<Diplome> obtenirTousLesDiplomes() {
+        return dprepo.obtenirTousLesDiplomes() ;
+    }
+
 }

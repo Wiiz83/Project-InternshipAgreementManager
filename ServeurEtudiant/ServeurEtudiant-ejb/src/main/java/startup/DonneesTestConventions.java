@@ -3,16 +3,15 @@
  * To change this template file, choose Tools | Templates
  * and open the template in the editor.
  */
-package test;
-
+package startup;
 
 import javax.annotation.PostConstruct;
 import javax.ejb.EJB;
 import javax.ejb.Singleton;
 import javax.ejb.Startup;
-import repositories.DepartementRepositoryLocal;
 import shared.DonnesTest;
-import shared.donnees.Departement;
+import shared.messages.demandes.DemandeConventionMessage;
+import controllers.DemandesConventionsEtudiantControllerRemote;
 
 /**
  *
@@ -20,17 +19,16 @@ import shared.donnees.Departement;
  */
 @Singleton
 @Startup
+public class DonneesTestConventions {
 
-public class Demarrage {
-    
-    @EJB
-    DepartementRepositoryLocal drepo;    
-    
+    @EJB 
+    DemandesConventionsEtudiantControllerRemote demandesConventionsControllerRemote; 
+
     @PostConstruct
     public void init() {
         DonnesTest dt = new DonnesTest();
-        for (Departement d : dt.listeDepartements) {
-            drepo.insert(d);
+        for (DemandeConventionMessage dc : dt.demandes) {
+            demandesConventionsControllerRemote.ajouterDemande(dc);
         }
     }
 }

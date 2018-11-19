@@ -29,4 +29,6 @@ public interface DepartementRepositoryLocal extends Repository<Departement> {
     void update(Long id, Departement dp);
 
     Collection<Diplome> obtenirDiplomes(Departement d);
+
+    public Collection<Diplome> obtenirTousLesDiplomes();
 }

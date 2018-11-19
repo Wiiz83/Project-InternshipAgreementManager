@@ -19,12 +19,18 @@ import shared.messages.demandes.DemandeConventionMessage;
  * @author Mahdi
  */
 public class DonnesTest {
-
-    public ArrayList<Departement> listeDepartements = new ArrayList<>();
+    /*
+        Données de test (Conventions envoyées par le serveur étudiant)
+    */
     public ArrayList<DemandeConventionMessage> demandes = new ArrayList<>();
-    Diplome dip1 = new Diplome("Master 2", "Informatique");
-    Diplome dip2 = new Diplome("L3", "MIAGE");
-    Diplome dip3 = new Diplome("Master 2", "Stats");
+
+    /*
+        Données externes (Diplomes/Départements)
+    */
+    public ArrayList<Departement> listeDepartements = new ArrayList<>();
+    Diplome dip1 = new Diplome("MASTER", "Informatique");
+    Diplome dip2 = new Diplome("MASTER", "MIAGE");
+    Diplome dip3 = new Diplome("LICENCE", "Statistiques");
 
     public DonnesTest() {
 
@@ -43,18 +49,19 @@ public class DonnesTest {
         d1.setKey(new Long(220));
         d2.setKey(new Long(36));
         d3.setKey(new Long(42));
-        d4.setKey(new Long(5));
+        d4.setKey(new Long(5));        
         dip1.setDepartement(d0);
         dip2.setDepartement(d0);
         dip3.setDepartement(d2);
+        
         demandes.add(dc0());
         demandes.add(dc1());
         demandes.add(dc2());
     }
 
     private DemandeConventionMessage dc1() {
-        Stage s = new Stage("11-12-2020", "11-12-2020", new Double(400), "Stage JEE!");
-        Entreprise e = new Entreprise("48994888", "HighTech", "mail@HighTech.fr");
+        Stage s = new Stage("11-12-2020", "11-12-2021", new Double(400), "Stage JEE");
+        Entreprise e = new Entreprise("48994888", "HighTech", "mail@hightech.fr");
         Etudiant etudiant = new Etudiant("X5148", "Etudiant", "2", "etu@ups.com");
         ResponsabiliteCivile r = new ResponsabiliteCivile("AXA", "0545888F4");
         return new DemandeConventionMessage(
@@ -81,10 +88,10 @@ public class DonnesTest {
     }
 
     private DemandeConventionMessage dc2() {
-        Stage s = new Stage("11-12-2014", "11-12-2015", new Double(800), "Stats!");
+        Stage s = new Stage("11-12-2014", "11-12-2015", new Double(800), "Stage de stats");
         Entreprise e = new Entreprise("Z894894", "StatR", "mail@statr.fr");
-        Etudiant etudiant = new Etudiant("T65289", "Matheu", "Test", "etu25@stats.com");
-        ResponsabiliteCivile r = new ResponsabiliteCivile("AXA", "078788F4");
+        Etudiant etudiant = new Etudiant("T65289", "Matheu", "Etudiant", "etu25@stats.com");
+        ResponsabiliteCivile r = new ResponsabiliteCivile("AXA", "465X454S");
         return new DemandeConventionMessage(
                 etudiant,
                 dip3,
