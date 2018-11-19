@@ -39,7 +39,7 @@ public class DonnesTest {
         listeDepartements.add(d2);
         listeDepartements.add(d3);
         listeDepartements.add(d4);
-        d0.setKey(new Long(100));
+        d0.setKey(new Long(1));
         d1.setKey(new Long(220));
         d2.setKey(new Long(36));
         d3.setKey(new Long(42));
