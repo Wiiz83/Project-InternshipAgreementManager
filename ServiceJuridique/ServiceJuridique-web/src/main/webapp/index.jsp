@@ -1,3 +1,6 @@
+<%@page import="donnees.DemandeJuridique"%>
+<%@page import="java.util.Collection"%>
+<%@page import="controllers.DemandeJuridiqueControllerRemote"%>
 <!DOCTYPE html>
 <html>
     <head>
@@ -36,7 +39,6 @@
                             <tr>
                                 <th scope="col">Numéro</th>
                                 <th scope="col">Etudiant</th>
-                                <th scope="col">Formation</th>
                                 <th scope="col">Entreprise</th>
                                 <th scope="col">Gratification</th>
                                 <th scope="col">Dates</th>
@@ -45,16 +47,26 @@
                             </tr>
                         </thead>
                         <tbody>
+                            <%
+                                javax.naming.InitialContext ic = new javax.naming.InitialContext();
+                                DemandeJuridiqueControllerRemote ejb = (DemandeJuridiqueControllerRemote) ic.lookup("controllers.DemandeJuridiqueControllerRemote");
+                                Collection<DemandeJuridique> liste = ejb.obtenirDemandes();
+                                for (DemandeJuridique demandeEnCours : liste) {
+                            %>
                             <tr>
-                                <td>XXXX</td>
-                                <td>XXXX</td>
-                                <td>XXXX</td>
-                                <td><a href="javascript:void(0)" title="Vérifier">
-                                        <i class="glyphicon glyphicon-search"></i>
-                                    </a> 
-                                    XXXX
+                                <td><%= demandeEnCours.getKey() %></td>
+                                <td><%= demandeEnCours.getDemande().getEtudiant().getPrenom() + " " + demandeEnCours.getDemande().getEtudiant().getNom().toUpperCase() + "(" + demandeEnCours.getDemande().getEtudiant().getNumero() + ")" %></td>
+                                <td>
+                                    <form method="post" action="ValiderPreconvention">
+                                        <input name="NomEntreprise" type="hidden" value="">
+                                        <input name="SiretEntreprise" type="hidden" value="">
+                                        <button type="submit">
+                                            <i class="glyphicon glyphicon-search"></i>
+                                        </button>  
+                                    </form>
+                                    <%= demandeEnCours.getDemande().getEntreprise().getNom() %>
                                 </td>
-                                <td>XXXX</td>
+                                <td><%= demandeEnCours.getDemande(). %></td>
                                 <td>XXXX</td>
                                 <td><a href="javascript:void(0)" title="Vérifier">
                                         <i class="glyphicon glyphicon-search"></i>
@@ -73,37 +85,11 @@
                                     </a>      
                                 </td>
                             </tr>
+                            <%
+                                }
+                            %>
                         </tbody>
                     </table>
-                    <%
-                        /* try {
-                        List<Preconvention> PreconvEnCours = DebutRevision.getNavetteList(convertedLong);
-                        for (Revision r : revisions) {
-                            out.println("<tr>");
-                            out.println("<td>XXXX</td>");
-                            out.println("<td>XXXX</td>");
-                            out.println("<td>XXXX</td>");
-                            out.println("<td>XXXX</td>");
-                            out.println("<td>XXXX</td>");
-                            out.println("<td>XXXX</td>");
-                            out.println("<td>XXXX</td>");
-                            out.println("
-                            <td>
-                                <a href="javascript:void(0)" title="Ouvrir">
-                                    <i class="glyphicon glyphicon-eye-open"></i>
-                                </a>
-                                <a href="javascript:void(0)" title="Valider">
-                                    <i class="glyphicon glyphicon-ok"></i>
-                                </a>
-                                <a href="javascript:void(0)" title="Supprimer">
-                                    <i class="glyphicon glyphicon-remove"></i>
-                                </a>      
-                            </td>
-                            ");
-                            out.println("</tr>");
-                        }
-                    }*/
-                    %>
                 </div>
             </div>
         </div>
