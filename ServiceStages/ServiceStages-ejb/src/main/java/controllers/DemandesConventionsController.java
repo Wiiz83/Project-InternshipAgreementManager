@@ -74,7 +74,7 @@ public class DemandesConventionsController implements DemandesConventionsControl
 
     @Override
     public Collection<DemandeConvention> obtenirDemandesValidees() {
-        return drepo.obtenirDemandesRefusees();
+        return drepo.obtenirDemandesValidees();
     }
 
     @Override
@@ -89,7 +89,7 @@ public class DemandesConventionsController implements DemandesConventionsControl
 
     @Override
     public void archiverDemande(Long id) {
-        drepo.delete(id);
+        drepo.archiver(id);
     }
 
     @Override
@@ -135,9 +135,9 @@ public class DemandesConventionsController implements DemandesConventionsControl
     public Validation obtenirVoletInvalide(DemandeConvention dc) {
         if (dc.getValidationAdministrative()!=null &&!dc.getValidationAdministrative().isValide())
             return dc.getValidationAdministrative();
-        if (dc.getValidationAdministrative()!=null &&!dc.getValidationJuridique().isValide())
+        if (dc.getValidationJuridique()!=null &&!dc.getValidationJuridique().isValide())
             return dc.getValidationJuridique();
-        if (dc.getValidationAdministrative()!=null &&!dc.getValidationPedagogique().isValide())
+        if (dc.getValidationPedagogique()!=null &&!dc.getValidationPedagogique().isValide())
             return dc.getValidationPedagogique();
         return null;                    
     }
