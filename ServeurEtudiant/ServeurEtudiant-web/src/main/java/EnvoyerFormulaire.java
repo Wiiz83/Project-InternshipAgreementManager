@@ -30,6 +30,9 @@ public class EnvoyerFormulaire extends HttpServlet {
     DemandesConventionsEtudiantControllerRemote dce;
 
     protected void processRequest(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
+        
+        System.out.println("PASSE");
+        
         String NomEtudiant = request.getParameter("NomEtudiant");
         String PrenomEtudiant = request.getParameter("PrenomEtudiant");
         String NumeroEtudiant = request.getParameter("NumeroEtudiant");
@@ -54,7 +57,7 @@ public class EnvoyerFormulaire extends HttpServlet {
         shared.messages.demandes.DemandeConventionMessage demande = new DemandeConventionMessage(etudiant, diplome, rc, stage, entreprise);
         
         dce.ajouterDemande(demande);
-        RequestDispatcher rd = request.getRequestDispatcher("./index.jsp");
+        RequestDispatcher rd = request.getRequestDispatcher("index.jsp");
         rd.forward(request, response);
         
     }
