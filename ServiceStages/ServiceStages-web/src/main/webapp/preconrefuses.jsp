@@ -62,10 +62,9 @@
                                 javax.naming.InitialContext ic = new javax.naming.InitialContext();
                                 DemandesConventionsControllerRemote ejb = (DemandesConventionsControllerRemote) ic.lookup("controllers.DemandesConventionsControllerRemote");
                                 Collection<DemandeConvention> liste = ejb.obtenirDemandesRefusees();
-                                Validation v;
+                                Validation v = null;
                                 for (DemandeConvention demandeEnCours : liste) {
                                     v = ejb.obtenirVoletInvalide(demandeEnCours);
-                                
                             %>
                             <tr>
                                 <td><%= demandeEnCours.getKey() %></td>

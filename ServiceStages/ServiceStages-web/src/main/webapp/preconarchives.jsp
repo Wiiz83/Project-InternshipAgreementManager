@@ -66,7 +66,7 @@
                                 <td><%= demandeEnCours.getEtudiant().getPrenom() + " " + demandeEnCours.getEtudiant().getNom().toUpperCase() + "(" + demandeEnCours.getEtudiant().getNumero() + ")" %></td>
                                 <td><%= demandeEnCours.getDiplome().getNiveau() + " " + demandeEnCours.getDiplome().getIntitule() %></td>
                                 <td><%= demandeEnCours.getEntreprise().getNom() + " (" + demandeEnCours.getEntreprise().getSiret() + ")" %></td>
-                                <td><%= // %></td>
+                                <td><%= demandeEnCours.getKey() %></td>
                                 <td>
                                     <a href="javascript:void(0)" title="Ouvrir">
                                         <i class="glyphicon glyphicon-eye-open"></i>
