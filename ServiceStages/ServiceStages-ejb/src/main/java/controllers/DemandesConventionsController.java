@@ -9,9 +9,9 @@ import donnees.DemandeConvention;
 import java.util.Collection;
 import javax.ejb.EJB;
 import javax.ejb.Stateless;
-import senders.ValidationAdministrativeSender;
-import senders.ValidationJuridiqueSender;
-import senders.ValidationPedagogiqueSender;
+import senders.DemandeValidationAdministrativeSender;
+import senders.DemandeValidationJuridiqueSender;
+import senders.DemandeValidationPedagogiqueSender;
 import shared.messages.demandes.DemandeConventionMessage;
 import shared.messages.demandes.DemandeValidationAdministrative;
 import shared.messages.demandes.DemandeValidationJuridique;
@@ -35,13 +35,13 @@ import shared.messages.validations.ValidationPedagogique;
 public class DemandesConventionsController implements DemandesConventionsControllerRemote {
 
     @EJB
-    ValidationAdministrativeSender validationAdministrativeSender;
+    DemandeValidationAdministrativeSender validationAdministrativeSender;
 
     @EJB
-    ValidationPedagogiqueSender validationPedagogiqueSender;
+    DemandeValidationPedagogiqueSender validationPedagogiqueSender;
 
     @EJB
-    ValidationJuridiqueSender validationJuridiqueSender;
+    DemandeValidationJuridiqueSender validationJuridiqueSender;
 
     @EJB
     ConfirmationValiditeStageSender confirmationValiditeStageSender;

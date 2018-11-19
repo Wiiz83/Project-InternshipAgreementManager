@@ -13,7 +13,7 @@ import javax.jms.JMSConnectionFactory;
 import javax.jms.JMSContext;
 import javax.jms.JMSProducer;
 import javax.jms.Queue;
-import shared.messages.demandes.DemandeValidationPedagogique;
+import shared.messages.demandes.DemandeValidationJuridique;
 
 /**
  *
@@ -21,16 +21,16 @@ import shared.messages.demandes.DemandeValidationPedagogique;
  */
 @Stateless
 @LocalBean
-public class ValidationPedagogiqueSender {
+public class DemandeValidationJuridiqueSender {
 
     @Inject
-    @JMSConnectionFactory("jms/Demande_Validation_PedagogiqueFactory")
+    @JMSConnectionFactory("jms/Demande_Validation_JuridiqueFactory")
     private JMSContext context;
 
-    @Resource(mappedName = "jms/Demande_Validation_Pedagogique")
+    @Resource(mappedName = "jms/Demande_Validation_Juridique")
     private Queue queue;
 
-    public void demanderValidationPedagogique(DemandeValidationPedagogique demande) {
+    public void demanderValidationJuridique(DemandeValidationJuridique demande) {
         JMSProducer mp = context.createProducer();
         mp.send(queue, demande);
     }
