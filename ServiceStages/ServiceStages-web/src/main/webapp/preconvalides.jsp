@@ -83,6 +83,9 @@
                                   </form>   
                                 </td>
                             </tr>
+                            <%
+                                }
+                            %>
                         </tbody>
                     </table>
                     </form>
