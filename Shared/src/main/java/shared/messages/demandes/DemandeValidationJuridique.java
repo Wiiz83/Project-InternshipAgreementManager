@@ -28,6 +28,19 @@ public class DemandeValidationJuridique extends DemandeValidation {
         this.entreprise = entreprise;
     }
 
+    public void setResponsabiliteCivile(ResponsabiliteCivile responsabiliteCivile) {
+        this.responsabiliteCivile = responsabiliteCivile;
+    }
+
+    public void setStage(Stage stage) {
+        this.stage = stage;
+    }
+
+    public void setEntreprise(Entreprise entreprise) {
+        this.entreprise = entreprise;
+    }
+    
+
     @Override
     public String toString() {
         return "DemandeValidationJuridique{" + "responsabiliteCivile=" + responsabiliteCivile + ", stage=" + stage + ", entreprise=" + entreprise + '}' + super.toString();
