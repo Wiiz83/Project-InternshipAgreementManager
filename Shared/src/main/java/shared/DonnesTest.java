@@ -21,14 +21,25 @@ import shared.messages.demandes.DemandeConventionMessage;
  */
 public class DonnesTest {
 
-    public Long id = new Long(564);
-    public Stage s = new Stage("11-12-2014", "11-12-2015", new Double(500), "Super stage!");
-    public Entreprise e = new Entreprise("49646464464", "Air France","mail@af.fr");
-    public Diplome d = new Diplome("Master 2", "Informatique");
-    public Etudiant etudiant = new Etudiant("TEST", "TEST", "TEST","mail@mail.com");
-    public ResponsabiliteCivile r = new ResponsabiliteCivile("ResponsabiliteCivile_1","ResponsabiliteCivile_2");
     public ArrayList<Departement> listeDepartements = new ArrayList<>();
-    public ArrayList <DemandeConventionMessage>  demandes = new ArrayList<>();
+    public ArrayList<DemandeConventionMessage> demandes = new ArrayList<>();
+    Diplome dip1 = new Diplome("Master 2", "Informatique");
+    Diplome dip2 = new Diplome("L3", "MIAGE");
+    Diplome dip3 = new Diplome("Master 2", "Stats");
+
+    private DemandeConventionMessage dc0() {
+        Stage s = new Stage("11-12-2014", "11-12-2015", new Double(500), "Super stage!");
+        Entreprise e = new Entreprise("49646464464", "Air France", "mail@af.fr");
+        Etudiant etudiant = new Etudiant("0458GF", "LU", "ZAN", "mail@mail.com");
+        ResponsabiliteCivile r = new ResponsabiliteCivile("MAF", "08478964TT88");
+        return new DemandeConventionMessage(
+                etudiant,
+                dip1,
+                r,
+                s,
+                e
+        );
+    }
 
     public DonnesTest() {
 
@@ -47,18 +58,42 @@ public class DonnesTest {
         listeDepartements.add(d2);
         listeDepartements.add(d3);
         listeDepartements.add(d4);
-        
-        d.setDepartement(d0);
-        
-        demandes.add(
-                new DemandeConventionMessage(
-                        etudiant,
-                        d, 
-                        r,
-                        s,
-                        e
-                ));
 
+        dip1.setDepartement(d0);
+        dip1.setDepartement(d0);
+        dip2.setDepartement(d2);
+        demandes.add(dc0());
+        demandes.add(dc1());
+        demandes.add(dc2());
+
+    }
+
+    private DemandeConventionMessage dc1() {
+        Stage s = new Stage("11-12-2020", "11-12-2020", new Double(400), "Stage JEE!");
+        Entreprise e = new Entreprise("48994888", "HighTech", "mail@HighTech.fr");
+        Etudiant etudiant = new Etudiant("X5148", "Etudiant", "2", "etu@ups.com");
+        ResponsabiliteCivile r = new ResponsabiliteCivile("AXA", "0545888F4");
+        return new DemandeConventionMessage(
+                etudiant,
+                dip1,
+                r,
+                s,
+                e
+        );
+    }
+
+    private DemandeConventionMessage dc2() {
+        Stage s = new Stage("11-12-2014", "11-12-2015", new Double(800), "Stats!");
+        Entreprise e = new Entreprise("Z894894", "StatR", "mail@statr.fr");
+        Etudiant etudiant = new Etudiant("T65289", "Matheu", "Test", "etu25@stats.com");
+        ResponsabiliteCivile r = new ResponsabiliteCivile("AXA", "078788F4");
+        return new DemandeConventionMessage(
+                etudiant,
+                dip1,
+                r,
+                s,
+                e
+        );
     }
 
 }

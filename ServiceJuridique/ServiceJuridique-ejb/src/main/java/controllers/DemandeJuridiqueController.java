@@ -61,7 +61,7 @@ public class DemandeJuridiqueController implements DemandeJuridiqueControllerRem
 
     @Override
     public boolean verifierEntreprise(Entreprise e) {
-        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+        return false ; //TODO
     }
 
 }
