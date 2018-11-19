@@ -28,16 +28,16 @@ public class DemandeValidationJuridique extends DemandeValidation {
         this.entreprise = entreprise;
     }
 
-    public void setResponsabiliteCivile(ResponsabiliteCivile responsabiliteCivile) {
-        this.responsabiliteCivile = responsabiliteCivile;
+    public ResponsabiliteCivile getResponsabiliteCivile() {
+        return responsabiliteCivile;
     }
 
-    public void setStage(Stage stage) {
-        this.stage = stage;
+    public Stage getStage() {
+        return stage;
     }
 
-    public void setEntreprise(Entreprise entreprise) {
-        this.entreprise = entreprise;
+    public Entreprise getEntreprise() {
+        return entreprise;
     }
     
 
