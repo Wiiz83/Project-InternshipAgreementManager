@@ -79,14 +79,14 @@
                             <div class="form-group">
                                 <label class="col-md-2 control-label" for="textinput">Niveau et intitulé :</label>  
                                 <div class="col-md-4">
-                                    <select class="form-control" id="exampleFormControlSelect1">
+                                    <select class="form-control" id="exampleFormControlSelect1" name="Formation">
                                         <%
                                             javax.naming.InitialContext ic = new javax.naming.InitialContext();
                                             DemandesConventionsEtudiantControllerRemote controller = (DemandesConventionsEtudiantControllerRemote) ic.lookup("controllers.DemandesConventionsEtudiantControllerRemote");
                                             Collection<Diplome> listeD = controller.obtenirTousLesDiplomes();
                                             for (Diplome dipEnCours : listeD) {
                                         %>
-                                        <option name="Formation" value='<%= dipEnCours.getDepartement().getKey() +";" + dipEnCours.getNiveau() + ";" + dipEnCours.getIntitule()+";" + dipEnCours.getDepartement().getNom() %>' name="IdDptSelected" ><%= dipEnCours.getNiveau() + " " + dipEnCours.getIntitule() %></option>
+                                        <option value='<%= dipEnCours.getDepartement().getKey() +";" + dipEnCours.getNiveau() + ";" + dipEnCours.getIntitule()+";" + dipEnCours.getDepartement().getNom() %>' ><%= dipEnCours.getNiveau() + " " + dipEnCours.getIntitule() %></option>
                                         <%
                                             }
                                         %>

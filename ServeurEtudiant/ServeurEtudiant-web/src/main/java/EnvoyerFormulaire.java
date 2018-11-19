@@ -41,7 +41,7 @@ public class EnvoyerFormulaire extends HttpServlet {
         String IdDpt = FormationSplit[0];
         String NiveauFormation = FormationSplit[1];
         String IntituleFormation = FormationSplit[2];
-        String NomDpt = FormationSplit[2];
+        String NomDpt = FormationSplit[3];
         
         String NomAssurance = request.getParameter("NomAssurance");
         String NumContratAssurance = request.getParameter("NumContratAssurance");
