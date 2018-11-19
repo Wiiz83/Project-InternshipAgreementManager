@@ -133,11 +133,11 @@ public class DemandesConventionsController implements DemandesConventionsControl
     
     @Override
     public Validation obtenirVoletInvalide(DemandeConvention dc) {
-        if (!dc.getValidationAdministrative().isValide())
+        if (dc.getValidationAdministrative()!=null &&!dc.getValidationAdministrative().isValide())
             return dc.getValidationAdministrative();
-        if (!dc.getValidationJuridique().isValide())
+        if (dc.getValidationAdministrative()!=null &&!dc.getValidationJuridique().isValide())
             return dc.getValidationJuridique();
-        if (!dc.getValidationPedagogique().isValide())
+        if (dc.getValidationAdministrative()!=null &&!dc.getValidationPedagogique().isValide())
             return dc.getValidationPedagogique();
         return null;                    
     }

@@ -12,6 +12,7 @@ import javax.ejb.Stateless;
 import repositories.DemandeJuridiqueRepositoryLocal;
 import senders.ValidationJuridiqueSender;
 import shared.donnees.Entreprise;
+import shared.donnees.ResponsabiliteCivile;
 import shared.messages.notifications.NotificationAnnulationDemandeValidation;
 import shared.messages.validations.ValidationJuridique;
 
@@ -62,6 +63,11 @@ public class DemandeJuridiqueController implements DemandeJuridiqueControllerRem
     @Override
     public boolean verifierEntreprise(Entreprise e) {
         return false ; //TODO
+    }
+
+    @Override
+    public boolean verifierResponsabiliteCivile(ResponsabiliteCivile r) {
+        return true;
     }
 
 }
