@@ -24,11 +24,13 @@ public class DemandesConventionsRepository extends KVRepository<DemandeConventio
 
     @Override
     public Collection<DemandeConvention> obtenirDemandesEncours() {
-        return this.kvstore.values().stream().filter(
-                d -> d.getValidationAdministrative() == null
-                || d.getValidationJuridique() == null
-                || d.getValidationPedagogique() == null
-        ).collect(Collectors.toSet());
+        return this.kvstore.values().stream()
+                .filter(
+                        d -> d.getValidationAdministrative() == null
+                        || d.getValidationJuridique() == null
+                        || d.getValidationPedagogique() == null
+                ).filter(Predicats.estRefusee.negate())
+                .collect(Collectors.toSet());
     }
 
     @Override
