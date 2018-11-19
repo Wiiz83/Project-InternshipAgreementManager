@@ -24,15 +24,15 @@ public class VerifierAssurance extends HttpServlet {
     
     protected void processRequest(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
         String idPreconv = request.getParameter("IdPreconvention");
-        String motifRefus = request.getParameter("motifRefus");
-        System.out.println(idPreconv + " - "+ motifRefus);
+        System.out.println(idPreconv);
         
-        if (!idPreconv.isEmpty() && !motifRefus.isEmpty()) {
-            controller.refuserDemande(Long.parseLong(idPreconv), motifRefus);
-            RequestDispatcher rd = request.getRequestDispatcher("./index.jsp");
+        if (!idPreconv.isEmpty()) {
+            boolean reponse = controller.verifierResponsabiliteCivile(Long.parseLong(idPreconv));
+            request.setAttribute("ResVerifAssurance", reponse);
+            RequestDispatcher rd = request.getRequestDispatcher("index.jsp");
             rd.forward(request, response);
         } else {
-            RequestDispatcher rd = request.getRequestDispatcher("./index.jsp");
+            RequestDispatcher rd = request.getRequestDispatcher("index.jsp");
             rd.forward(request, response);
         }
     }

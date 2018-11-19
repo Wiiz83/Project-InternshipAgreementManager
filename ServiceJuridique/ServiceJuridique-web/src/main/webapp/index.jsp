@@ -41,16 +41,35 @@
                             if(request.getAttribute("ResVerifEntreprise").toString().equals("true")){
                                 s = "L'entreprise existe juridiquement";
                      %>
-                        <div style="width: 100%; background-color: green; font-weight: bold"><%= s %></div>
+                            <div style="width: 100%; padding:20px; background-color: green; color:white; text-align: center; font-weight: bold"><%= s %></div><br/>
                     <%   
                             }else {
                                 s = "L'entreprise n'existe pas juridiquement";
                     %>
-                         <div style="width: 100%; background-color: red; font-weight: bold"><%= s %></div>
+                            <div style="width: 100%; padding:20px; background-color: red; color:white; text-align: center; font-weight: bold"><%= s %></div><br/>
                     <%
                             }
                         }
                     %>
+                    
+                    
+                    <%
+                        if(request.getAttribute("ResVerifAssurance") != null){
+                            String s;
+                            if(request.getAttribute("ResVerifAssurance").toString().equals("true")){
+                                s = "Le contrat d'assurance est valide";
+                     %>
+                        <div style="width: 100%; padding:20px; background-color: green; color:white; text-align: center; font-weight: bold"><%= s %></div><br/>
+                    <%   
+                            }else {
+                                s = "Le contrat d'assurance est invalide";
+                    %>
+                    <div style="width: 100%; padding:20px; background-color: red; color:white; text-align: center; font-weight: bold"><%= s %></div><br/>
+                    <%
+                            }
+                        }
+                    %>
+                    
                     <table class="table"  id="example" class="display" style="width:100%">
                         <thead>
                             <tr>

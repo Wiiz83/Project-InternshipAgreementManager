@@ -31,10 +31,10 @@ public class VerifierEntreprise extends HttpServlet {
         if (!NomEntreprise.isEmpty() && !SiretEntreprise.isEmpty()) {
             boolean reponse = controller.verifierEntreprise(NomEntreprise,SiretEntreprise);
             request.setAttribute("ResVerifEntreprise", reponse);
-            RequestDispatcher rd = request.getRequestDispatcher("./index.jsp");
+            RequestDispatcher rd = request.getRequestDispatcher("index.jsp");
             rd.forward(request, response);
         } else {
-            RequestDispatcher rd = request.getRequestDispatcher("./index.jsp");
+            RequestDispatcher rd = request.getRequestDispatcher("index.jsp");
             rd.forward(request, response);
         }
     }
