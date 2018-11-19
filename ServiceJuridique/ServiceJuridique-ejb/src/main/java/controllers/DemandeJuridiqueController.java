@@ -12,7 +12,9 @@ import javax.ejb.Stateless;
 import repositories.DemandeJuridiqueRepositoryLocal;
 import senders.ValidationJuridiqueSender;
 import shared.donnees.Entreprise;
+import shared.donnees.Etudiant;
 import shared.donnees.ResponsabiliteCivile;
+import shared.messages.demandes.DemandeValidationJuridique;
 import shared.messages.notifications.NotificationAnnulationDemandeValidation;
 import shared.messages.validations.ValidationJuridique;
 
@@ -23,13 +25,12 @@ import shared.messages.validations.ValidationJuridique;
 @Stateless
 public class DemandeJuridiqueController implements DemandeJuridiqueControllerRemote {
 
-    @EJB 
-    DemandeJuridiqueRepositoryLocal repo ;
-    
+    @EJB
+    DemandeJuridiqueRepositoryLocal repo;
+
     @EJB
     ValidationJuridiqueSender validationJuridiqueSender;
-           
-    
+
     @Override
     public Collection<DemandeJuridique> obtenirDemandes() {
         return this.repo.getAll();
@@ -45,8 +46,7 @@ public class DemandeJuridiqueController implements DemandeJuridiqueControllerRem
         this.repo.delete(n.getIdDemandeConvention());
     }
 
-
-      @Override
+    @Override
     public void refuserDemande(Long id, String motif) {
         repo.delete(id);
         ValidationJuridique msg = new ValidationJuridique(id, false, motif);
@@ -62,11 +62,11 @@ public class DemandeJuridiqueController implements DemandeJuridiqueControllerRem
 
     @Override
     public boolean verifierEntreprise(Entreprise e) {
-        return false ; //TODO
+        return false; //TODO
     }
 
     @Override
-    public boolean verifierResponsabiliteCivile(ResponsabiliteCivile r) {
+    public boolean verifierResponsabiliteCivile(Long id) {
         return true;
     }
 

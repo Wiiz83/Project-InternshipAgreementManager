@@ -10,7 +10,9 @@ import java.util.Collection;
 import javax.ejb.Local;
 import javax.ejb.Remote;
 import shared.donnees.Entreprise;
+import shared.donnees.Etudiant;
 import shared.donnees.ResponsabiliteCivile;
+import shared.messages.demandes.DemandeValidationJuridique;
 import shared.messages.notifications.NotificationAnnulationDemandeValidation;
 
 /**
@@ -29,8 +31,8 @@ public interface DemandeJuridiqueControllerRemote {
     public void refuserDemande(Long id, String motif);
 
     public void accepterDemande(Long id);
-    
-    public boolean verifierEntreprise (Entreprise e);
-    
-    public boolean verifierResponsabiliteCivile(ResponsabiliteCivile r);
+
+    public boolean verifierEntreprise(Entreprise e);
+
+    public boolean verifierResponsabiliteCivile(Long id);
 }
