@@ -21,7 +21,7 @@ import shared.messages.demandes.DemandeValidationAdministrative;
  */
 @Stateless
 @LocalBean
-public class ValidationAdministrativeSender {
+public class DemandeValidationAdministrativeSender {
 
     @Inject
     @JMSConnectionFactory("jms/Demande_Validation_AdministrativeFactory")
