@@ -11,9 +11,6 @@ import javax.ejb.EJB;
 import javax.ejb.Stateless;
 import repositories.DemandeJuridiqueRepositoryLocal;
 import senders.ValidationJuridiqueSender;
-import shared.donnees.Entreprise;
-import shared.donnees.Etudiant;
-import shared.donnees.ResponsabiliteCivile;
 import shared.messages.demandes.DemandeValidationJuridique;
 import shared.messages.notifications.NotificationAnnulationDemandeValidation;
 import shared.messages.validations.ValidationJuridique;
@@ -37,8 +34,8 @@ public class DemandeJuridiqueController implements DemandeJuridiqueControllerRem
     }
 
     @Override
-    public void ajouterDemande(DemandeJuridique demande) {
-        this.repo.insert(demande);
+    public void ajouterDemande(DemandeValidationJuridique demande) { 
+        this.repo.insert(new DemandeJuridique(demande));
     }
 
     @Override
@@ -50,14 +47,14 @@ public class DemandeJuridiqueController implements DemandeJuridiqueControllerRem
     public void refuserDemande(Long id, String motif) {
         repo.delete(id);
         ValidationJuridique msg = new ValidationJuridique(id, false, motif);
-        validationJuridiqueSender.envoyerValidationPedagogique(msg);
+        validationJuridiqueSender.envoyerValidationJuridique(msg);
     }
 
     @Override
     public void accepterDemande(Long id) {
         repo.delete(id);
         ValidationJuridique msg = new ValidationJuridique(id);
-        validationJuridiqueSender.envoyerValidationPedagogique(msg);
+        validationJuridiqueSender.envoyerValidationJuridique(msg);
     }
 
     @Override
