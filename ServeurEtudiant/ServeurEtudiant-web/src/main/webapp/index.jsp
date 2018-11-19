@@ -43,7 +43,7 @@
             </div>
             <div class="row" style="margin-left:100px; margin-right:100px; margin-top:20px;">
                 <div class="col-md-12">
-                    <form class="form-horizontal" method="post" action="EnvoiFormulaire">
+                    <form class="form-horizontal" method="post" action="EnvoyerFormulaire">
                         <fieldset>
                             <!-- Form Name -->
                             <legend>Etudiant</legend>
