@@ -5,17 +5,10 @@
  */
 package test;
 
-import java.util.Date;
 import javax.annotation.PostConstruct;
-import javax.annotation.Resource;
 import javax.ejb.EJB;
 import javax.ejb.Singleton;
 import javax.ejb.Startup;
-import javax.inject.Inject;
-import javax.jms.JMSConnectionFactory;
-import javax.jms.JMSContext;
-import javax.jms.JMSProducer;
-import javax.jms.Queue;
 import shared.DonnesTest;
 import shared.messages.demandes.DemandeConventionMessage;
 import controllers.DemandesConventionsEtudiantControllerRemote;
@@ -26,7 +19,7 @@ import controllers.DemandesConventionsEtudiantControllerRemote;
  */
 @Singleton
 @Startup
-public class TestJMSContext {
+public class DonneesTestConventions {
 
     @EJB 
     DemandesConventionsEtudiantControllerRemote demandesConventionsControllerRemote; 
