@@ -13,6 +13,7 @@ import javax.servlet.ServletException;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
+import shared.donnees.Departement;
 import shared.donnees.Diplome;
 import shared.donnees.Entreprise;
 import shared.donnees.Etudiant;
@@ -34,8 +35,14 @@ public class EnvoyerFormulaire extends HttpServlet {
         String PrenomEtudiant = request.getParameter("PrenomEtudiant");
         String NumeroEtudiant = request.getParameter("NumeroEtudiant");
         String EmailEtudiant = request.getParameter("EmailEtudiant");
-        String NiveauFormation = request.getParameter("NiveauFormation");
-        String IntituleFormation = request.getParameter("IntituleFormation");
+        
+        String Formation = request.getParameter("Formation");
+        String[] FormationSplit = Formation.split(";");
+        String IdDpt = FormationSplit[0];
+        String NiveauFormation = FormationSplit[1];
+        String IntituleFormation = FormationSplit[2];
+        String NomDpt = FormationSplit[2];
+        
         String NomAssurance = request.getParameter("NomAssurance");
         String NumContratAssurance = request.getParameter("NumContratAssurance");
         String NomEntreprise = request.getParameter("NomEntreprise");
@@ -46,15 +53,20 @@ public class EnvoyerFormulaire extends HttpServlet {
         String GratificationStage = request.getParameter("GratificationStage");
         String ResumeStage = request.getParameter("ResumeStage");
        
+        Departement d = new Departement(NomDpt);
+        d.setKey(Long.parseLong(IdDpt));
+        
         Etudiant etudiant = new Etudiant(NumeroEtudiant, NomEtudiant, PrenomEtudiant, EmailEtudiant);
         Diplome diplome = new Diplome(NiveauFormation, IntituleFormation);
+        diplome.setDepartement(d);
+        
         Entreprise entreprise = new Entreprise(SiretEntreprise, NomEntreprise, EmailEntreprise);
         ResponsabiliteCivile rc = new ResponsabiliteCivile(NomAssurance, NumContratAssurance);
         Stage stage = new Stage(DebutStage, FinStage, Double.parseDouble(GratificationStage.replace(",", ".")), ResumeStage);
         shared.messages.demandes.DemandeConventionMessage demande = new DemandeConventionMessage(etudiant, diplome, rc, stage, entreprise);
         
         dce.ajouterDemande(demande);
-        RequestDispatcher rd = request.getRequestDispatcher("/index.jsp");
+        RequestDispatcher rd = request.getRequestDispatcher("index.jsp");
         rd.forward(request, response);
         
     }

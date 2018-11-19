@@ -1,3 +1,6 @@
+<%@page import="java.util.Collection"%>
+<%@page import="shared.donnees.Diplome"%>
+<%@page import="controllers.DemandesConventionsEtudiantControllerRemote"%>
 <!DOCTYPE html>
 <html>
     <head>
@@ -74,24 +77,19 @@
                             <legend>Diplôme préparé</legend>
                             <!-- Text input-->
                             <div class="form-group">
-                                <label class="col-md-2 control-label" for="textinput">Niveau :</label>  
+                                <label class="col-md-2 control-label" for="textinput">Niveau et intitulé :</label>  
                                 <div class="col-md-4">
-                                    <select class="form-control" id="exampleFormControlSelect1" name="NiveauFormation">
-                                        <option>Master</option>
-                                        <option>Licence</option>
-                                        <option>3</option>
-                                        <option>4</option>
-                                        <option>5</option>
-                                    </select>
-                                </div>
-                                <label class="col-md-2 control-label" for="textinput">Intitulé :</label>  
-                                <div class="col-md-4">
-                                    <select class="form-control" id="exampleFormControlSelect1" name="IntituleFormation">
-                                        <option>Informatique</option>
-                                        <option>2</option>
-                                        <option>3</option>
-                                        <option>4</option>
-                                        <option>5</option>
+                                    <select class="form-control" id="exampleFormControlSelect1">
+                                        <%
+                                            javax.naming.InitialContext ic = new javax.naming.InitialContext();
+                                            DemandesConventionsEtudiantControllerRemote controller = (DemandesConventionsEtudiantControllerRemote) ic.lookup("controllers.DemandesConventionsEtudiantControllerRemote");
+                                            Collection<Diplome> listeD = controller.obtenirTousLesDiplomes();
+                                            for (Diplome dipEnCours : listeD) {
+                                        %>
+                                        <option name="Formation" value='<%= dipEnCours.getDepartement().getKey() +";" + dipEnCours.getNiveau() + ";" + dipEnCours.getIntitule()+";" + dipEnCours.getDepartement().getNom() %>' name="IdDptSelected" ><%= dipEnCours.getNiveau() + " " + dipEnCours.getIntitule() %></option>
+                                        <%
+                                            }
+                                        %>
                                     </select>
                                 </div>
                             </div>
@@ -169,5 +167,5 @@
                 </div>
             </div>
         </div>
-</body>
+    </body>
 </html>
