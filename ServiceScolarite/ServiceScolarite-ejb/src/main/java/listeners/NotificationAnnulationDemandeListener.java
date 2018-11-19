@@ -6,6 +6,8 @@
 package listeners;
 
 import controllers.DemandesAdministrativesControllerRemote;
+import java.util.logging.Level;
+import java.util.logging.Logger;
 import javax.ejb.ActivationConfigProperty;
 import javax.ejb.EJB;
 import javax.ejb.MessageDriven;
@@ -41,7 +43,8 @@ public class NotificationAnnulationDemandeListener implements MessageListener {
                 NotificationAnnulationDemandeValidation demande = om.getBody(NotificationAnnulationDemandeValidation.class);
                 System.out.println("Scolarite::NotificationAnnulationDemandeValidation :" + demande);
                 ctrl.annulerDemande(demande);
-            } catch (JMSException e) {
+            } catch (JMSException ex) {
+                Logger.getLogger(NotificationAnnulationDemandeListener.class.getName()).log(Level.SEVERE, null, ex);
             }
         }
     }
