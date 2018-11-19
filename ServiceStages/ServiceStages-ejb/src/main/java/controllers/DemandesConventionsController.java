@@ -129,7 +129,8 @@ public class DemandesConventionsController implements DemandesConventionsControl
     public boolean estValide(DemandeConvention dc) {
         return Predicats.estValidee.test(dc);
     }
-
+*/
+    
     @Override
     public Validation obtenirVoletInvalide(DemandeConvention dc) {
         if (!dc.getValidationAdministrative().isValide())
@@ -140,8 +141,7 @@ public class DemandesConventionsController implements DemandesConventionsControl
             return dc.getValidationPedagogique();
         return null;                    
     }
-*/
-    
+
     
     
     

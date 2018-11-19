@@ -35,6 +35,6 @@ public interface DemandesConventionsControllerRemote {
 
     Collection<DemandeConvention> obtenirDemandesArchivees();
 
-    //Validation obtenirVoletInvalide(DemandeConvention dc);
+    Validation obtenirVoletInvalide(DemandeConvention dc);
     //    boolean estValide(DemandeConvention dc); 
 }

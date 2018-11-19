@@ -36,6 +36,7 @@ public class KVRepository<T extends HasKey> implements Repository<T> {
     public void insert(T dp) {
         if (dp.getKey() == null) {
             this.kvstore.put(this.generateID(), dp);
+            dp.setKey(id);
         } else {
             this.kvstore.put(dp.getKey(), dp);
         }

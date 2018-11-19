@@ -8,7 +8,6 @@ package repositories;
 import donnees.DemandeConvention;
 import java.util.Collection;
 import java.util.HashSet;
-import java.util.function.Predicate;
 import java.util.stream.Collectors;
 import javax.ejb.Singleton;
 import shared.repository.KVRepository;

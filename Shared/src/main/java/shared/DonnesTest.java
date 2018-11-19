@@ -6,7 +6,6 @@
 package shared;
 
 import java.util.ArrayList;
-import java.util.Date;
 import shared.donnees.Departement;
 import shared.donnees.Diplome;
 import shared.donnees.Entreprise;
@@ -27,20 +26,6 @@ public class DonnesTest {
     Diplome dip2 = new Diplome("L3", "MIAGE");
     Diplome dip3 = new Diplome("Master 2", "Stats");
 
-    private DemandeConventionMessage dc0() {
-        Stage s = new Stage("11-12-2014", "11-12-2015", new Double(500), "Super stage!");
-        Entreprise e = new Entreprise("49646464464", "Air France", "mail@af.fr");
-        Etudiant etudiant = new Etudiant("0458GF", "LU", "ZAN", "mail@mail.com");
-        ResponsabiliteCivile r = new ResponsabiliteCivile("MAF", "08478964TT88");
-        return new DemandeConventionMessage(
-                etudiant,
-                dip1,
-                r,
-                s,
-                e
-        );
-    }
-
     public DonnesTest() {
 
         Departement d0 = new Departement("Informatique");
@@ -48,11 +33,7 @@ public class DonnesTest {
         Departement d2 = new Departement("Mathématiques");
         Departement d3 = new Departement("Activités Physiques");
         Departement d4 = new Departement("Langues et Civilisations");
-        d0.setKey(new Long(1));
-        d1.setKey(new Long(2));
-        d2.setKey(new Long(3));
-        d3.setKey(new Long(4));
-        d4.setKey(new Long(5));
+
         listeDepartements.add(d0);
         listeDepartements.add(d1);
         listeDepartements.add(d2);
@@ -60,12 +41,11 @@ public class DonnesTest {
         listeDepartements.add(d4);
 
         dip1.setDepartement(d0);
-        dip1.setDepartement(d0);
-        dip2.setDepartement(d2);
+        dip2.setDepartement(d0);
+        dip3.setDepartement(d2);
         demandes.add(dc0());
         demandes.add(dc1());
         demandes.add(dc2());
-
     }
 
     private DemandeConventionMessage dc1() {
@@ -82,6 +62,20 @@ public class DonnesTest {
         );
     }
 
+    private DemandeConventionMessage dc0() {
+        Stage s = new Stage("11-12-2014", "11-12-2015", new Double(500), "Super stage!");
+        Entreprise e = new Entreprise("49646464464", "Air France", "mail@af.fr");
+        Etudiant etudiant = new Etudiant("0458GF", "LU", "ZAN", "mail@mail.com");
+        ResponsabiliteCivile r = new ResponsabiliteCivile("MAF", "08478964TT88");
+        return new DemandeConventionMessage(
+                etudiant,
+                dip2,
+                r,
+                s,
+                e
+        );
+    }
+
     private DemandeConventionMessage dc2() {
         Stage s = new Stage("11-12-2014", "11-12-2015", new Double(800), "Stats!");
         Entreprise e = new Entreprise("Z894894", "StatR", "mail@statr.fr");
@@ -89,7 +83,7 @@ public class DonnesTest {
         ResponsabiliteCivile r = new ResponsabiliteCivile("AXA", "078788F4");
         return new DemandeConventionMessage(
                 etudiant,
-                dip1,
+                dip3,
                 r,
                 s,
                 e
