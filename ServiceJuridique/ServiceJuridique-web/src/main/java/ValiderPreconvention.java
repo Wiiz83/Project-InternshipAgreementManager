@@ -4,9 +4,8 @@
  * and open the template in the editor.
  */
 
-import controllers.DemandesAdministrativesControllerRemote;
+import controllers.DemandeJuridiqueControllerRemote;
 import java.io.IOException;
-import java.io.PrintWriter;
 import javax.ejb.EJB;
 import javax.servlet.RequestDispatcher;
 import javax.servlet.ServletException;
@@ -21,14 +20,14 @@ import javax.servlet.http.HttpServletResponse;
 public class ValiderPreconvention extends HttpServlet {
 
     @EJB
-    DemandesAdministrativesControllerRemote pc;
+    DemandeJuridiqueControllerRemote controller;
     
     protected void processRequest(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
         String idPreconv = request.getParameter("IdPreconvention");
         System.out.println(idPreconv);
         
         if (!idPreconv.isEmpty()) {
-            pc.accepterDemande(Long.parseLong(idPreconv));
+            controller.accepterDemande(Long.parseLong(idPreconv));
             RequestDispatcher rd = request.getRequestDispatcher("./index.jsp");
             rd.forward(request, response);
         } else {

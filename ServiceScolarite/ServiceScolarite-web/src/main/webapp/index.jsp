@@ -60,7 +60,7 @@
                                         <i class="glyphicon glyphicon-eye-open"></i>
                                     </button>
                                     <form method="post" action="ValiderPreconvention">
-                                        <button name="IdPreconvention" value="<%= demandeEnCours.getKey() %>">
+                                        <button name="IdPreconvention" type="submit" value="<%= demandeEnCours.getKey() %>">
                                             <i class="glyphicon glyphicon-ok"></i>
                                         </button>
                                     </form>
