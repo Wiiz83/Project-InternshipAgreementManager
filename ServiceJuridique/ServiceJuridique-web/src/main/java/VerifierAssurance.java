@@ -6,8 +6,8 @@
 
 import controllers.DemandeJuridiqueControllerRemote;
 import java.io.IOException;
-import java.io.PrintWriter;
 import javax.ejb.EJB;
+import javax.servlet.RequestDispatcher;
 import javax.servlet.ServletException;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
@@ -23,9 +23,18 @@ public class VerifierAssurance extends HttpServlet {
     DemandeJuridiqueControllerRemote controller;
     
     protected void processRequest(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
+        String idPreconv = request.getParameter("IdPreconvention");
+        String motifRefus = request.getParameter("motifRefus");
+        System.out.println(idPreconv + " - "+ motifRefus);
         
-        
-        
+        if (!idPreconv.isEmpty() && !motifRefus.isEmpty()) {
+            controller.refuserDemande(Long.parseLong(idPreconv), motifRefus);
+            RequestDispatcher rd = request.getRequestDispatcher("./index.jsp");
+            rd.forward(request, response);
+        } else {
+            RequestDispatcher rd = request.getRequestDispatcher("./index.jsp");
+            rd.forward(request, response);
+        }
     }
 
     // <editor-fold defaultstate="collapsed" desc="HttpServlet methods. Click on the + sign on the left to edit the code.">
