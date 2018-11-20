@@ -14,6 +14,7 @@ import javax.ws.rs.Produces;
 import javax.ws.rs.GET;
 import javax.ws.rs.Path;
 import javax.enterprise.context.RequestScoped;
+import javax.inject.Inject;
 import javax.ws.rs.POST;
 import javax.ws.rs.QueryParam;
 import javax.ws.rs.core.MediaType;
@@ -27,14 +28,14 @@ import repositories.ConventionsValideesRepositoryLocal;
  */
 @Path("conventionsvalidees")
 @RequestScoped
+
 public class ConventionsvalideesResource {
 
     @Context
     private UriInfo context;
-    
-        @EJB
 
-    ConventionsValideesRepositoryLocal repo; 
+    @Inject
+    ConventionsValideesRepositoryLocal repo;
 
     /**
      * Creates a new instance of ConventionsvalideesResource
@@ -42,13 +43,12 @@ public class ConventionsvalideesResource {
     public ConventionsvalideesResource() {
     }
 
- 
     @GET
     @Produces(MediaType.APPLICATION_JSON)
     public Collection<ConventionValidee> getConventionValidee(@QueryParam("offset") int offset, @QueryParam("limit") int limit) {
-       return repo.get(offset,limit);
+        return repo.get(offset, limit);
     }
- 
+
     @POST
     @Consumes(MediaType.APPLICATION_JSON)
     public void postConventionValidee(ConventionValidee c) {
