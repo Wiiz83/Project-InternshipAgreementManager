@@ -28,7 +28,7 @@ public class DonneesTestConventions {
     public void init() {
         DonnesTest dt = new DonnesTest();
         for (DemandeConventionMessage dc : dt.demandes) {
-         //   demandesConventionsControllerRemote.ajouterDemande(dc);
+            demandesConventionsControllerRemote.ajouterDemande(dc);
         }
     }
 }

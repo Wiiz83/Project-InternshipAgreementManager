@@ -7,8 +7,12 @@ package controllers;
 
 import donnees.DemandeConvention;
 import java.util.Collection;
+import java.util.Date;
 import javax.ejb.EJB;
 import javax.ejb.Stateless;
+import javax.ws.rs.ClientErrorException;
+import javax.ws.rs.client.Client;
+import javax.ws.rs.client.WebTarget;
 import senders.DemandeValidationAdministrativeSender;
 import senders.DemandeValidationJuridiqueSender;
 import senders.DemandeValidationPedagogiqueSender;
@@ -26,6 +30,7 @@ import shared.messages.validations.Validation;
 import shared.messages.validations.ValidationAdministrative;
 import shared.messages.validations.ValidationJuridique;
 import shared.messages.validations.ValidationPedagogique;
+import shared.opendata.ConventionValidee;
 
 /**
  *
@@ -65,6 +70,11 @@ public class DemandesConventionsController implements DemandesConventionsControl
 
         DemandeValidationJuridique dvj = new DemandeValidationJuridique(demande.getKey(), demande.getResponsabiliteCivile(), demande.getStage(), demande.getEntreprise(), demande.getEtudiant());
         validationJuridiqueSender.demanderValidationJuridique(dvj);
+        
+        //TEST REST
+        ConventionsvalideesRESTClient client = new ConventionsvalideesRESTClient();
+        ConventionValidee c = new ConventionValidee(2015,msg.getDiplome(),msg.getDiplome().getDepartement().getNom(),msg.getEntreprise().getNom(), new Date(), new Date(), 54.4);
+        client.postConventionValidee(c);
     }
 
     @Override
@@ -141,6 +151,27 @@ public class DemandesConventionsController implements DemandesConventionsControl
             return dc.getValidationPedagogique();
         return null;                    
     }
+
+    static class ConventionsvalideesRESTClient {
+
+        private WebTarget webTarget;
+        private Client client;
+        private static final String BASE_URI = "http://localhost:8080/OpenDataConventions-web/webresources";
+
+        public ConventionsvalideesRESTClient() {
+            client = javax.ws.rs.client.ClientBuilder.newClient();
+            webTarget = client.target(BASE_URI).path("conventionsvalidees");
+        }
+
+        public void postConventionValidee(ConventionValidee c) throws ClientErrorException {
+            webTarget.request(javax.ws.rs.core.MediaType.APPLICATION_JSON).post(javax.ws.rs.client.Entity.entity(c, javax.ws.rs.core.MediaType.APPLICATION_JSON));
+        }
+
+        public void close() {
+            client.close();
+        }
+    }
+    
 
     
     

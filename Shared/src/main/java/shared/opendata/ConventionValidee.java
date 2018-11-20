@@ -5,6 +5,7 @@
  */
 package shared.opendata;
 
+import java.io.Serializable;
 import java.util.Date;
 import shared.donnees.Diplome;
 
@@ -12,15 +13,18 @@ import shared.donnees.Diplome;
  *
  * @author Mahdi
  */
-public class ConventionValidee {
+public class ConventionValidee implements Serializable {
 
-    private int anneeUniversitaire;
-    private Diplome diplome;
-    private String departement;
-    private String entreprise;
-    private Date debut;
-    private Date fin;
-    private double gratification;
+    public int anneeUniversitaire;
+    public Diplome diplome;
+    public String departement;
+    public String entreprise;
+    public Date debut;
+    public Date fin;
+    public double gratification;
+
+    public ConventionValidee() {
+    }
 
     public ConventionValidee(int anneeUniversitaire, Diplome diplome, String departement, String entreprise, Date debut, Date fin, double gratification) {
         this.anneeUniversitaire = anneeUniversitaire;
@@ -30,5 +34,6 @@ public class ConventionValidee {
         this.debut = debut;
         this.fin = fin;
         this.gratification = gratification;
+        this.diplome = new Diplome(diplome.getNiveau(), diplome.getIntitule());
     }
 }

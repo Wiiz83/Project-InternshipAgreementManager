@@ -13,22 +13,23 @@ import java.io.Serializable;
  */
 public class Diplome implements Serializable {
 
-    private final String niveau;
-    private final String intitule;
+    public String niveau;
+    public String intitule;
     private Departement departement;
+
+    public Diplome() {
+    }
 
     public Diplome(String niveau, String intitule) {
         this.niveau = niveau;
-        this.intitule = intitule;        
-    } 
+        this.intitule = intitule;
+    }
 
     public void setDepartement(Departement departement) {
         this.departement = departement;
         departement.ajouterDiplome(this);
     }
-    
-   
-    
+
     public String getNiveau() {
         return niveau;
     }

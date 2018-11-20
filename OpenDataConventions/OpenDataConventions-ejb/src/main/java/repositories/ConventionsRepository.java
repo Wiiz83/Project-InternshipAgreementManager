@@ -18,7 +18,6 @@ import shared.opendata.ConventionValidee;
  * @author Mahdi
  */
 @Singleton
-@LocalBean
 public class ConventionsRepository implements ConventionsValideesRepositoryLocal {
     private final ArrayList<ConventionValidee> liste = new ArrayList<>();
     
