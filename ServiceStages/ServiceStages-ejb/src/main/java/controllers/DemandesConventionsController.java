@@ -50,7 +50,7 @@ public class DemandesConventionsController implements DemandesConventionsControl
 
     @EJB
     ConfirmationValiditeStageSender confirmationValiditeStageSender;
-    
+
     @EJB
     NotificationAnnulationDemandeSender notificationAnnulationDemande;
 
@@ -70,11 +70,6 @@ public class DemandesConventionsController implements DemandesConventionsControl
 
         DemandeValidationJuridique dvj = new DemandeValidationJuridique(demande.getKey(), demande.getResponsabiliteCivile(), demande.getStage(), demande.getEntreprise(), demande.getEtudiant());
         validationJuridiqueSender.demanderValidationJuridique(dvj);
-        
-        //TEST REST
-        ConventionsvalideesRESTClient client = new ConventionsvalideesRESTClient();
-        ConventionValidee c = new ConventionValidee(2015,msg.getDiplome(),msg.getDiplome().getDepartement().getNom(),msg.getEntreprise().getNom(), new Date(), new Date(), 54.4);
-        client.postConventionValidee(c);
     }
 
     @Override
@@ -129,27 +124,28 @@ public class DemandesConventionsController implements DemandesConventionsControl
     private void verifierEtNotifier(DemandeConvention demande) {
         if (Predicats.estValidee.test(demande)) {
             this.confirmationValiditeStageSender.demanderConfirmerValiditeStage(new ConfirmationValiditeStage(demande.getKey()));
+            ConventionsvalideesRESTClient client = new ConventionsvalideesRESTClient();
+            // TODO: pas possible de récupérer l'année depuis un string. 
+            ConventionValidee c = new ConventionValidee(new Date().getYear(), demande.getDiplome(), demande.getDiplome().getDepartement().getNom(), demande.getEntreprise().getNom(), demande.getStage().getDebut(), demande.getStage().getFin(), demande.getStage().getGratification());
+            client.postConventionValidee(c);
         }
         if (Predicats.estRefusee.test(demande)) {
-            notificationAnnulationDemande.notifierAnnulation(new NotificationAnnulationDemandeValidation(demande.getKey()));      
+            notificationAnnulationDemande.notifierAnnulation(new NotificationAnnulationDemandeValidation(demande.getKey()));
         }
     }
-/*
-    @Override
-    public boolean estValide(DemandeConvention dc) {
-        return Predicats.estValidee.test(dc);
-    }
-*/
-    
+
     @Override
     public Validation obtenirVoletInvalide(DemandeConvention dc) {
-        if (dc.getValidationAdministrative()!=null &&!dc.getValidationAdministrative().isValide())
+        if (dc.getValidationAdministrative() != null && !dc.getValidationAdministrative().isValide()) {
             return dc.getValidationAdministrative();
-        if (dc.getValidationJuridique()!=null &&!dc.getValidationJuridique().isValide())
+        }
+        if (dc.getValidationJuridique() != null && !dc.getValidationJuridique().isValide()) {
             return dc.getValidationJuridique();
-        if (dc.getValidationPedagogique()!=null &&!dc.getValidationPedagogique().isValide())
+        }
+        if (dc.getValidationPedagogique() != null && !dc.getValidationPedagogique().isValide()) {
             return dc.getValidationPedagogique();
-        return null;                    
+        }
+        return null;
     }
 
     static class ConventionsvalideesRESTClient {
@@ -171,9 +167,5 @@ public class DemandesConventionsController implements DemandesConventionsControl
             client.close();
         }
     }
-    
 
-    
-    
-    
 }

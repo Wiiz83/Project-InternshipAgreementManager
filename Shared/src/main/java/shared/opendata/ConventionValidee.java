@@ -19,14 +19,14 @@ public class ConventionValidee implements Serializable {
     public Diplome diplome;
     public String departement;
     public String entreprise;
-    public Date debut;
-    public Date fin;
+    public String debut;
+    public String fin;
     public double gratification;
 
     public ConventionValidee() {
     }
 
-    public ConventionValidee(int anneeUniversitaire, Diplome diplome, String departement, String entreprise, Date debut, Date fin, double gratification) {
+    public ConventionValidee(int anneeUniversitaire, Diplome diplome, String departement, String entreprise, String debut, String fin, double gratification) {
         this.anneeUniversitaire = anneeUniversitaire;
         this.diplome = diplome;
         this.departement = departement;
