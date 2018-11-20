@@ -56,3 +56,7 @@ path.cfg
 /ServiceJuridique/ServiceJuridique-ear/target/
 /ServiceJuridique/ServiceJuridique-web/target/
 gfressources.cfg
+/OpenDataConventions/nbproject/private/
+/OpenDataConventions/rest-sample-module/nbproject/private/
+/OpenDataConventions/OpenDataConventions-war/nbproject/private/
+/OpenDataConventions/OpenDataConventions-ejb/nbproject/private/
