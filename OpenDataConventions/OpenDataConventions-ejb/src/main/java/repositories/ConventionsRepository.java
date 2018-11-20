@@ -8,7 +8,9 @@ package repositories;
 import java.util.ArrayList;
 import java.util.Collection;
 import java.util.stream.Collectors;
+import javax.ejb.LocalBean;
 import javax.ejb.Singleton;
+import javax.ejb.Stateless;
 import shared.opendata.ConventionValidee;
 
 /**
@@ -16,7 +18,8 @@ import shared.opendata.ConventionValidee;
  * @author Mahdi
  */
 @Singleton
-public class ConventionsRepository implements ConventionsRepositoryLocal {
+@LocalBean
+public class ConventionsRepository implements ConventionsValideesRepositoryLocal {
     private final ArrayList<ConventionValidee> liste = new ArrayList<>();
     
     @Override
