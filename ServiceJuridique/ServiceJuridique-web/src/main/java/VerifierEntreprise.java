@@ -29,7 +29,7 @@ public class VerifierEntreprise extends HttpServlet {
         System.out.println(NomEntreprise + " - "+ SiretEntreprise);
  
         if (!NomEntreprise.isEmpty() && !SiretEntreprise.isEmpty()) {
-            boolean reponse = controller.verifierEntreprise(NomEntreprise,SiretEntreprise);
+            boolean reponse = controller.verifierEntreprise(SiretEntreprise,NomEntreprise);
             request.setAttribute("ResVerifEntreprise", reponse);
             RequestDispatcher rd = request.getRequestDispatcher("index.jsp");
             rd.forward(request, response);
