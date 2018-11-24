@@ -24,6 +24,14 @@ public class DemandeConventionMessage implements Serializable {
     private Stage stage;
     private Entreprise entreprise;
 
+    /**
+     *
+     * @param etudiant
+     * @param diplome
+     * @param responsabiliteCivile
+     * @param stage
+     * @param entreprise
+     */
     public DemandeConventionMessage(Etudiant etudiant, Diplome diplome, ResponsabiliteCivile responsabiliteCivile, Stage stage, Entreprise entreprise) {
         this.etudiant = etudiant;
         this.diplome = diplome;
@@ -32,22 +40,42 @@ public class DemandeConventionMessage implements Serializable {
         this.entreprise = entreprise;
     }
 
+    /**
+     *
+     * @return
+     */
     public Etudiant getEtudiant() {
         return etudiant;
     }
 
+    /**
+     *
+     * @return
+     */
     public Diplome getDiplome() {
         return diplome;
     }
 
+    /**
+     *
+     * @return
+     */
     public ResponsabiliteCivile getResponsabiliteCivile() {
         return responsabiliteCivile;
     }
 
+    /**
+     *
+     * @return
+     */
     public Stage getStage() {
         return stage;
     }
 
+    /**
+     *
+     * @return
+     */
     public Entreprise getEntreprise() {
         return entreprise;
     }

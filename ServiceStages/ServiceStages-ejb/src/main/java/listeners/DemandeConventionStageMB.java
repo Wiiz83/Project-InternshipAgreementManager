@@ -28,9 +28,16 @@ public class DemandeConventionStageMB implements MessageListener {
     @EJB
     DemandesConventionsControllerRemote ctrl;
 
+    /**
+     *
+     */
     public DemandeConventionStageMB() {
     }
 
+    /**
+     *
+     * @param message
+     */
     @Override
     public void onMessage(Message message) {
         if (message instanceof ObjectMessage) {

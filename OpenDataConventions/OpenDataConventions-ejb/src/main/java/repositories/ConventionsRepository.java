@@ -21,11 +21,21 @@ import shared.opendata.ConventionValidee;
 public class ConventionsRepository implements ConventionsValideesRepositoryLocal {
     private final ArrayList<ConventionValidee> liste = new ArrayList<>();
     
+    /**
+     *
+     * @param offset
+     * @param limit
+     * @return
+     */
     @Override
     public Collection<ConventionValidee> get(int offset, int limit) {
         return liste.stream().skip(offset).limit(limit).collect(Collectors.toSet());
     }
 
+    /**
+     *
+     * @param c
+     */
     @Override
     public void insert(ConventionValidee c) {
         liste.add(c);

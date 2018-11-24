@@ -20,9 +20,7 @@ import javax.servlet.http.HttpSession;
 public class ChangerDepartement extends HttpServlet {
 
     /**
-     * Processes requests for both HTTP <code>GET</code> and <code>POST</code>
-     * methods.
-     *
+     * Récupère les informations du département séléctionné (ID et nom), les stock en variables de session, appelle le contrôleur et redirige vers l'accueil
      * @param request servlet request
      * @param response servlet response
      * @throws ServletException if a servlet-specific error occurs

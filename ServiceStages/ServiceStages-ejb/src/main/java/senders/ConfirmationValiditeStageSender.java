@@ -29,6 +29,10 @@ public class ConfirmationValiditeStageSender {
     @Resource(mappedName = "jms/Confirmation_Validite_Stage")
     private Queue Confirmation_Validite_Stage;
 
+    /**
+     *
+     * @param c
+     */
     public void demanderConfirmerValiditeStage(shared.messages.notifications.ConfirmationValiditeStage c) {
         JMSProducer mp = context.createProducer();
         mp.send(Confirmation_Validite_Stage, c);

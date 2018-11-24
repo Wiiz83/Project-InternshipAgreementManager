@@ -1,3 +1,4 @@
+<%@page import="shared.messages.validations.Validation"%>
 <%@page import="donnees.DemandeConvention"%>
 <%@page import="java.util.Collection"%>
 <%@page import="controllers.DemandesConventionsControllerRemote"%>
@@ -51,7 +52,6 @@
                                 <th scope="col">Formation</th>
                                 <th scope="col">Entreprise</th>
                                 <th scope="col">Statut final</th>
-                                <th scope="col">Actions</th>
                             </tr>
                         </thead>
                         <tbody>
@@ -59,22 +59,16 @@
                                 javax.naming.InitialContext ic = new javax.naming.InitialContext();
                                 DemandesConventionsControllerRemote ejb = (DemandesConventionsControllerRemote) ic.lookup("controllers.DemandesConventionsControllerRemote");
                                 Collection<DemandeConvention> liste = ejb.obtenirDemandesArchivees();
+                                Validation v = null;
                                 for (DemandeConvention demandeEnCours : liste) {
+                                    v = ejb.obtenirVoletInvalide(demandeEnCours);
                             %>
                             <tr>
                                 <td><%= demandeEnCours.getKey() %></td>
                                 <td><%= demandeEnCours.getEtudiant().getPrenom() + " " + demandeEnCours.getEtudiant().getNom().toUpperCase() + "(" + demandeEnCours.getEtudiant().getNumero() + ")" %></td>
                                 <td><%= demandeEnCours.getDiplome().getNiveau() + " " + demandeEnCours.getDiplome().getIntitule() %></td>
                                 <td><%= demandeEnCours.getEntreprise().getNom() + " (" + demandeEnCours.getEntreprise().getSiret() + ")" %></td>
-                                <td><%= demandeEnCours.getKey() %></td>
-                                <td>
-                                    <a href="javascript:void(0)" title="Ouvrir">
-                                        <i class="glyphicon glyphicon-eye-open"></i>
-                                    </a>
-                                    <a href="javascript:void(0)" title="Supprimer">
-                                        <i class="glyphicon glyphicon-floppy-remove"></i>
-                                    </a>      
-                                </td>
+                                <td><%= ejb.obtenirVoletInvalide(demandeEnCours) == null? "Validé" : "Refusé" %></td>
                             </tr>
                             <%
                                 }

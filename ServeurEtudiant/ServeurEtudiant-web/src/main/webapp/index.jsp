@@ -137,11 +137,11 @@
                             <div class="form-group">
                                 <label class="col-md-2 control-label" for="textinput">Date de début :</label>  
                                 <div class="col-md-4">
-                                    <input id="textinput" name="DebutStage" type="text" class="form-control input-md">
+                                    <input id="textinput" name="DebutStage" type="date" value="2018-01-01" class="form-control input-md">
                                 </div>
                                 <label class="col-md-2 control-label" for="textinput">Date de fin :</label>  
                                 <div class="col-md-4">
-                                    <input id="textinput" name="FinStage" type="text" class="form-control input-md">
+                                    <input id="textinput" name="FinStage" type="date" value="2018-01-01" class="form-control input-md">
                                 </div>
                             </div>
                             <div class="form-group">

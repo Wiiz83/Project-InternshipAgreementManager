@@ -30,6 +30,13 @@ public class EnvoyerFormulaire extends HttpServlet {
     @EJB
     DemandesConventionsEtudiantControllerRemote dce;
 
+    /**
+     * Récupère tous les champs du formulaire, crée de nouvelles instances de données, appelle le controleur et redirige vers l'accueil 
+     * @param request
+     * @param response
+     * @throws ServletException
+     * @throws IOException
+     */
     protected void processRequest(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
         String NomEtudiant = request.getParameter("NomEtudiant");
         String PrenomEtudiant = request.getParameter("PrenomEtudiant");
@@ -52,7 +59,7 @@ public class EnvoyerFormulaire extends HttpServlet {
         String FinStage = request.getParameter("FinStage");
         String GratificationStage = request.getParameter("GratificationStage");
         String ResumeStage = request.getParameter("ResumeStage");
-       
+        
         Departement d = new Departement(NomDpt);
         d.setKey(Long.parseLong(IdDpt));
         

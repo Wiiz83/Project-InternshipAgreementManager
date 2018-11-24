@@ -18,31 +18,59 @@ public class DemandeAdministrative implements HasKey {
     private DemandeValidationAdministrative demande;
     private ValidationAdministrative validation;
 
+    /**
+     *
+     * @param demande
+     */
     public DemandeAdministrative(DemandeValidationAdministrative demande) {
         this.demande = demande;
     }
 
+    /**
+     *
+     * @return
+     */
     public DemandeValidationAdministrative getDemande() {
         return demande;
     }
 
+    /**
+     *
+     * @param demande
+     */
     public void setDemande(DemandeValidationAdministrative demande) {
         this.demande = demande;
     }
 
+    /**
+     *
+     * @return
+     */
     public ValidationAdministrative getValidation() {
         return validation;
     }
 
+    /**
+     *
+     * @param validation
+     */
     public void setValidation(ValidationAdministrative validation) {
         this.validation = validation;
     }
 
+    /**
+     *
+     * @return
+     */
     @Override
     public Long getKey() {
         return this.demande.getIdDemandeConvention();
     }
 
+    /**
+     *
+     * @param key
+     */
     @Override
     public void setKey(Long key) {
         throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.

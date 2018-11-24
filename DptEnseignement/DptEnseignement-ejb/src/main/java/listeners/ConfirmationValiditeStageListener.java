@@ -29,9 +29,16 @@ public class ConfirmationValiditeStageListener implements MessageListener {
     @EJB
     PreconventionControllerRemote pc;
 
+    /**
+     *
+     */
     public ConfirmationValiditeStageListener() {
     }
 
+    /**
+     *
+     * @param message
+     */
     @Override
     public void onMessage(Message message) {
         if (message instanceof ObjectMessage) {

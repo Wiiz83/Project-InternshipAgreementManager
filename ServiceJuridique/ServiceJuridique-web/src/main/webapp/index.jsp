@@ -113,9 +113,6 @@
                                     <%= demandeEnCours.getDemande().getResponsabiliteCivile().getCompagnieAssurance() + "(contrat n° " + demandeEnCours.getDemande().getResponsabiliteCivile().getnContrat() + ")" %>
                                 </td>
                                 <td>
-                                    <button>
-                                        <i class="glyphicon glyphicon-eye-open"></i>
-                                    </button>
                                     <form method="post" action="ValiderPreconvention">
                                         <button name="IdPreconvention" type="submit" value="<%= demandeEnCours.getKey() %>">
                                             <i class="glyphicon glyphicon-ok"></i>

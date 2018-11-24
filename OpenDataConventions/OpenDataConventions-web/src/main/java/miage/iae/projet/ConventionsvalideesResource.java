@@ -43,12 +43,22 @@ public class ConventionsvalideesResource {
     public ConventionsvalideesResource() {
     }
 
+    /**
+     *
+     * @param offset
+     * @param limit
+     * @return
+     */
     @GET
     @Produces(MediaType.APPLICATION_JSON)
     public Collection<ConventionValidee> getConventionValidee(@QueryParam("offset") int offset, @QueryParam("limit") int limit) {
         return repo.get(offset, limit);
     }
 
+    /**
+     *
+     * @param c
+     */
     @POST
     @Consumes(MediaType.APPLICATION_JSON)
     public void postConventionValidee(ConventionValidee c) {

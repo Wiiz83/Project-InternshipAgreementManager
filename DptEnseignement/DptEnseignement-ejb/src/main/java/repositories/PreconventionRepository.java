@@ -18,6 +18,11 @@ import shared.repository.KVRepository;
 @Singleton
 public class PreconventionRepository extends KVRepository<DemandePedagogique> implements PreconventionRepositoryLocal {
 
+    /**
+     *
+     * @param dptKey
+     * @return
+     */
     @Override
     public Map<Long, DemandePedagogique> getAllPreconventionsEnCours(Long dptKey) {
         Map<Long, DemandePedagogique> listePreconventionsEnCours = new HashMap<>();
@@ -30,6 +35,11 @@ public class PreconventionRepository extends KVRepository<DemandePedagogique> im
         return listePreconventionsEnCours;
     }
 
+    /**
+     *
+     * @param dptKey
+     * @return
+     */
     @Override
     public Map<Long, DemandePedagogique> getAllPreconventionsValides(Long dptKey) {
         Map<Long, DemandePedagogique> listePreconventionsValides = new HashMap<>();

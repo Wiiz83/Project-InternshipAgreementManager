@@ -18,18 +18,50 @@ import shared.repository.Repository;
 @Local
 public interface PreconventionRepositoryLocal extends Repository<DemandePedagogique> {
 
+    /**
+     *
+     * @param id
+     */
     void delete(Long id);
 
+    /**
+     *
+     * @param id
+     * @return
+     */
     DemandePedagogique get(Long id);
 
+    /**
+     *
+     * @return
+     */
     Collection<DemandePedagogique> getAll();
 
+    /**
+     *
+     * @param dptKey
+     * @return
+     */
     Map<Long, DemandePedagogique> getAllPreconventionsEnCours(Long dptKey);
 
+    /**
+     *
+     * @param dptKey
+     * @return
+     */
     Map<Long, DemandePedagogique> getAllPreconventionsValides(Long dptKey);
 
+    /**
+     *
+     * @param dp
+     */
     void insert(DemandePedagogique dp);
 
+    /**
+     *
+     * @param id
+     * @param dp
+     */
     void update(Long id, DemandePedagogique dp);
     
 }

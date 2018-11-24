@@ -97,9 +97,6 @@
                                 <td><%= dpEnCours.getDemande().getStage().getFin()%></td>
                                 <td><%= dpEnCours.getDemande().getStage().getResume()%></td>
                                 <td>
-                                    <button>
-                                        <i class="glyphicon glyphicon-eye-open"></i>
-                                    </button>
                                     <button class="storeId" data-id="<%= idEnCours%>" data-toggle="modal" data-target="#ModelPreconvInvalide">
                                         <i class="glyphicon glyphicon-floppy-remove"></i>
                                     </button>

@@ -30,9 +30,16 @@ public class DemandeValidationPedagogiqueListener implements MessageListener {
     @EJB
     PreconventionControllerRemote pc;
 
+    /**
+     *
+     */
     public DemandeValidationPedagogiqueListener() {
     }
 
+    /**
+     *
+     * @param message
+     */
     @Override
     public void onMessage(Message message) {
         if (message instanceof ObjectMessage) {

@@ -11,14 +11,28 @@ package shared.messages.validations;
  */
 public class ValidationAdministrative extends Validation {
 
+    /**
+     *
+     * @param idDemandeValidation
+     */
     public ValidationAdministrative(Long idDemandeValidation) {
         super(idDemandeValidation);
     }
 
+    /**
+     *
+     * @param idDemandeValidation
+     * @param valide
+     * @param causeRefus
+     */
     public ValidationAdministrative(Long idDemandeValidation, boolean valide, String causeRefus) {
         super(idDemandeValidation, valide, causeRefus);
     }
 
+    /**
+     *
+     * @return
+     */
     @Override
     public String getVolet() {
         return "Administratif";

@@ -17,14 +17,34 @@ import shared.repository.Repository;
 @Local
 public interface DemandesConventionsRepositoryLocal extends Repository<DemandeConvention> {
 
+    /**
+     *
+     * @return
+     */
     Collection<DemandeConvention> obtenirDemandesEncours();
 
+    /**
+     *
+     * @return
+     */
     Collection<DemandeConvention> obtenirDemandesValidees();
 
+    /**
+     *
+     * @return
+     */
     Collection<DemandeConvention> obtenirDemandesRefusees();
 
+    /**
+     *
+     * @return
+     */
     Collection<DemandeConvention> obtenirDemandesArchivees();
 
+    /**
+     *
+     * @param key
+     */
     void archiver(Long key);
 
 }

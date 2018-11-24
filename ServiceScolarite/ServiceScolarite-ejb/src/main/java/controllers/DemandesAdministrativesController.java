@@ -28,16 +28,29 @@ public class DemandesAdministrativesController implements DemandesAdministrative
     @EJB
     DemandesAdministrativesRepositoryLocal repo;
 
+    /**
+     *
+     * @param demande
+     */
     @Override
     public void ajouterDemande(DemandeValidationAdministrative demande) {
         repo.insert(new DemandeAdministrative(demande));
     }
 
+    /**
+     *
+     * @param n
+     */
     @Override
     public void annulerDemande(NotificationAnnulationDemandeValidation n) {
         repo.delete(n.getIdDemandeConvention());
     }
 
+    /**
+     *
+     * @param id
+     * @param motif
+     */
     @Override
     public void refuserDemande(Long id, String motif) {
         repo.delete(id);
@@ -45,6 +58,10 @@ public class DemandesAdministrativesController implements DemandesAdministrative
         validationAdministrativeSender.envoyerValidationAdministrative(msg);
     }
 
+    /**
+     *
+     * @param id
+     */
     @Override
     public void accepterDemande(Long id) {
         repo.delete(id);
@@ -52,6 +69,10 @@ public class DemandesAdministrativesController implements DemandesAdministrative
         validationAdministrativeSender.envoyerValidationAdministrative(msg);
     }
 
+    /**
+     *
+     * @return
+     */
     @Override
     public Collection<DemandeAdministrative> obtenirDemandes() {
         return this.repo.getAll();

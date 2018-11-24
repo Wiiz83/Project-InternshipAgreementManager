@@ -23,6 +23,13 @@ public class InvaliderPreconvention extends HttpServlet {
     @EJB
     DemandesAdministrativesControllerRemote pc;
     
+    /**
+     * Récupère l'id de la préconvention à refuser et le motif du refus, appelle le contrôleur et redirige vers l'accueil 
+     * @param request
+     * @param response
+     * @throws ServletException
+     * @throws IOException
+     */
     protected void processRequest(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
         String idPreconv = request.getParameter("IdPreconvention");
         String motifRefus = request.getParameter("motifRefus");

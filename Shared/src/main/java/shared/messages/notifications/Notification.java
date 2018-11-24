@@ -15,10 +15,18 @@ import java.io.Serializable;
 public abstract class Notification implements Serializable {
     private Long idDemandeConvention;
 
+    /**
+     *
+     * @param idDemandeConvention
+     */
     public Notification(Long idDemandeConvention) {
         this.idDemandeConvention = idDemandeConvention;
     }
 
+    /**
+     *
+     * @return
+     */
     public Long getIdDemandeConvention() {
         return idDemandeConvention;
     }

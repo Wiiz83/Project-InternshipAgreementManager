@@ -17,24 +17,65 @@ import shared.messages.validations.Validation;
 @Remote
 public interface DemandesConventionsControllerRemote {
 
+    /**
+     *
+     * @param demande
+     */
     void ajouterDemande(shared.messages.demandes.DemandeConventionMessage demande);
 
+    /**
+     *
+     * @param va
+     */
     void validationAdministrative(shared.messages.validations.ValidationAdministrative va);
 
+    /**
+     *
+     * @param vp
+     */
     void validationPedagogique(shared.messages.validations.ValidationPedagogique vp);
 
+    /**
+     *
+     * @param vj
+     */
     void validationJuridique(shared.messages.validations.ValidationJuridique vj);
 
+    /**
+     *
+     * @param id
+     */
     void archiverDemande(Long id);
 
+    /**
+     *
+     * @return
+     */
     Collection<DemandeConvention> obtenirDemandesEncours();
 
+    /**
+     *
+     * @return
+     */
     Collection<DemandeConvention> obtenirDemandesValidees();
 
+    /**
+     *
+     * @return
+     */
     Collection<DemandeConvention> obtenirDemandesRefusees();
 
+    /**
+     *
+     * @return
+     */
     Collection<DemandeConvention> obtenirDemandesArchivees();
 
+    /**
+     *
+     * @param dc
+     * @return
+     */
     Validation obtenirVoletInvalide(DemandeConvention dc);
     //    boolean estValide(DemandeConvention dc); 
 }

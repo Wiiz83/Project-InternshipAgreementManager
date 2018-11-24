@@ -74,9 +74,6 @@
                                 <td><%= v.getVolet() %></td>
                                 <td><%= v.getCauseRefus() %></td>
                                 <td>
-                                    <a href="javascript:void(0)" title="Ouvrir">
-                                        <i class="glyphicon glyphicon-eye-open"></i>
-                                    </a>
                                     <form method="post" action="ArchiverPreconvention">
                                     <button id="getIdValide" class="btn btn-primary" type="submit" name="IdPreconvention" value="<%= demandeEnCours.getKey() %>">
                                         <i class="glyphicon glyphicon-remove"></i>

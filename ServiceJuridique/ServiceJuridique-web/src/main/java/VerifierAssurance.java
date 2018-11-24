@@ -22,6 +22,13 @@ public class VerifierAssurance extends HttpServlet {
     @EJB
     DemandeJuridiqueControllerRemote controller;
     
+    /**
+     * Récupère l'id de la préconvention à vérifier, appelle le contrôleur et redirige vers l'accueil 
+     * @param request
+     * @param response
+     * @throws ServletException
+     * @throws IOException
+     */
     protected void processRequest(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
         String idPreconv = request.getParameter("IdPreconvention");
         System.out.println(idPreconv);

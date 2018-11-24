@@ -30,6 +30,10 @@ public class DemandeConventionMessageSender {
     @Resource(mappedName = "jms/Demande_convention")
     private Queue demande_convention_file;
 
+    /**
+     *
+     * @param demandeConvention
+     */
     public void ajouterDemandeDeConvention(DemandeConventionMessage demandeConvention) {
         JMSProducer mp = context.createProducer();
         mp.send(demande_convention_file, demandeConvention);

@@ -56,9 +56,6 @@
                                 <td><%= demandeEnCours.getDemande().getEtudiant().getPrenom() + " " + demandeEnCours.getDemande().getEtudiant().getNom().toUpperCase() + "(" + demandeEnCours.getDemande().getEtudiant().getNumero() + ")" %></td>
                                 <td><%= demandeEnCours.getDemande().getDiplome().getNiveau() + " " + demandeEnCours.getDemande().getDiplome().getIntitule() %></td>
                                 <td>
-                                     <button>
-                                        <i class="glyphicon glyphicon-eye-open"></i>
-                                    </button>
                                     <form method="post" action="ValiderPreconvention">
                                         <button name="IdPreconvention" type="submit" value="<%= demandeEnCours.getKey() %>">
                                             <i class="glyphicon glyphicon-ok"></i>

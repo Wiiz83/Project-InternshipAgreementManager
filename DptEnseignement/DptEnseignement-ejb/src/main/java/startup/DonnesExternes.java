@@ -29,6 +29,10 @@ public class DonnesExternes {
     
     @EJB
 PreconventionControllerRemote ctrl;    
+
+    /**
+     *
+     */
     @PostConstruct
     public void init() {
         DonnesTest dt = new DonnesTest();

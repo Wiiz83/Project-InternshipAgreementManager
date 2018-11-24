@@ -18,17 +18,48 @@ import shared.donnees.Diplome;
 @Local
 public interface DepartementRepositoryLocal extends Repository<Departement> {
 
+    /**
+     *
+     * @param id
+     */
     void delete(Long id);
 
+    /**
+     *
+     * @param id
+     * @return
+     */
     Departement get(Long id);
 
+    /**
+     *
+     * @return
+     */
     Collection<Departement> getAll();
 
+    /**
+     *
+     * @param dp
+     */
     void insert(Departement dp);
 
+    /**
+     *
+     * @param id
+     * @param dp
+     */
     void update(Long id, Departement dp);
 
+    /**
+     *
+     * @param d
+     * @return
+     */
     Collection<Diplome> obtenirDiplomes(Departement d);
 
+    /**
+     *
+     * @return
+     */
     public Collection<Diplome> obtenirTousLesDiplomes();
 }

@@ -22,16 +22,29 @@ public class DonnesTest {
     /*
         Données de test (Conventions envoyées par le serveur étudiant)
     */
+
+    /**
+     *
+     */
+
     public ArrayList<DemandeConventionMessage> demandes = new ArrayList<>();
 
     /*
         Données externes (Diplomes/Départements)
     */
+
+    /**
+     *
+     */
+
     public ArrayList<Departement> listeDepartements = new ArrayList<>();
     Diplome dip1 = new Diplome("MASTER", "Informatique");
     Diplome dip2 = new Diplome("MASTER", "MIAGE");
     Diplome dip3 = new Diplome("LICENCE", "Statistiques");
 
+    /**
+     *
+     */
     public DonnesTest() {
 
         Departement d0 = new Departement("Informatique");

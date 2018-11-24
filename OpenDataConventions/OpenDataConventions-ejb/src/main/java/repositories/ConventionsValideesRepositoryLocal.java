@@ -15,7 +15,19 @@ import shared.opendata.ConventionValidee;
  */
 @Local
 public interface ConventionsValideesRepositoryLocal {
+
+    /**
+     *
+     * @param offset
+     * @param limit
+     * @return
+     */
     Collection<ConventionValidee> get(int offset, int limit);
+
+    /**
+     *
+     * @param c
+     */
     void insert (ConventionValidee c);
     
 }

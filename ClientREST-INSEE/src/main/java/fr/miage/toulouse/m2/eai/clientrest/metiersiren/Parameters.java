@@ -32,58 +32,114 @@ public class Parameters {
 
     private String rows;
 
+    /**
+     *
+     * @return
+     */
     public String getTimezone() {
         return timezone;
     }
 
+    /**
+     *
+     * @param timezone
+     */
     public void setTimezone(String timezone) {
         this.timezone = timezone;
     }
 
+    /**
+     *
+     * @return
+     */
     public String getStart() {
         return start;
     }
 
+    /**
+     *
+     * @param start
+     */
     public void setStart(String start) {
         this.start = start;
     }
 
+    /**
+     *
+     * @return
+     */
     public String[] getDataset() {
         return dataset;
     }
 
+    /**
+     *
+     * @param dataset
+     */
     public void setDataset(String[] dataset) {
         this.dataset = dataset;
     }
 
+    /**
+     *
+     * @return
+     */
     public String getQ() {
         return q;
     }
 
+    /**
+     *
+     * @param q
+     */
     public void setQ(String q) {
         this.q = q;
     }
 
+    /**
+     *
+     * @return
+     */
     public String getFormat() {
         return format;
     }
 
+    /**
+     *
+     * @param format
+     */
     public void setFormat(String format) {
         this.format = format;
     }
 
+    /**
+     *
+     * @return
+     */
     public String getLang() {
         return lang;
     }
 
+    /**
+     *
+     * @param lang
+     */
     public void setLang(String lang) {
         this.lang = lang;
     }
 
+    /**
+     *
+     * @return
+     */
     public String getRows() {
         return rows;
     }
 
+    /**
+     *
+     * @param rows
+     */
     public void setRows(String rows) {
         this.rows = rows;
     }

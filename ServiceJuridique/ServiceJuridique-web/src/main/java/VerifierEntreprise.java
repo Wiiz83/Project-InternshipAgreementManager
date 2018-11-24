@@ -23,6 +23,13 @@ public class VerifierEntreprise extends HttpServlet {
     @EJB
     DemandeJuridiqueControllerRemote controller;
     
+    /**
+     * Récupère le nom et le siret de l'entreprise à vérifier, appelle le contrôleur et redirige vers l'accueil 
+     * @param request
+     * @param response
+     * @throws ServletException
+     * @throws IOException
+     */
     protected void processRequest(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
         String NomEntreprise = request.getParameter("NomEntreprise");
         String SiretEntreprise = request.getParameter("SiretEntreprise");

@@ -27,21 +27,38 @@ public class DemandesConventionsEtudiantController implements DemandesConvention
     @EJB
     DepartementRepositoryLocal dprepo;
 
+    /**
+     *
+     * @param demande
+     */
     @Override
     public void ajouterDemande(DemandeConventionMessage demande) {
         demandeConventionMessageSender.ajouterDemandeDeConvention(demande);
     }
 
+    /**
+     *
+     * @return
+     */
     @Override
     public Collection<Departement> obtenirDepartements() {
         return dprepo.getAll();
     }
 
+    /**
+     *
+     * @param d
+     * @return
+     */
     @Override
     public Collection<Diplome> obtenirDiplomes(Departement d) {
         return dprepo.obtenirDiplomes(d);
     }
 
+    /**
+     *
+     * @return
+     */
     @Override
     public Collection<Diplome> obtenirTousLesDiplomes() {
         return dprepo.obtenirTousLesDiplomes() ;

@@ -16,15 +16,28 @@ public class ResponsabiliteCivile  implements Serializable{
     private String compagnieAssurance ;
     private String nContrat;
 
+    /**
+     *
+     * @param compagnieAssurance
+     * @param nContrat
+     */
     public ResponsabiliteCivile(String compagnieAssurance, String nContrat) {
         this.compagnieAssurance = compagnieAssurance;
         this.nContrat = nContrat;
     }
 
+    /**
+     *
+     * @return
+     */
     public String getCompagnieAssurance() {
         return compagnieAssurance;
     }
 
+    /**
+     *
+     * @return
+     */
     public String getnContrat() {
         return nContrat;
     }

@@ -23,6 +23,13 @@ public class ValiderPreconvention extends HttpServlet {
     @EJB
     PreconventionControllerRemote pc;
     
+    /**
+     * Récupère l'id de la préconvention à valider et le nom du tuteur, appelle le contrôleur et redirige vers l'accueil 
+     * @param request
+     * @param response
+     * @throws ServletException
+     * @throws IOException
+     */
     protected void processRequest(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
         String idPreconv = request.getParameter("IdPreconvention");
         String nomTuteur = request.getParameter("nomTuteur");

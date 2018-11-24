@@ -22,18 +22,34 @@ public class Geometry {
 
     private String[] coordinates;
 
+    /**
+     *
+     * @return
+     */
     public String getType() {
         return type;
     }
 
+    /**
+     *
+     * @param type
+     */
     public void setType(String type) {
         this.type = type;
     }
 
+    /**
+     *
+     * @return
+     */
     public String[] getCoordinates() {
         return coordinates;
     }
 
+    /**
+     *
+     * @param coordinates
+     */
     public void setCoordinates(String[] coordinates) {
         this.coordinates = coordinates;
     }

@@ -32,9 +32,16 @@ public class NotificationAnnulationDemandeListener implements MessageListener {
     @EJB
     DemandesAdministrativesControllerRemote ctrl;
 
+    /**
+     *
+     */
     public NotificationAnnulationDemandeListener() {
     }
 
+    /**
+     *
+     * @param message
+     */
     @Override
     public void onMessage(Message message) {
         if (message instanceof ObjectMessage) {

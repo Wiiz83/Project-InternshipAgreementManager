@@ -18,12 +18,29 @@ import shared.donnees.Diplome;
 @Remote
 public interface DemandesConventionsEtudiantControllerRemote {
 
+    /**
+     *
+     * @param demande
+     */
     void ajouterDemande(shared.messages.demandes.DemandeConventionMessage demande);
     
-      Collection<Departement> obtenirDepartements();
+    /**
+     *
+     * @return
+     */
+    Collection<Departement> obtenirDepartements();
     
-      Collection<Diplome> obtenirDiplomes(Departement d);
+    /**
+     *
+     * @param d
+     * @return
+     */
+    Collection<Diplome> obtenirDiplomes(Departement d);
       
-      Collection<Diplome> obtenirTousLesDiplomes();
+    /**
+     *
+     * @return
+     */
+    Collection<Diplome> obtenirTousLesDiplomes();
 
 }

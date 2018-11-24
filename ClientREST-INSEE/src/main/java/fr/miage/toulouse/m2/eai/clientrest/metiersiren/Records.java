@@ -28,34 +28,66 @@ public class Records {
 
     private Fields fields;
 
+    /**
+     *
+     * @return
+     */
     public String getDatasetid() {
         return datasetid;
     }
 
+    /**
+     *
+     * @param datasetid
+     */
     public void setDatasetid(String datasetid) {
         this.datasetid = datasetid;
     }
 
+    /**
+     *
+     * @return
+     */
     public String getRecord_timestamp() {
         return record_timestamp;
     }
 
+    /**
+     *
+     * @param record_timestamp
+     */
     public void setRecord_timestamp(String record_timestamp) {
         this.record_timestamp = record_timestamp;
     }
 
+    /**
+     *
+     * @return
+     */
     public String getRecordid() {
         return recordid;
     }
 
+    /**
+     *
+     * @param recordid
+     */
     public void setRecordid(String recordid) {
         this.recordid = recordid;
     }
 
+    /**
+     *
+     * @return
+     */
     public Geometry getGeometry() {
         return geometry;
     }
 
+    /**
+     *
+     * @param geometry
+     */
     public void setGeometry(Geometry geometry) {
         this.geometry = geometry;
     }

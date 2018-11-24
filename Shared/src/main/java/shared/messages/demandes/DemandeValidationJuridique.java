@@ -20,7 +20,14 @@ public class DemandeValidationJuridique extends DemandeValidation {
     private Stage stage;
     private Entreprise entreprise;
 
-
+    /**
+     *
+     * @param idDemandeConvention
+     * @param responsabiliteCivile
+     * @param stage
+     * @param entreprise
+     * @param etudiant
+     */
     public DemandeValidationJuridique(Long idDemandeConvention,ResponsabiliteCivile responsabiliteCivile, Stage stage, Entreprise entreprise,  Etudiant etudiant) {
         super(idDemandeConvention, etudiant);
         this.responsabiliteCivile = responsabiliteCivile;
@@ -28,14 +35,26 @@ public class DemandeValidationJuridique extends DemandeValidation {
         this.entreprise = entreprise;
     }
 
+    /**
+     *
+     * @return
+     */
     public ResponsabiliteCivile getResponsabiliteCivile() {
         return responsabiliteCivile;
     }
 
+    /**
+     *
+     * @return
+     */
     public Stage getStage() {
         return stage;
     }
 
+    /**
+     *
+     * @return
+     */
     public Entreprise getEntreprise() {
         return entreprise;
     }

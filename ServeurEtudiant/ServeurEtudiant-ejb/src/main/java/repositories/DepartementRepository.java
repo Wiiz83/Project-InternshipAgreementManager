@@ -23,36 +23,67 @@ public class DepartementRepository implements DepartementRepositoryLocal {
 
     ArrayList<Departement> listeDepartements = new ArrayList<>();
 
+    /**
+     *
+     * @param id
+     * @return
+     */
     @Override
     public Departement get(Long id) {
         throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
     }
 
+    /**
+     *
+     * @return
+     */
     @Override
     public Collection<Departement> getAll() {
         return listeDepartements;
     }
 
+    /**
+     *
+     * @param dp
+     */
     @Override
     public void insert(Departement dp) {
         listeDepartements.add(dp);
     }
 
+    /**
+     *
+     * @param id
+     * @param dp
+     */
     @Override
     public void update(Long id, Departement dp) {
         throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
     }
 
+    /**
+     *
+     * @param id
+     */
     @Override
     public void delete(Long id) {
         throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
     }
 
+    /**
+     *
+     * @param d
+     * @return
+     */
     @Override
     public Collection<Diplome> obtenirDiplomes(Departement d) {
         return d.getDiplomes();
     }
 
+    /**
+     *
+     * @return
+     */
     @Override
     public Collection<Diplome> obtenirTousLesDiplomes() {
         return this.listeDepartements

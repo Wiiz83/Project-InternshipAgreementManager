@@ -30,6 +30,10 @@ public class NotificationAnnulationDemandeSender {
     @Resource(mappedName = "jms/Notification_Annulation_Demande_Validation")
     private Topic Notification_Annulation_Demande_ValidationTopic;
 
+    /**
+     *
+     * @param annulation
+     */
     public void notifierAnnulation(NotificationAnnulationDemandeValidation annulation) {
         JMSProducer mp = context.createProducer();
         mp.send(Notification_Annulation_Demande_ValidationTopic, annulation);

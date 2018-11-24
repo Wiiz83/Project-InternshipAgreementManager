@@ -30,6 +30,10 @@ public class ValidationAdministrativeSender {
     @Resource(mappedName = "jms/Validation_Administrative")
     private Queue queue;
 
+    /**
+     *
+     * @param validation
+     */
     public void envoyerValidationAdministrative(ValidationAdministrative validation) {
         JMSProducer mp = context.createProducer();
         mp.send(queue, validation);

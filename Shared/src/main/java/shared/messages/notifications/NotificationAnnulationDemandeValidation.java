@@ -11,6 +11,10 @@ package shared.messages.notifications;
  */
 public class NotificationAnnulationDemandeValidation extends Notification {
 
+    /**
+     *
+     * @param idDemandeConvention
+     */
     public NotificationAnnulationDemandeValidation(Long idDemandeConvention) {
         super(idDemandeConvention);
     }    

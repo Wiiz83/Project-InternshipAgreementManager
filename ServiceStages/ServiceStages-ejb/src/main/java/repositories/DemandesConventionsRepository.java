@@ -22,6 +22,10 @@ public class DemandesConventionsRepository extends KVRepository<DemandeConventio
 
     private final Collection<DemandeConvention> demandesArchivees = new HashSet<>();
 
+    /**
+     *
+     * @return
+     */
     @Override
     public Collection<DemandeConvention> obtenirDemandesEncours() {
         return this.kvstore.values().stream()
@@ -33,6 +37,10 @@ public class DemandesConventionsRepository extends KVRepository<DemandeConventio
                 .collect(Collectors.toSet());
     }
 
+    /**
+     *
+     * @return
+     */
     @Override
     public Collection<DemandeConvention> obtenirDemandesValidees() {
         return this.kvstore
@@ -42,6 +50,10 @@ public class DemandesConventionsRepository extends KVRepository<DemandeConventio
                 ).collect(Collectors.toSet());
     }
 
+    /**
+     *
+     * @return
+     */
     @Override
     public Collection<DemandeConvention> obtenirDemandesRefusees() {
         return this.kvstore
@@ -51,11 +63,19 @@ public class DemandesConventionsRepository extends KVRepository<DemandeConventio
                 ).collect(Collectors.toSet());
     }
 
+    /**
+     *
+     * @return
+     */
     @Override
     public Collection<DemandeConvention> obtenirDemandesArchivees() {
         return this.demandesArchivees;
     }
 
+    /**
+     *
+     * @param key
+     */
     @Override
     public void archiver(Long key) {
         DemandeConvention d = this.kvstore.get(key);

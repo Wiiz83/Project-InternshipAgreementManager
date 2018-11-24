@@ -29,9 +29,16 @@ public class ValidationJuridiqueMB implements MessageListener {
     @EJB
     DemandesConventionsControllerRemote ctrl;
 
+    /**
+     *
+     */
     public ValidationJuridiqueMB() {
     }
 
+    /**
+     *
+     * @param message
+     */
     @Override
     public void onMessage(Message message) {
         if (message instanceof ObjectMessage) {

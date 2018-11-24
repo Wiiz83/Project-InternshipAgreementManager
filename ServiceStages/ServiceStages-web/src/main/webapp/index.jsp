@@ -53,7 +53,6 @@
                                 <th scope="col">Statut volet administratif</th>
                                 <th scope="col">Statut volet pédagogique</th>
                                 <th scope="col">Statut volet juridique</th>
-                                <th scope="col">Actions</th>
                             </tr>
                         </thead>
                         <tbody>
@@ -71,11 +70,6 @@
                                 <td><%= demandeEnCours.getValidationAdministrative() == null? "En cours " : "Validé"  %></td>
                                 <td><%= demandeEnCours.getValidationPedagogique()  == null? "En cours " :"Validé"  %></td>
                                 <td><%= demandeEnCours.getValidationJuridique()  == null? "En cours " :"Validé" %></td>
-                                <td>
-                                    <a href="javascript:void(0)" title="Ouvrir">
-                                        <i class="glyphicon glyphicon-eye-open"></i>
-                                    </a>    
-                                </td>
                             </tr>
                             <%
                                 }

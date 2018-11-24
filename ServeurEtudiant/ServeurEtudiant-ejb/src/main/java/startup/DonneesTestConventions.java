@@ -24,6 +24,9 @@ public class DonneesTestConventions {
     @EJB 
     DemandesConventionsEtudiantControllerRemote demandesConventionsControllerRemote; 
 
+    /**
+     *
+     */
     @PostConstruct
     public void init() {
         DonnesTest dt = new DonnesTest();

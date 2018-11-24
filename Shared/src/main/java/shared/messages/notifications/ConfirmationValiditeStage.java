@@ -10,6 +10,11 @@ package shared.messages.notifications;
  * @author Mahdi
  */
 public class ConfirmationValiditeStage extends Notification {
+
+    /**
+     *
+     * @param idDemandeConvention
+     */
     public ConfirmationValiditeStage(Long idDemandeConvention) {
         super(idDemandeConvention);
     }

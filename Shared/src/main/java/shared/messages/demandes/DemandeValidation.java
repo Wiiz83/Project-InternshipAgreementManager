@@ -19,15 +19,28 @@ public abstract class DemandeValidation  implements Serializable{
         this.etudiant = new Etudiant();
     } 
 
+    /**
+     *
+     * @param idDemandeConvention
+     * @param etudiant
+     */
     public DemandeValidation(Long idDemandeConvention, Etudiant etudiant) {
         this.idDemandeConvention = idDemandeConvention;
         this.etudiant = etudiant;
     }
 
+    /**
+     *
+     * @return
+     */
     public Long getIdDemandeConvention() {
         return idDemandeConvention;
     }
 
+    /**
+     *
+     * @return
+     */
     public Etudiant getEtudiant() {
         return etudiant;
     }        

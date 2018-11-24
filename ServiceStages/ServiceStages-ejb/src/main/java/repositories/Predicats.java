@@ -14,11 +14,17 @@ import java.util.function.Predicate;
  */
 public  class Predicats {
   
+    /**
+     *
+     */
     public static Predicate<DemandeConvention> estValidee = d
             -> d.getValidationAdministrative() != null && d.getValidationAdministrative().isValide()
             && d.getValidationJuridique() != null && d.getValidationJuridique().isValide()
             && d.getValidationPedagogique() != null && d.getValidationPedagogique().isValide();
     
+    /**
+     *
+     */
     public static Predicate<DemandeConvention> estRefusee = d
                         -> d.getValidationAdministrative() != null && !d.getValidationAdministrative().isValide()
                         || d.getValidationJuridique() != null && !d.getValidationJuridique().isValide()

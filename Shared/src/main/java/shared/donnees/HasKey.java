@@ -10,6 +10,16 @@ package shared.donnees;
  * @author Mahdi
  */
 public interface HasKey {
+
+    /**
+     *
+     * @return
+     */
     public Long getKey();
+
+    /**
+     *
+     * @param key
+     */
     public void setKey(Long key);
 }

@@ -31,9 +31,16 @@ public class NotificationAnnulationDemandeListener implements MessageListener {
     @EJB
     PreconventionControllerRemote pc;
 
+    /**
+     *
+     */
     public NotificationAnnulationDemandeListener() {
     }
 
+    /**
+     *
+     * @param message
+     */
     @Override
     public void onMessage(Message message) {
         if (message instanceof ObjectMessage) {

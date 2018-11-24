@@ -20,6 +20,14 @@ public class DemandeValidationPedagogique extends DemandeValidation {
     private Entreprise entreprise;
     private Diplome diplome;
 
+    /**
+     *
+     * @param stage
+     * @param entreprise
+     * @param diplome
+     * @param idDemandeConvention
+     * @param etudiant
+     */
     public DemandeValidationPedagogique(Stage stage, Entreprise entreprise, Diplome diplome, Long idDemandeConvention, Etudiant etudiant) {
         super(idDemandeConvention, etudiant);
         this.stage = stage;
@@ -27,14 +35,26 @@ public class DemandeValidationPedagogique extends DemandeValidation {
         this.diplome = diplome;
     }
 
+    /**
+     *
+     * @return
+     */
     public Stage getStage() {
         return stage;
     }
 
+    /**
+     *
+     * @return
+     */
     public Entreprise getEntreprise() {
         return entreprise;
     }
 
+    /**
+     *
+     * @return
+     */
     public Diplome getDiplome() {
         return diplome;
     }

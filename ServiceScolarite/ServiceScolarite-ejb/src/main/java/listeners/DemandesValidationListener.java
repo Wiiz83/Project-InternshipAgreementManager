@@ -29,9 +29,16 @@ public class DemandesValidationListener implements MessageListener {
     @EJB
     DemandesAdministrativesControllerRemote ctrl;
 
+    /**
+     *
+     */
     public DemandesValidationListener() {
     }
 
+    /**
+     *
+     * @param message
+     */
     @Override
     public void onMessage(Message message) {
         if (message instanceof ObjectMessage) {

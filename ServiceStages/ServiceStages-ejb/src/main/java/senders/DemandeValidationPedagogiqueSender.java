@@ -30,6 +30,10 @@ public class DemandeValidationPedagogiqueSender {
     @Resource(mappedName = "jms/Demande_Validation_Pedagogique")
     private Queue queue;
 
+    /**
+     *
+     * @param demande
+     */
     public void demanderValidationPedagogique(DemandeValidationPedagogique demande) {
         JMSProducer mp = context.createProducer();
         mp.send(queue, demande);

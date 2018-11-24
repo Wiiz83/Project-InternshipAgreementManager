@@ -31,6 +31,11 @@ import javax.ws.rs.core.Response;
 // Main.java
 public class Main {
 
+    /**
+     *
+     * @param args
+     * @throws IOException
+     */
     public static void main(String[] args) throws IOException {
         // I/O clavier/écran
         BufferedReader inClavier = new BufferedReader(new InputStreamReader(System.in));

@@ -24,10 +24,18 @@ public class SirenPOJO {
 
     private Records[] records;
 
+    /**
+     *
+     * @return
+     */
     public String getNhits() {
         return nhits;
     }
 
+    /**
+     *
+     * @param nhits
+     */
     public void setNhits(String nhits) {
         this.nhits = nhits;
     }
@@ -36,6 +44,10 @@ public class SirenPOJO {
         return parameters;
     }
 
+    /**
+     *
+     * @param parameters
+     */
     public void setParameters(Parameters parameters) {
         this.parameters = parameters;
     }

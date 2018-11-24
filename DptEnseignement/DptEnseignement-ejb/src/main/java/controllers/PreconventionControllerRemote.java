@@ -21,22 +21,63 @@ import shared.messages.notifications.NotificationAnnulationDemandeValidation;
 @Remote
 public interface PreconventionControllerRemote {
 
+    /**
+     *
+     * @param dptKey
+     * @return
+     */
     public Map<Long, DemandePedagogique> recupererPreconventionsEnCours(Long dptKey);
 
+    /**
+     *
+     * @param dptKey
+     * @return
+     */
     public Map<Long, DemandePedagogique> recupererPreconventionsValides(Long dptKey);
 
+    /**
+     *
+     * @param demande
+     */
     public void ajouterDemande(shared.messages.demandes.DemandeValidationPedagogique demande);
 
+    /**
+     *
+     * @param cvs
+     */
     public void confirmerValidationFinale(ConfirmationValiditeStage cvs);
 
+    /**
+     *
+     * @param n
+     */
     public void annulerDemande(NotificationAnnulationDemandeValidation n);
 
+    /**
+     *
+     * @param id
+     * @param motif
+     */
     public void refuserDemande(Long id, String motif);
 
+    /**
+     *
+     * @param id
+     * @param nomTuteur
+     */
     public void accepterDemande(Long id, String nomTuteur);
 
+    /**
+     *
+     * @return
+     */
     Collection<Departement> obtenirDepartements();
 
+    /**
+     *
+     * @param d
+     * @return
+     */
     Collection<Diplome> obtenirDiplomes(Departement d);
 
 }

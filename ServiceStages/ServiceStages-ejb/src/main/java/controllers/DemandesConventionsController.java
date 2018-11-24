@@ -57,6 +57,10 @@ public class DemandesConventionsController implements DemandesConventionsControl
     @EJB
     DemandesConventionsRepositoryLocal drepo;
 
+    /**
+     *
+     * @param msg
+     */
     @Override
     public void ajouterDemande(DemandeConventionMessage msg) {
         DemandeConvention demande = new DemandeConvention(msg.getEtudiant(), msg.getDiplome(), msg.getResponsabiliteCivile(), msg.getStage(), msg.getEntreprise());
@@ -72,31 +76,55 @@ public class DemandesConventionsController implements DemandesConventionsControl
         validationJuridiqueSender.demanderValidationJuridique(dvj);
     }
 
+    /**
+     *
+     * @return
+     */
     @Override
     public Collection<DemandeConvention> obtenirDemandesEncours() {
         return drepo.obtenirDemandesEncours();
     }
 
+    /**
+     *
+     * @return
+     */
     @Override
     public Collection<DemandeConvention> obtenirDemandesValidees() {
         return drepo.obtenirDemandesValidees();
     }
 
+    /**
+     *
+     * @return
+     */
     @Override
     public Collection<DemandeConvention> obtenirDemandesRefusees() {
         return drepo.obtenirDemandesRefusees();
     }
 
+    /**
+     *
+     * @return
+     */
     @Override
     public Collection<DemandeConvention> obtenirDemandesArchivees() {
         return drepo.obtenirDemandesArchivees();
     }
 
+    /**
+     *
+     * @param id
+     */
     @Override
     public void archiverDemande(Long id) {
         drepo.archiver(id);
     }
 
+    /**
+     *
+     * @param va
+     */
     @Override
     public void validationAdministrative(ValidationAdministrative va) {
         DemandeConvention demande = this.drepo.get(va.getKey());
@@ -105,6 +133,10 @@ public class DemandesConventionsController implements DemandesConventionsControl
         this.verifierEtNotifier(demande);
     }
 
+    /**
+     *
+     * @param vp
+     */
     @Override
     public void validationPedagogique(ValidationPedagogique vp) {
         DemandeConvention demande = this.drepo.get(vp.getKey());
@@ -113,6 +145,10 @@ public class DemandesConventionsController implements DemandesConventionsControl
         this.verifierEtNotifier(demande);
     }
 
+    /**
+     *
+     * @param vj
+     */
     @Override
     public void validationJuridique(ValidationJuridique vj) {
         DemandeConvention demande = this.drepo.get(vj.getKey());
@@ -134,6 +170,11 @@ public class DemandesConventionsController implements DemandesConventionsControl
         }
     }
 
+    /**
+     *
+     * @param dc
+     * @return
+     */
     @Override
     public Validation obtenirVoletInvalide(DemandeConvention dc) {
         if (dc.getValidationAdministrative() != null && !dc.getValidationAdministrative().isValide()) {

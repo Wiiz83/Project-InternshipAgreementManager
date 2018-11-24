@@ -26,6 +26,9 @@ public class DonnesExternes {
     @EJB
     DepartementRepositoryLocal drepo;    
     
+    /**
+     *
+     */
     @PostConstruct
     public void init() {
         DonnesTest dt = new DonnesTest();
