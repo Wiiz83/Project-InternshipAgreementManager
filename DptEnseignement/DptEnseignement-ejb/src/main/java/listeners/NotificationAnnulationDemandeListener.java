@@ -38,7 +38,7 @@ public class NotificationAnnulationDemandeListener implements MessageListener {
     }
 
     /**
-     *
+     * Traitement des messages d'annulation d'une demande de validation
      * @param message
      */
     @Override

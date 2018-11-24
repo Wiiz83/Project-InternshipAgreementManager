@@ -36,7 +36,7 @@ public class ConfirmationValiditeStageListener implements MessageListener {
     }
 
     /**
-     *
+     * Traitement des messages de confirmation de la validité d'un stage
      * @param message
      */
     @Override

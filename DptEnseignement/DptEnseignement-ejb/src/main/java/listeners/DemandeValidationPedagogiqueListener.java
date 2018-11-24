@@ -4,7 +4,6 @@
  */
 package listeners;
 
-import controllers.PreconventionController;
 import controllers.PreconventionControllerRemote;
 import java.util.logging.Level;
 import java.util.logging.Logger;
@@ -15,7 +14,6 @@ import javax.jms.JMSException;
 import javax.jms.Message;
 import javax.jms.MessageListener;
 import javax.jms.ObjectMessage;
-import shared.messages.demandes.DemandeValidationAdministrative;
 import shared.messages.demandes.DemandeValidationPedagogique;
 
 /**
@@ -37,7 +35,7 @@ public class DemandeValidationPedagogiqueListener implements MessageListener {
     }
 
     /**
-     *
+     * Traitement des messages de confirmation de demandes de validations pédagogique
      * @param message
      */
     @Override

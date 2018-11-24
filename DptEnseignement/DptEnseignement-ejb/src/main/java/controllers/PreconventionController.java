@@ -27,58 +27,33 @@ public class PreconventionController implements PreconventionControllerRemote {
     @EJB
     PreconventionRepositoryLocal repo;
 
-    // TODO: Tester l'injection
     @EJB
     ValidationPedagogiqueSender vpSender;
 
     @EJB
     DepartementRepositoryLocal dprepo;
 
-    /**
-     *
-     * @param dptKey
-     * @return
-     */
-    @Override
-    public Map<Long, DemandePedagogique> recupererPreconventionsEnCours(Long dptKey) {
-        // APPEL JMS POUR RECUPERATION DE NOUVELLES PRECONV
-
-        // STOCKAGE EN MEMOIRE DE CES NOUVELLES PRECONV
-        // RECUPERATION DES DEMANDES EN MEMOIRE
-        Map<Long, DemandePedagogique> listePEC = repo.getAllPreconventionsEnCours(dptKey);
-
-        // RENVOI DE LA LISTE DES PRECONV
-        return listePEC;
-    }
-
-    /**
-     *
-     * @param dptKey
-     * @return
-     */
-    @Override
-    public Map<Long, DemandePedagogique> recupererPreconventionsValides(Long dptKey) {
-        return this.repo.getAllPreconventionsValides(dptKey);
-    }
-
     /*
         Traitement des messages JMS reçus
      */
 
-    /**
-     *
-     * @param demande
-     */
+    @Override
+    public Map<Long, DemandePedagogique> recupererPreconventionsEnCours(Long dptKey) {
+        Map<Long, DemandePedagogique> listePEC = repo.getAllPreconventionsEnCours(dptKey);
+        return listePEC;
+    }
+
+
+    @Override
+    public Map<Long, DemandePedagogique> recupererPreconventionsValides(Long dptKey) {
+        return this.repo.getAllPreconventionsValides(dptKey);
+    }
 
     @Override
     public void ajouterDemande(shared.messages.demandes.DemandeValidationPedagogique demande) {
         repo.insert(new DemandePedagogique(demande));
     }
 
-    /**
-     *
-     * @param cvs
-     */
     @Override
     public void confirmerValidationFinale(shared.messages.notifications.ConfirmationValiditeStage cvs) {
         DemandePedagogique dp = repo.get(cvs.getIdDemandeConvention());
@@ -86,10 +61,6 @@ public class PreconventionController implements PreconventionControllerRemote {
         repo.update(cvs.getIdDemandeConvention(), dp);
     }
 
-    /**
-     *
-     * @param n
-     */
     @Override
     public void annulerDemande(shared.messages.notifications.NotificationAnnulationDemandeValidation n) {
         repo.delete(n.getIdDemandeConvention());
@@ -99,11 +70,6 @@ public class PreconventionController implements PreconventionControllerRemote {
         Actions utilisateur : maj BD + envoi message JMS
      */
 
-    /**
-     *
-     * @param id
-     * @param nomTuteur
-     */
 
     @Override
     public void accepterDemande(Long id, String nomTuteur) {
@@ -114,11 +80,6 @@ public class PreconventionController implements PreconventionControllerRemote {
         vpSender.envoyerValidationPedagogique(msg);
     }
 
-    /**
-     *
-     * @param id
-     * @param motif
-     */
     @Override
     public void refuserDemande(Long id, String motif) {
         DemandePedagogique dp = repo.get(id);
@@ -128,20 +89,12 @@ public class PreconventionController implements PreconventionControllerRemote {
         vpSender.envoyerValidationPedagogique(msg);
     }
 
-    /**
-     *
-     * @return
-     */
     @Override
     public Collection<Departement> obtenirDepartements() {
         return dprepo.getAll();
     }
 
-    /**
-     *
-     * @param d
-     * @return
-     */
+
     @Override
     public Collection<Diplome> obtenirDiplomes(Departement d) {
         return dprepo.obtenirDiplomes(d);
