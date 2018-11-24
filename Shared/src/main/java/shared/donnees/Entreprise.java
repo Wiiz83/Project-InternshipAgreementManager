@@ -17,20 +17,38 @@ public class Entreprise implements Serializable {
     private String nom;
     private String mail; 
 
+    /**
+     *
+     * @param siret
+     * @param nom
+     * @param mail
+     */
     public Entreprise(String siret, String nom, String mail) {
         this.siret = siret;
         this.nom = nom;
         this.mail = mail;
     }
 
+    /**
+     *
+     * @return
+     */
     public String getMail() {
         return mail;
     }
     
+    /**
+     *
+     * @return
+     */
     public String getSiret() {
         return siret;
     }
 
+    /**
+     *
+     * @return
+     */
     public String getNom() {
         return nom;
     }

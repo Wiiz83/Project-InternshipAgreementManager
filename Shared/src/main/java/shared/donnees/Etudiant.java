@@ -18,6 +18,13 @@ public class Etudiant implements Serializable {
     private String prenom;
     private String mail;
 
+    /**
+     *
+     * @param numero
+     * @param nom
+     * @param prenom
+     * @param mail
+     */
     public Etudiant(String numero, String nom, String prenom, String mail) {
         this.numero = numero;
         this.nom = nom;
@@ -25,21 +32,40 @@ public class Etudiant implements Serializable {
         this.mail = mail;
     }
 
+    /**
+     *
+     */
     public Etudiant() {
     }
 
+    /**
+     *
+     * @return
+     */
     public String getNumero() {
         return numero;
     }
 
+    /**
+     *
+     * @return
+     */
     public String getNom() {
         return nom;
     }
 
+    /**
+     *
+     * @return
+     */
     public String getPrenom() {
         return prenom;
     }  
 
+    /**
+     *
+     * @return
+     */
     public String getMail() {
         return mail;
     }

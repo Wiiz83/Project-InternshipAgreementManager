@@ -15,17 +15,57 @@ import shared.donnees.Diplome;
  */
 public class ConventionValidee implements Serializable {
 
+    /**
+     *
+     */
     public int anneeUniversitaire;
+
+    /**
+     *
+     */
     public Diplome diplome;
+
+    /**
+     *
+     */
     public String departement;
+
+    /**
+     *
+     */
     public String entreprise;
+
+    /**
+     *
+     */
     public String debut;
+
+    /**
+     *
+     */
     public String fin;
+
+    /**
+     *
+     */
     public double gratification;
 
+    /**
+     *
+     */
     public ConventionValidee() {
     }
 
+    /**
+     *
+     * @param anneeUniversitaire
+     * @param diplome
+     * @param departement
+     * @param entreprise
+     * @param debut
+     * @param fin
+     * @param gratification
+     */
     public ConventionValidee(int anneeUniversitaire, Diplome diplome, String departement, String entreprise, String debut, String fin, double gratification) {
         this.anneeUniversitaire = anneeUniversitaire;
         this.diplome = diplome;

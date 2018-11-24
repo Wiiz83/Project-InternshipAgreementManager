@@ -19,6 +19,13 @@ public class Stage implements Serializable {
     private Double gratification;
     private String resume;
 
+    /**
+     *
+     * @param debut
+     * @param fin
+     * @param gratification
+     * @param resume
+     */
     public Stage(String debut, String fin, Double gratification, String resume) {
         this.debut = debut;
         this.fin = fin;
@@ -26,18 +33,34 @@ public class Stage implements Serializable {
         this.resume = resume;
     }
 
+    /**
+     *
+     * @return
+     */
     public String getDebut() {
         return debut;
     }
 
+    /**
+     *
+     * @return
+     */
     public String getFin() {
         return fin;
     }
 
+    /**
+     *
+     * @return
+     */
     public Double getGratification() {
         return gratification;
     }
 
+    /**
+     *
+     * @return
+     */
     public String getResume() {
         return resume;
     }   

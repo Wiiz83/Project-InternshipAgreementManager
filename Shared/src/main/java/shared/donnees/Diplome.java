@@ -13,31 +13,62 @@ import java.io.Serializable;
  */
 public class Diplome implements Serializable {
 
+    /**
+     *
+     */
     public String niveau;
+
+    /**
+     *
+     */
     public String intitule;
     private Departement departement;
 
+    /**
+     *
+     */
     public Diplome() {
     }
 
+    /**
+     *
+     * @param niveau
+     * @param intitule
+     */
     public Diplome(String niveau, String intitule) {
         this.niveau = niveau;
         this.intitule = intitule;
     }
 
+    /**
+     *
+     * @param departement
+     */
     public void setDepartement(Departement departement) {
         this.departement = departement;
         departement.ajouterDiplome(this);
     }
 
+    /**
+     *
+     * @return
+     */
     public String getNiveau() {
         return niveau;
     }
 
+    /**
+     *
+     * @return
+     */
     public String getIntitule() {
         return intitule;
     }
 
+    /**
+     *
+     * @return
+     */
     public Departement getDepartement() {
         return departement;
     }

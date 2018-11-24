@@ -36,21 +36,38 @@ public class DemandeJuridiqueController implements DemandeJuridiqueControllerRem
     @EJB
     ValidationJuridiqueSender validationJuridiqueSender;
 
+    /**
+     *
+     * @return
+     */
     @Override
     public Collection<DemandeJuridique> obtenirDemandes() {
         return this.repo.getAll();
     }
 
+    /**
+     *
+     * @param demande
+     */
     @Override
     public void ajouterDemande(DemandeValidationJuridique demande) {
         this.repo.insert(new DemandeJuridique(demande));
     }
 
+    /**
+     *
+     * @param n
+     */
     @Override
     public void annulerDemande(NotificationAnnulationDemandeValidation n) {
         this.repo.delete(n.getIdDemandeConvention());
     }
 
+    /**
+     *
+     * @param id
+     * @param motif
+     */
     @Override
     public void refuserDemande(Long id, String motif) {
         repo.delete(id);
@@ -58,6 +75,10 @@ public class DemandeJuridiqueController implements DemandeJuridiqueControllerRem
         validationJuridiqueSender.envoyerValidationJuridique(msg);
     }
 
+    /**
+     *
+     * @param id
+     */
     @Override
     public void accepterDemande(Long id) {
         repo.delete(id);
@@ -65,6 +86,12 @@ public class DemandeJuridiqueController implements DemandeJuridiqueControllerRem
         validationJuridiqueSender.envoyerValidationJuridique(msg);
     }
 
+    /**
+     *
+     * @param siren
+     * @param nom
+     * @return
+     */
     @Override
     public boolean verifierEntreprise(String siren, String nom) {
         Gson gson = new Gson();
@@ -93,6 +120,11 @@ public class DemandeJuridiqueController implements DemandeJuridiqueControllerRem
         }
     }
 
+    /**
+     *
+     * @param id
+     * @return
+     */
     @Override
     public boolean verifierResponsabiliteCivile(Long id) {
         return true;

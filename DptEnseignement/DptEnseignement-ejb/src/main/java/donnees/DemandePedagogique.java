@@ -19,27 +19,50 @@ public class DemandePedagogique implements HasKey {
     ValidationPedagogique validation;
     Boolean validationFinale;
 
+    /**
+     *
+     * @param demande
+     */
     public DemandePedagogique(DemandeValidationPedagogique demande) {
         this.demande = demande;
     }
 
+    /**
+     *
+     * @return
+     */
     public DemandeValidationPedagogique getDemande() {
         return demande;
     }
 
-
+    /**
+     *
+     * @return
+     */
     public Boolean getValidationFinale() {
         return validationFinale;
     }
 
+    /**
+     *
+     * @param validationFinale
+     */
     public void setValidationFinale(Boolean validationFinale) {
         this.validationFinale = validationFinale;
     }
 
+    /**
+     *
+     * @return
+     */
     public ValidationPedagogique getValidation() {
         return validation;
     }
 
+    /**
+     *
+     * @param validation
+     */
     public void setValidation(ValidationPedagogique validation) {
         this.validation = validation;
     }
@@ -49,11 +72,19 @@ public class DemandePedagogique implements HasKey {
         return "DemandePedagogique{" + "demande=" + demande + ", confirmation=" + validation + ", validationFinale=" + validationFinale + '}';
     }    
 
+    /**
+     *
+     * @return
+     */
     @Override
     public Long getKey() {
         return this.demande.getIdDemandeConvention();
     }
 
+    /**
+     *
+     * @param key
+     */
     @Override
     public void setKey(Long key) {
         throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.

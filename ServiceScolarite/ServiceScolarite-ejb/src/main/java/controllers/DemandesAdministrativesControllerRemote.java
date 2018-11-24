@@ -17,13 +17,34 @@ import shared.messages.notifications.NotificationAnnulationDemandeValidation;
 @Remote
 public interface DemandesAdministrativesControllerRemote {
     
+    /**
+     *
+     * @return
+     */
     public Collection <DemandeAdministrative> obtenirDemandes();
 
+    /**
+     *
+     * @param demande
+     */
     public void ajouterDemande(shared.messages.demandes.DemandeValidationAdministrative demande);
 
+    /**
+     *
+     * @param n
+     */
     public void annulerDemande(NotificationAnnulationDemandeValidation n);
 
+    /**
+     *
+     * @param id
+     * @param motif
+     */
     public void refuserDemande(Long id, String motif);
 
+    /**
+     *
+     * @param id
+     */
     public void accepterDemande(Long id);
 }

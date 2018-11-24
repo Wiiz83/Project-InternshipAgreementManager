@@ -19,19 +19,35 @@ import shared.donnees.HasKey;
  */
 public class KVRepository<T extends HasKey> implements Repository<T> {
 
+    /**
+     *
+     */
     protected Map<Long, T> kvstore = new HashMap<>();
     private Long id =new Long(0); 
 
+    /**
+     *
+     * @param id
+     * @return
+     */
     @Override
     public T get(Long id) {
         return this.kvstore.get(id);
     }
 
+    /**
+     *
+     * @return
+     */
     @Override
     public Collection<T> getAll() {
         return this.kvstore.values();
     }
 
+    /**
+     *
+     * @param dp
+     */
     @Override
     public void insert(T dp) {
         if (dp.getKey() == null) {
@@ -42,12 +58,21 @@ public class KVRepository<T extends HasKey> implements Repository<T> {
         }
     }
 
+    /**
+     *
+     * @param id
+     * @param dp
+     */
     @Override
     public void update(Long id, T dp) {
         // ne fait rien en pratique car en mémoire, mais on la met au cas où on 
         // décide de persister
     }
 
+    /**
+     *
+     * @param id
+     */
     @Override
     public void delete(Long id) {
         this.kvstore.remove(id);

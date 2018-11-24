@@ -18,17 +18,49 @@ import shared.messages.notifications.NotificationAnnulationDemandeValidation;
 @Remote
 public interface DemandeJuridiqueControllerRemote {
 
+    /**
+     *
+     * @return
+     */
     public Collection<DemandeJuridique> obtenirDemandes();
 
+    /**
+     *
+     * @param demande
+     */
     public void ajouterDemande(DemandeValidationJuridique demande);
 
+    /**
+     *
+     * @param n
+     */
     public void annulerDemande(NotificationAnnulationDemandeValidation n);
 
+    /**
+     *
+     * @param id
+     * @param motif
+     */
     public void refuserDemande(Long id, String motif);
 
+    /**
+     *
+     * @param id
+     */
     public void accepterDemande(Long id);
 
+    /**
+     *
+     * @param siret
+     * @param nom
+     * @return
+     */
     public boolean verifierEntreprise(String siret, String nom);
 
+    /**
+     *
+     * @param id
+     * @return
+     */
     public boolean verifierResponsabiliteCivile(Long id);
 }

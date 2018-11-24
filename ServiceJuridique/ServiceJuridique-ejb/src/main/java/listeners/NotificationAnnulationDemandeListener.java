@@ -30,9 +30,17 @@ import shared.messages.notifications.NotificationAnnulationDemandeValidation;
 public class NotificationAnnulationDemandeListener implements MessageListener {
     @EJB
     DemandeJuridiqueControllerRemote pc;
+
+    /**
+     *
+     */
     public NotificationAnnulationDemandeListener() {
     }
     
+    /**
+     *
+     * @param message
+     */
     @Override
     public void onMessage(Message message) {
         if (message instanceof ObjectMessage) {

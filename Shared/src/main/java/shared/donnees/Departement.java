@@ -9,16 +9,32 @@ import java.io.Serializable;
 import java.util.HashSet;
 import java.util.Set;
 
+/**
+ *
+ * @author uzanl
+ */
 public class Departement implements Serializable, HasKey{
 
     private final String nom;
     private final Set<Diplome> diplomes  = new HashSet<>(); 
+
+    /**
+     *
+     */
     public Long id ;
 
+    /**
+     *
+     * @param nom
+     */
     public Departement(String nom) {
         this.nom = nom;
     }
 
+    /**
+     *
+     * @return
+     */
     public String getNom() {
         return nom;
     }
@@ -28,19 +44,35 @@ public class Departement implements Serializable, HasKey{
         return "Departement{" + " nom=" + nom + "}";
     }
 
+    /**
+     *
+     * @param d
+     */
     public void ajouterDiplome(Diplome d) {
         this.diplomes.add(d);
     }
 
+    /**
+     *
+     * @return
+     */
     public Set<Diplome> getDiplomes() {
         return diplomes;
     }
 
+    /**
+     *
+     * @return
+     */
     @Override
     public Long getKey() {
         return this.id;
     }
 
+    /**
+     *
+     * @param key
+     */
     @Override
     public void setKey(Long key) {
         id = key;
