@@ -1,4 +1,0 @@
-config=(
-    [galssfish_path]="/c/glassfish5"
-    [openmq_path]="/c/openmq5_1-binary-windows/MessageQueue5.1"
-)

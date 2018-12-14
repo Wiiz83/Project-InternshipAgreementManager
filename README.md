@@ -1,35 +1,41 @@
 # Système de gestion de convention de stages
-Sharepoint: https://miagefr-my.sharepoint.com/:f:/r/personal/hentati_mahdi_toulouse_miage_fr/Documents/ProjetJMS?csf=1&e=gbriAL
 
-http://www.fsi-adm.ups-tlse.fr/fsi/intra/stage_saisie.php
 
-## Lancement 
-* Lancer le serveur glassfish
-* Exécuter ./deploy.sh depuis la console de git
+## Environnement 
+* Glassfish 5
+* Java 8
 
 ## Architecture
 * ServiceJuridique : Projet JEE / Application d'entreprise 
 * DptEnseignement : Projet JEE / Application d'entreprise 
 * ServiceScolarite : Projet JEE / Application d'entreprise 
 * ServiceStages : Projet JEE / Application d'entreprise 
-* ServeurEtudiant :
+* ServeurEtudiant : Projet JEE / Application d'entreprise 
+* OpenData : Projet JEE / Application d'entreprise 
 
-## Business Process Model and Notation
-![](https://image.ibb.co/iFgni0/BPMN-EAI-1.png)
+## Installation 
+Spécifier les chemins de glassfish et OpenMQ dans path.cfg
 
-## Types de projet  
-* REST + JMS = Projet JEE
-* REST = Projet Web
-* JMS = Projet Java
+### Ressources glassfish
+> ./install-glassfish-ressources.sh
 
-## Liens utiles 
-* Cours EAI : https://moodle.univ-tlse3.fr/course/view.php?id=2063 
-* Tutoriel JSF : https://www.oracle.com/webfolder/technetwork/tutorials/obe/java/JMS2.0WebMessage/JMS2.0WebMessage.html
+### OpenMQ en mode REMOTE (optionnel si même serveur)
+Modifier les paramètres de ligne de commande sur install-remote-jms.sh
+> ./install-remote-jms.sh
 
-## HowTo
-* Filtrer des messages JMS : 
-  * Côté sender : message.setJMSType("T1"); 
-  * Côté receiver : receiver = session.createConsumer(dest, "JMSType IN ('T1','T2')");
-  
+## Démarrage
+### Glassfish
+> ./start-glassfish.sh
+### OpenMQ (si en mode REMOTE)
+> ./start-openmq.sh
+### Applications
+Compiler sur NetBeans et déployer. Si Les applications sont déjà compilées et présentes au format .ear, démarrer avec :
+> ./start-apps.sh
+
+NB: Vu qu'il n'y pas de SGBD où l'application OpenData peut récupérer les données comme expliqué au dossier de conception mis à jour, cette application doit tourner en permanence (caractère synchrone de HTTP).
+
+
+
+
   
 
