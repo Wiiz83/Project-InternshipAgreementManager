@@ -4,6 +4,7 @@
 ## Environnement 
 * Glassfish 5
 * Java 8
+* OpenMQ 5.1 (optionnel)
 
 ## Architecture
 * ServiceJuridique : Projet JEE / Application d'entreprise 
@@ -12,6 +13,8 @@
 * ServiceStages : Projet JEE / Application d'entreprise 
 * ServeurEtudiant : Projet JEE / Application d'entreprise 
 * OpenData : Projet JEE / Application d'entreprise 
+* Shared: Projet Java
+* ClientREST-INSEE: Projet Java fourni
 
 ## Installation 
 Spécifier les chemins de glassfish et OpenMQ dans path.cfg
